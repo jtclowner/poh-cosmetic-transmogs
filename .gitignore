@@ -1,0 +1,11 @@
+.gradle/
+.idea/
+build/
+out/
+backups/
+*.local.properties
+*.log
+*.bak
+.env
+.env.*
+*.iml

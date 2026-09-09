@@ -1,0 +1,1584 @@
+{
+  "portals": [
+    {
+      "name": "Circle 1",
+      "source": {
+        "objectId": 47346,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [48087],
+        "animationId": 504,
+        "offsetHeight": -2,
+        "recolorFrom": [11218],
+        "recolorTo": [960],
+        "portalColours": [960],
+        "modelScaleX": 256,
+        "modelScaleHeight": 256,
+        "modelScaleY": 256
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 256,
+          "scaleHeight": 256,
+          "scaleY": 256,
+          "offsetHeight": -2
+        }
+      }
+    },
+    {
+      "name": "Circle 2",
+      "source": {
+        "objectId": 4408,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [2318],
+        "animationId": 504,
+        "offsetHeight": -2,
+        "recolorFrom": [11218],
+        "recolorTo": [27584],
+        "portalColours": [27584],
+        "modelScaleX": 200,
+        "modelScaleHeight": 200,
+        "modelScaleY": 200
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 200,
+          "scaleHeight": 200,
+          "scaleY": 200,
+          "offsetHeight": -2
+        }
+      }
+    },
+    {
+      "name": "Ferox Dark",
+      "source": {
+        "objectId": 26642,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [10734, 11233],
+        "animationId": 3174,
+        "recolorFrom": [20, 947],
+        "recolorTo": [28, 0],
+        "portalColours": [-15464, -15588, -15583, -15707, -15831],
+        "modelScaleX": 96,
+        "modelScaleHeight": 96,
+        "modelScaleY": 96
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 96,
+          "scaleHeight": 96,
+          "scaleY": 96
+        },
+        "MAGIC_WARDROBE": {
+          "scaleX": 75,
+          "scaleHeight": 96,
+          "scaleY": 96
+        }
+      }
+    },
+    {
+      "name": "Ferox Light",
+      "source": {
+        "objectId": 26732,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [10734, 11233],
+        "animationId": 3174,
+        "recolorFrom": [16, 947],
+        "recolorTo": [5272, 5268],
+        "portalColours": [-15464, -15588, -15583, -15707, -15831],
+        "modelScaleX": 96,
+        "modelScaleHeight": 96,
+        "modelScaleY": 96
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 96,
+          "scaleHeight": 96,
+          "scaleY": 96
+        },
+        "MAGIC_WARDROBE": {
+          "scaleX": 75,
+          "scaleHeight": 96,
+          "scaleY": 96
+        }
+      }
+    },
+    {
+      "name": "Ferox Red",
+      "source": {
+        "objectId": 26727,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [10734, 11233],
+        "animationId": 3174,
+        "portalColours": [-15464, -15588, -15583, -15707, -15831],
+        "modelScaleX": 96,
+        "modelScaleHeight": 96,
+        "modelScaleY": 96
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 96,
+          "scaleHeight": 96,
+          "scaleY": 96
+        },
+        "MAGIC_WARDROBE": {
+          "scaleX": 75,
+          "scaleHeight": 96,
+          "scaleY": 96
+        }
+      }
+    },
+    {
+      "name": "Isle of Souls Dark",
+      "source": {
+        "objectId": 40460,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [41436],
+        "animationId": 3174,
+        "portalColours": [-24927, -24925, -24921, -23891, -24911]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {},
+        "MAGIC_WARDROBE": {}
+      }
+    },
+    {
+      "name": "Isle of Souls Dead Trees",
+      "source": {
+        "objectId": 40461,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [41437],
+        "animationId": 3174,
+        "portalColours": [673, 675, 679, 685, 689]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024
+        },
+        "MAGIC_WARDROBE": {}
+      }
+    },
+    {
+      "name": "Isle of Souls Light",
+      "source": {
+        "objectId": 40476,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [41435],
+        "animationId": 3174,
+        "recolorFrom": [17073, 17069, 17063, 17059, 17057],
+        "recolorTo": [9905, 9901, 10935, 11061, 11076],
+        "portalColours": [9901, 9905, 11061, 10935, 11076]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {},
+        "MAGIC_WARDROBE": {}
+      }
+    },
+    {
+      "name": "Pest Control Purple",
+      "source": {
+        "objectId": 1747,
+        "sizeX": 3,
+        "sizeY": 3,
+        "modelIds": [14533, 14527, 14528],
+        "animationId": 3933,
+        "portalColours": [-10333, -10317, -10792, -11033, -11149]
+      },
+      "orientation": 512,
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1536
+        }
+      }
+    },
+    {
+      "name": "Pest Control Blue",
+      "source": {
+        "objectId": 1748,
+        "sizeX": 3,
+        "sizeY": 3,
+        "modelIds": [14533, 14526],
+        "animationId": 3936,
+        "recolorFrom": [-11149, -11033, -10792, -10317, -10333],
+        "recolorTo": [-22293, -22184, -22320, -22330, -22343],
+        "portalColours": [-22343, -22330, -22320, -22184, -22293]
+      },
+      "orientation": 512,
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1536
+        }
+      }
+    },
+    {
+      "name": "Pest Control Yellow",
+      "source": {
+        "objectId": 1749,
+        "sizeX": 3,
+        "sizeY": 3,
+        "modelIds": [14533, 14522],
+        "animationId": 3928,
+        "recolorFrom": [-11149, -11033, -10792, -10317, -10333],
+        "recolorTo": [10355, 10471, 10941, 11200, 11187],
+        "portalColours": [11187, 10941, 11200, 10471, 10355]
+      },
+      "orientation": 1024,
+      "placements": {
+        "ENTRANCE_PORTAL": {}
+      }
+    },
+    {
+      "name": "Pest Control Red",
+      "source": {
+        "objectId": 1750,
+        "sizeX": 3,
+        "sizeY": 3,
+        "modelIds": [14533, 14523, 14524, 14525],
+        "animationId": 3928,
+        "recolorFrom": [-11149, -11033, -10792, -10317, -10333],
+        "recolorTo": [-2125, -2249, -2373, -2490, -2490],
+        "portalColours": [-2125, -2249, -2373, -2490]
+      },
+      "orientation": 1024,
+      "placements": {
+        "ENTRANCE_PORTAL": {}
+      }
+    },
+    {
+      "name": "A Kingdom Divided",
+      "source": {
+        "objectId": 41807,
+        "sizeX": 4,
+        "sizeY": 1,
+        "modelIds": [6194],
+        "animationId": 1908,
+        "offsetHeight": 44,
+        "recolorFrom": [910, 916],
+        "recolorTo": [-27236, -27337],
+        "portalColours": [-27337, -27236],
+        "modelScaleX": 232,
+        "modelScaleHeight": 232,
+        "modelScaleY": 232
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 232,
+          "scaleHeight": 232,
+          "scaleY": 232,
+          "offsetHeight": 84
+        }
+      }
+    },
+    {
+      "name": "Abyssal",
+      "source": {
+        "objectId": 49242,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [49397],
+        "animationId": 7301,
+        "portalColours": [-22836, -23082, -23078]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024
+        }
+      }
+    },
+    {
+      "name": "Castle Drakan",
+      "source": {
+        "objectId": 61216,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [60527],
+        "animationId": 14170,
+        "spawnAnimationId": 14167,
+        "portalColours": [652, 908, 916, 920, 926],
+        "portalSaturation": 7,
+        "modelScaleX": 112,
+        "modelScaleHeight": 112,
+        "modelScaleY": 112
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 112,
+          "scaleHeight": 112,
+          "scaleY": 112
+        }
+      }
+    },
+    {
+      "name": "Christmas",
+      "source": {
+        "objectId": 46442,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [46929],
+        "animationId": 9843,
+        "portalColours": [10906, -27956, -28194],
+        "modelScaleX": 90,
+        "modelScaleHeight": 90,
+        "modelScaleY": 90
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 90,
+          "scaleHeight": 90,
+          "scaleY": 90
+        },
+        "MAGIC_WARDROBE": {
+          "rotation": 1024,
+          "scaleX": 90,
+          "scaleHeight": 90,
+          "scaleY": 90
+        }
+      }
+    },
+    {
+      "name": "Clan Hall",
+      "source": {
+        "objectId": 41724,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [42246],
+        "animationId": 9016,
+        "portalColours": [-22762, -22590, -22696],
+        "modelScaleX": 115,
+        "modelScaleHeight": 117,
+        "modelScaleY": 115
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": -1024,
+          "scaleX": 100,
+          "scaleHeight": 100,
+          "scaleY": 100
+        }
+      }
+    },
+    {
+      "name": "CoX Olm Barrier",
+      "source": {
+        "objectId": 29879,
+        "sizeX": 4,
+        "sizeY": 1,
+        "modelIds": [32750],
+        "animationId": 7503,
+        "offsetHeight": -2,
+        "portalColours": [15291, 14272]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 102,
+          "scaleHeight": 102,
+          "scaleY": 102,
+          "offsetHeight": -2
+        }
+      }
+    },
+    {
+      "name": "DT2 Portal",
+      "source": {
+        "objectId": 12334,
+        "sizeX": 2,
+        "sizeY": 1,
+        "modelIds": [37828],
+        "animationId": 8456,
+        "recolorFrom": [-32541, -32048, -32192, -32081],
+        "recolorTo": [-3624, -3632, -3646, -3661],
+        "portalColours": [-3661, -3646, -3632, -3624],
+        "modelScaleX": 160,
+        "modelScaleHeight": 160,
+        "modelScaleY": 160
+      },
+      "orientation": 512,
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1536,
+          "scaleX": 160,
+          "scaleHeight": 160,
+          "scaleY": 160
+        },
+        "MAGIC_WARDROBE": {
+          "rotation": 512,
+          "scaleHeight": 110,
+          "scaleY": 256
+        }
+      }
+    },
+    {
+      "name": "Elven Portal",
+      "source": {
+        "objectId": 34947,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [38744],
+        "animationId": 3174,
+        "portalColours": [-15831, -15707, -15588, -15583, -15464],
+        "modelScaleX": 86,
+        "modelScaleHeight": 86,
+        "modelScaleY": 86
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 86,
+          "scaleHeight": 86,
+          "scaleY": 86
+        },
+        "MAGIC_WARDROBE": {
+          "scaleX": 75,
+          "scaleHeight": 86,
+          "scaleY": 86
+        }
+      }
+    },
+    {
+      "name": "Evil Chicken Lair",
+      "source": {
+        "objectId": 12260,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [12635, 11233],
+        "animationId": 3174,
+        "portalColours": [-15464, -15588, -15583, -15707, -15831],
+        "modelScaleX": 86,
+        "modelScaleHeight": 86,
+        "modelScaleY": 86
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 86,
+          "scaleHeight": 86,
+          "scaleY": 86
+        },
+        "MAGIC_WARDROBE": {
+          "scaleX": 75,
+          "scaleHeight": 86,
+          "scaleY": 40
+        }
+      }
+    },
+    {
+      "name": "Gauntlet",
+      "source": {
+        "objectId": 36081,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [37928],
+        "portalColours": [-31862, -30811, -30535, 32204, -31784],
+        "modelScaleX": 80,
+        "modelScaleHeight": 80,
+        "modelScaleY": 80
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 102,
+          "scaleHeight": 102,
+          "scaleY": 102
+        },
+        "MAGIC_WARDROBE": {
+          "rotation": 1024,
+          "scaleX": 80,
+          "scaleHeight": 80,
+          "scaleY": 40,
+          "offsetY": -16
+        }
+      }
+    },
+    {
+      "name": "Golem / Uzer",
+      "source": {
+        "objectId": 6282,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [6194, 6195],
+        "animationId": 1908,
+        "recolorFrom": [49, 41],
+        "recolorTo": [20, 16],
+        "portalColours": [910, 916, 20, 16]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024
+        },
+        "MAGIC_WARDROBE": {
+          "scaleHeight": 90,
+          "scaleY": 50,
+          "offsetY": -16
+        }
+      }
+    },
+    {
+      "name": "Gwenith Glide",
+      "source": {
+        "objectId": 58942,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [37828],
+        "animationId": 8456,
+        "offsetHeight": -2,
+        "recolorFrom": [-32048, -32081, -32192],
+        "recolorTo": [-25929, -25929, -25929],
+        "portalColours": [-32541, -25929],
+        "modelScaleX": 192,
+        "modelScaleHeight": 192,
+        "modelScaleY": 192
+      },
+      "orientation": 512,
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1536,
+          "scaleX": 192,
+          "scaleHeight": 192,
+          "scaleY": 192,
+          "offsetHeight": -2
+        }
+      }
+    },
+    {
+      "name": "Infernal Rift",
+      "source": {
+        "objectId": 56397,
+        "sizeX": 4,
+        "sizeY": 4,
+        "modelIds": [44082],
+        "animationId": 9355,
+        "offsetHeight": 133,
+        "portalColours": [-18624, -12468, -8244],
+        "modelScaleX": 240,
+        "modelScaleHeight": 240,
+        "modelScaleY": 240
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 216,
+          "scaleHeight": 216,
+          "scaleY": 216,
+          "offsetHeight": 55
+        }
+      }
+    },
+    {
+      "name": "Myths Guild",
+      "source": {
+        "objectId": 31618,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [11231, 34416],
+        "animationId": 3174,
+        "recolorFrom": [-15464, -15588, -15583, -15707, -15831],
+        "recolorTo": [-24665, -24661, -24785, -24781, -24905],
+        "portalColours": [-24665, -24661, -24785, -24781, -24905]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024
+        },
+        "MAGIC_WARDROBE": {
+          "scaleHeight": 90,
+          "offsetY": -10
+        }
+      }
+    },
+    {
+      "name": "Node Portal",
+      "source": {
+        "objectId": 42819,
+        "sizeX": 4,
+        "sizeY": 1,
+        "modelIds": [42962],
+        "animationId": 9016,
+        "portalColours": [-26845, -26843, -26823],
+        "nodeColours": [-27496, -27483, -27227, -27221],
+        "nodeGreyColours": [0, 28, 30, 35, 43, 47, 51, 55, 16425, 21530, -20367],
+        "modelScaleX": 115,
+        "modelScaleHeight": 115,
+        "modelScaleY": 115
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 115,
+          "scaleHeight": 115,
+          "scaleY": 115
+        }
+      }
+    },
+    {
+      "name": "Prifddinas Agility",
+      "source": {
+        "objectId": 36240,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [37828],
+        "animationId": 8456,
+        "portalColours": [-32541, -32048, -32192, -32081]
+      },
+      "orientation": 512,
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1536
+        },
+        "MAGIC_WARDROBE": {
+          "rotation": 512,
+          "scaleX": 60,
+          "scaleHeight": 105,
+          "scaleY": 300,
+          "offsetY": -16
+        }
+      }
+    },
+    {
+      "name": "Raging Echoes",
+      "source": {
+        "objectId": 56074,
+        "sizeX": 2,
+        "sizeY": 1,
+        "modelIds": [55509, 40773],
+        "animationId": 3174,
+        "portalColours": [111, 115, 119],
+        "portalSaturation": 7,
+        "modelScaleX": 117,
+        "modelScaleHeight": 117,
+        "modelScaleY": 117
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "scaleX": 117,
+          "scaleHeight": 117,
+          "scaleY": 117
+        },
+        "MAGIC_WARDROBE": {
+          "scaleX": 117,
+          "scaleHeight": 117,
+          "scaleY": 117
+        }
+      }
+    },
+    {
+      "name": "Recipe for Disaster",
+      "source": {
+        "objectId": 12355,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [13691, 13692],
+        "animationId": 3351,
+        "portalColours": [123, 127],
+        "portalSaturation": 7,
+        "modelScaleX": 192,
+        "modelScaleHeight": 192,
+        "modelScaleY": 192
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 192,
+          "scaleHeight": 192,
+          "scaleY": 192
+        }
+      }
+    },
+    {
+      "name": "Sepulchre",
+      "source": {
+        "objectId": 38829,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [40180],
+        "animationId": 8694,
+        "offsetHeight": -56,
+        "portalColours": [-25673, -25053],
+        "modelScaleX": 76,
+        "modelScaleHeight": 76,
+        "modelScaleY": 76
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 76,
+          "scaleHeight": 76,
+          "scaleY": 76,
+          "offsetHeight": -156
+        }
+      }
+    },
+    {
+      "name": "Shadow Realm",
+      "source": {
+        "objectId": 33037,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [35609],
+        "animationId": 8142,
+        "portalColours": [107, 202],
+        "portalSaturation": 7,
+        "modelScaleX": 48,
+        "modelScaleHeight": 48,
+        "modelScaleY": 48
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 48,
+          "scaleHeight": 48,
+          "scaleY": 48
+        }
+      }
+    },
+    {
+      "name": "Trouble Brewing",
+      "source": {
+        "objectId": 15996,
+        "sizeX": 3,
+        "sizeY": 1,
+        "modelIds": [11233, 15138],
+        "animationId": 3174,
+        "portalColours": [-15464, -15588, -15583, -15707, -15831]
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024
+        }
+      }
+    },
+    {
+      "name": "Wizards' Tower",
+      "source": {
+        "objectId": 43765,
+        "sizeX": 3,
+        "sizeY": 3,
+        "modelIds": [44082],
+        "animationId": 8750,
+        "recolorFrom": [-8244, -12468, -18624],
+        "recolorTo": [-25768, -25664, 32576],
+        "portalColours": [-25664, 32576, -25768],
+        "modelScaleX": 176,
+        "modelScaleHeight": 176,
+        "modelScaleY": 176
+      },
+      "placements": {
+        "ENTRANCE_PORTAL": {
+          "rotation": 1024,
+          "scaleX": 176,
+          "scaleHeight": 176,
+          "scaleY": 176
+        }
+      }
+    }
+  ],
+  "containers": [
+    {
+      "name": "ToB Chest",
+      "source": {
+        "objectId": 32991,
+        "sizeX": 3,
+        "sizeY": 2,
+        "modelIds": [35425],
+        "tobColours": [-10317]
+      },
+      "open": {
+        "objectId": 41746,
+        "sizeX": 3,
+        "sizeY": 2,
+        "modelIds": [42281],
+        "tobColours": [-10317]
+      },
+      "aliases": [32993],
+      "placements": {
+        "TREASURE_CHEST": {
+          "rotation": 1024,
+          "scaleX": 82,
+          "scaleHeight": 82,
+          "scaleY": 82,
+          "offsetY": 30
+        },
+        "FANCY_DRESS_BOX": {
+          "scaleX": 100,
+          "scaleHeight": 100,
+          "scaleY": 100
+        },
+        "TOY_BOX": {
+          "rotation": 1024,
+          "scaleX": 82,
+          "scaleHeight": 82,
+          "scaleY": 82,
+          "offsetY": 30
+        }
+      }
+    },
+    {
+      "name": "ToA Sarcophagus",
+      "source": {
+        "objectId": 44825,
+        "sizeX": 3,
+        "sizeY": 2,
+        "modelIds": [46285],
+        "animationId": 9504,
+        "toaColours": [6550, 6573, 6592, 6705, 6808, 6825, 6827, 6829, 6833, 6835, 6837, 6841, 6843, 6845, 6848, 6850, 6852, 6856, 6858, 6860, 6864, 6866, 6868]
+      },
+      "open": {
+        "objectId": 44934,
+        "sizeX": 3,
+        "sizeY": 2,
+        "modelIds": [46285],
+        "animationId": 9506,
+        "spawnAnimationId": 9505,
+        "toaColours": [6550, 6573, 6592, 6705, 6808, 6825, 6827, 6829, 6833, 6835, 6837, 6841, 6843, 6845, 6848, 6850, 6852, 6856, 6858, 6860, 6864, 6866, 6868]
+      },
+      "placements": {
+        "TREASURE_CHEST": {
+          "rotation": -1024,
+          "scaleX": 85,
+          "scaleHeight": 85,
+          "scaleY": 80,
+          "offsetY": 25,
+          "flipX": true
+        },
+        "FANCY_DRESS_BOX": {
+          "scaleX": 104,
+          "scaleHeight": 104,
+          "scaleY": 104
+        },
+        "TOY_BOX": {
+          "rotation": -1024,
+          "scaleX": 85,
+          "scaleHeight": 85,
+          "scaleY": 80,
+          "offsetY": 25
+        }
+      }
+    },
+    {
+      "name": "ToA Chest 1",
+      "source": {
+        "objectId": 44788,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [46279],
+        "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872]
+      },
+      "open": {
+        "objectId": 44789,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [46275],
+        "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": 256,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64
+        },
+        "TREASURE_CHEST": {
+          "rotation": -1024,
+          "scaleHeight": 96,
+          "scaleY": 96,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": -1024,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64
+        },
+        "TOY_BOX": {
+          "rotation": -1024,
+          "scaleHeight": 96,
+          "scaleY": 96,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "ToA Chest 2",
+      "source": {
+        "objectId": 41696,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [46278],
+        "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872]
+      },
+      "open": {
+        "objectId": 44791,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [46274],
+        "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": 256,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64
+        },
+        "TREASURE_CHEST": {
+          "rotation": -1024,
+          "scaleHeight": 96,
+          "scaleY": 96,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": -1024,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64
+        },
+        "TOY_BOX": {
+          "rotation": -1024,
+          "scaleHeight": 96,
+          "scaleY": 96,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "Gauntlet Reward Chest",
+      "source": {
+        "objectId": 36087,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [37442],
+        "gauntletColours": [-32620, -32614, -32610, 32200, 29518, 29526, 31192, 26776]
+      },
+      "open": {
+        "objectId": 36088,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [37450],
+        "gauntletColours": [-32620, -32614, -32610, 32200, 29518, 29526, 31192, 26776]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": 256,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64
+        },
+        "TREASURE_CHEST": {
+          "rotation": -1024,
+          "scaleHeight": 80,
+          "scaleY": 70,
+          "offsetY": 10
+        },
+        "FANCY_DRESS_BOX": {
+          "scaleHeight": 80,
+          "scaleY": 100
+        },
+        "ARMOUR_CASE": {
+          "rotation": -1024,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64,
+          "offsetY": 10
+        },
+        "TOY_BOX": {
+          "rotation": -1024,
+          "scaleHeight": 80,
+          "scaleY": 70,
+          "offsetY": 10
+        }
+      }
+    },
+    {
+      "name": "Deadman Supply Chest",
+      "source": {
+        "objectId": 33125,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [34264],
+        "animationId": 7824,
+        "spawnAnimationId": 7823,
+        "spawnOnce": true,
+        "deadmanColours": [960, 794, 914]
+      },
+      "open": {
+        "objectId": 31583,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [34265],
+        "deadmanColours": [960, 794, 914]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": 512,
+          "scaleX": 64,
+          "scaleHeight": 64,
+          "scaleY": 64,
+          "offsetHeight": -1
+        },
+        "TREASURE_CHEST": {
+          "rotation": -768,
+          "scaleX": 70,
+          "scaleHeight": 70,
+          "scaleY": 70,
+          "offsetHeight": -1,
+          "offsetY": 42
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": 256,
+          "scaleX": 100,
+          "scaleHeight": 100,
+          "scaleY": 100,
+          "offsetHeight": -1
+        },
+        "TOY_BOX": {
+          "rotation": -768,
+          "scaleX": 70,
+          "scaleHeight": 70,
+          "scaleY": 70,
+          "offsetHeight": -1,
+          "offsetY": 42
+        }
+      }
+    },
+    {
+      "name": "CoX Thieving Chest",
+      "source": {
+        "objectId": 29742,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32504]
+      },
+      "open": {
+        "objectId": 29743,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32465]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": 256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": -1024,
+          "scaleX": 250,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "scaleX": 256,
+          "scaleY": 256,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": -1024,
+          "offsetY": 10
+        },
+        "TOY_BOX": {
+          "rotation": -1024,
+          "scaleX": 250,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Crystal Chest",
+      "source": {
+        "objectId": 30027,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32752, 32755],
+        "crystalColours": [15296, 15029]
+      },
+      "open": {
+        "objectId": 30028,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32756]
+      },
+      "orientation": 512,
+      "transitionModelId": 32752,
+      "transitionAnimationId": 7506,
+      "transitionHandoff": 20,
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": -512,
+          "scaleX": 256,
+          "scaleY": 256,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512,
+          "offsetY": 16
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Chest",
+      "source": {
+        "objectId": 30028,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32756]
+      },
+      "closed": {
+        "objectId": 30028,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32755]
+      },
+      "orientation": 512,
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": 512,
+          "scaleX": 256,
+          "scaleY": 256,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Bank",
+      "source": {
+        "objectId": 47419,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [47948]
+      },
+      "open": {
+        "objectId": 47420,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [47946]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": -512,
+          "scaleX": 160,
+          "scaleY": 200,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512,
+          "offsetY": 16
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Small Storage",
+      "source": {
+        "objectId": 29770,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32381]
+      },
+      "orientation": 512,
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": -512,
+          "scaleX": 160,
+          "scaleY": 200,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512,
+          "offsetY": 16
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Medium Storage",
+      "source": {
+        "objectId": 29779,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32520]
+      },
+      "orientation": 512,
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": -512,
+          "scaleX": 160,
+          "scaleY": 200,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512,
+          "offsetY": 16
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Large Storage",
+      "source": {
+        "objectId": 29780,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32515]
+      },
+      "orientation": 512,
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": -512,
+          "scaleX": 160,
+          "scaleY": 200,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512,
+          "offsetY": 16
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    },
+    {
+      "name": "CoX Massive Storage",
+      "source": {
+        "objectId": 37978,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [39583]
+      },
+      "orientation": 512,
+      "placements": {
+        "CAPE_RACK": {
+          "rotation": -256,
+          "offsetY": 16
+        },
+        "TREASURE_CHEST": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        },
+        "FANCY_DRESS_BOX": {
+          "rotation": -512,
+          "scaleX": 160,
+          "scaleY": 200,
+          "offsetY": 16
+        },
+        "ARMOUR_CASE": {
+          "rotation": 512,
+          "offsetY": 16
+        },
+        "TOY_BOX": {
+          "rotation": 512,
+          "scaleX": 111,
+          "scaleY": 192,
+          "offsetY": 16
+        }
+      }
+    }
+  ],
+  "crystals": [
+    {
+      "name": "Colourless Crystal",
+      "source": {
+        "objectId": 29757,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [32502],
+        "recolorFrom": [15296, 15273, 15029, 16163],
+        "recolorTo": [107, 127, 123, 115],
+        "crystalColours": [107, 127, 123, 115]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "scaleX": 64,
+          "scaleY": 64
+        },
+        "TREASURE_CHEST": {
+          "scaleX": 80,
+          "scaleY": 64
+        },
+        "FANCY_DRESS_BOX": {},
+        "ARMOUR_CASE": {
+          "scaleX": 64,
+          "scaleY": 64
+        },
+        "TOY_BOX": {
+          "scaleX": 80,
+          "scaleY": 64
+        }
+      }
+    },
+    {
+      "name": "CoX Green Crystal",
+      "source": {
+        "objectId": 29794,
+        "sizeX": 2,
+        "sizeY": 2,
+        "modelIds": [32502],
+        "crystalColours": [15296, 15273, 15029, 16163]
+      },
+      "placements": {
+        "CAPE_RACK": {
+          "scaleX": 64,
+          "scaleY": 64
+        },
+        "TREASURE_CHEST": {
+          "scaleX": 80,
+          "scaleY": 64
+        },
+        "FANCY_DRESS_BOX": {},
+        "ARMOUR_CASE": {
+          "scaleX": 64,
+          "scaleY": 64
+        },
+        "TOY_BOX": {
+          "scaleX": 80,
+          "scaleY": 64
+        }
+      }
+    },
+    {
+      "name": "CoX Bomb",
+      "source": {
+        "objectId": 29766,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [32690],
+        "crystalColours": [15296, 15029, 16163]
+      },
+      "bobbing": true,
+      "placements": {
+        "CAPE_RACK": {
+          "scaleX": 192,
+          "scaleHeight": 180,
+          "scaleY": 192,
+          "offsetHeight": -4
+        },
+        "TREASURE_CHEST": {
+          "scaleX": 336,
+          "scaleHeight": 210,
+          "scaleY": 224,
+          "offsetHeight": -4
+        },
+        "FANCY_DRESS_BOX": {
+          "scaleX": 384,
+          "scaleHeight": 240,
+          "scaleY": 256,
+          "offsetHeight": -4
+        },
+        "ARMOUR_CASE": {
+          "scaleX": 192,
+          "scaleHeight": 180,
+          "scaleY": 192,
+          "offsetHeight": -4
+        },
+        "TOY_BOX": {
+          "scaleX": 336,
+          "scaleHeight": 210,
+          "scaleY": 224,
+          "offsetHeight": -4
+        }
+      }
+    },
+    {
+      "name": "Crystal Outcrop",
+      "source": {
+        "objectId": 4928,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [4895],
+        "crystalColours": [-11359]
+      },
+      "placements": {
+        "TREASURE_CHEST": {
+          "scaleX": 160,
+          "scaleY": 96
+        },
+        "TOY_BOX": {
+          "scaleX": 160,
+          "scaleY": 96
+        }
+      }
+    },
+    {
+      "name": "ToB Teleport Crystal",
+      "source": {
+        "objectId": 32996,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [35449],
+        "animationId": 8105,
+        "crystalColours": [-11954, -13133, -13129, -13120, -13112, -14021, -14052]
+      },
+      "placements": {
+        "CAPE_RACK": {}
+      }
+    }
+  ],
+  "armour": [
+    {
+      "name": "Armour Display",
+      "source": {
+        "objectId": 21447,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [21990]
+      },
+      "placements": {
+        "ARMOUR_CASE": {
+          "rotation": -512
+        }
+      }
+    },
+    {
+      "name": "Armadyl Armour",
+      "source": {
+        "objectId": 31904,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [34556, 34567]
+      },
+      "placements": {
+        "ARMOUR_CASE": {
+          "rotation": 1024
+        }
+      }
+    },
+    {
+      "name": "Bandos Armour",
+      "source": {
+        "objectId": 31903,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [34556, 34553]
+      },
+      "placements": {
+        "ARMOUR_CASE": {
+          "rotation": 1024
+        }
+      }
+    },
+    {
+      "name": "Justiciar Armour",
+      "source": {
+        "objectId": 33012,
+        "sizeX": 1,
+        "sizeY": 1,
+        "modelIds": [35412]
+      },
+      "placements": {
+        "ARMOUR_CASE": {
+          "rotation": 1024
+        }
+      }
+    }
+  ]
+}
