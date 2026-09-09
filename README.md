@@ -10,3 +10,9 @@ A cosmetic RuneLite plugin that allows users to transmog specific PoH furniture 
 GPU or 117 HD is required so the plugin can hide original scenery through RuneLite's supported render callback.
 
 All changes are cosmetic only and local to the user's RuneLite client.
+
+![CoX/Mystical cosmetic transmog examples](images/cox-mystical-examples.jpg)
+
+![ToB/Spoopy cosmetic transmog examples](images/tob-spoopy-examples.jpg)
+
+![ToA/Desert cosmetic transmog examples](images/toa-desert-examples.jpg)
