@@ -34,8 +34,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 @PluginDescriptor(
 	name = "PoH Cosmetic Transmogs",
 	description = "Transmog specific PoH furniture and props into curated, whitelisted cosmetic objects",
-	tags = {"poh", "house", "furniture", "cosmetic", "transmog"},
-	enabledByDefault = false
+	tags = {"poh", "house", "furniture", "cosmetic", "transmog"}
 )
 @Slf4j
 public class PohCosmeticTransmogsPlugin extends Plugin
