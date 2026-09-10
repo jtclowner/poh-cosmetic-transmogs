@@ -35,7 +35,6 @@ import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.widgets.Widget;
-import net.runelite.client.plugins.gpu.GpuPlugin;
 
 /**
  * Manages cosmetic replacements while retaining the original scene objects.
@@ -45,8 +44,6 @@ import net.runelite.client.plugins.gpu.GpuPlugin;
 @Slf4j
 class PohCosmeticTransmogsManager
 {
-	private static final String RUNELITE_GPU_RENDERER = "net.runelite.client.plugins.gpu.GpuPlugin";
-	private static final String HD117_ZONE_RENDERER = "rs117.hd.renderer.zone.ZoneRenderer";
 	private static final int SCALE_TRANSITION_DURATION = 30;
 	private final Client client;
 	private final PohAppearanceCatalog.ModelFactory modelFactory;
@@ -416,15 +413,9 @@ class PohCosmeticTransmogsManager
 		return isSupportedRenderer(client.getDrawCallbacks());
 	}
 
-	private static boolean isSupportedRenderer(@Nullable DrawCallbacks callbacks)
+	private boolean isSupportedRenderer(@Nullable DrawCallbacks callbacks)
 	{
-		return callbacks instanceof GpuPlugin
-			|| callbacks != null && isSupportedRendererClass(callbacks.getClass().getName());
-	}
-
-	static boolean isSupportedRendererClass(String className)
-	{
-		return RUNELITE_GPU_RENDERER.equals(className) || HD117_ZONE_RENDERER.equals(className);
+		return client.isGpu() && callbacks != null;
 	}
 
 	private void rebuildTargets()
