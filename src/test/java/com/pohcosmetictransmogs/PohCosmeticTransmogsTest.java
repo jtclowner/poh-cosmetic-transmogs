@@ -325,6 +325,7 @@ public class PohCosmeticTransmogsTest
 	@Test
 	public void targetFamiliesContainEveryConstructedVariant()
 	{
+		assertEquals(2, PohFurniture.ENTRANCE_PORTAL.getObjectIds().length);
 		assertEquals(6, PohFurniture.CAPE_RACK.getObjectIds().length);
 		assertEquals(6, PohFurniture.FANCY_DRESS_BOX.getObjectIds().length);
 		assertEquals(6, PohFurniture.ARMOUR_CASE.getObjectIds().length);
@@ -332,6 +333,8 @@ public class PohCosmeticTransmogsTest
 		assertEquals(6, PohFurniture.TOY_BOX.getObjectIds().length);
 		assertEquals(6, PohFurniture.TREASURE_CHEST.getObjectIds().length);
 		assertEquals(PohFurniture.TREASURE_CHEST, PohFurniture.fromObjectId(18808));
+		assertEquals(PohFurniture.ENTRANCE_PORTAL, PohFurniture.fromObjectId(4525));
+		assertEquals(PohFurniture.ENTRANCE_PORTAL, PohFurniture.fromObjectId(60789));
 		assertNull(PohFurniture.fromObjectId(30028));
 	}
 

@@ -22,7 +22,7 @@ enum PohFurniture
 	// Official "GP sink" or gamemode reward cosmetic targets (portal-space portals,
 	// portal nexuses, scrying pools, spirit trees, thrones, house styles and achievement
 	// gallery/leagues hall accomplishment furniture) will remain outside this target allowlist.
-	ENTRANCE_PORTAL("entrancePortal", 2, 2, 0, 4525),
+	ENTRANCE_PORTAL("entrancePortal", 2, 2, 0, 4525, 60789),
 	CAPE_RACK("capeRack", 1, 1, 0, 18766, 18767, 18768, 18769, 18770, 18771),
 	TREASURE_CHEST("treasureChest", 2, 1, -1024, 18804, 18805, 18806, 18807, 18808, 18809),
 	FANCY_DRESS_BOX("fancyDressBox", 2, 2, 0, 18772, 18773, 18774, 18775, 18776, 18777),
