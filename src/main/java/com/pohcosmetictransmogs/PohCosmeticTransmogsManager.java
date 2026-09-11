@@ -589,15 +589,8 @@ class PohCosmeticTransmogsManager
 			((BobbingRuneLiteObject) replacement).setBaseZ(object.getZ());
 		}
 		replacement.setOrientation(defaultOrientation);
-		int occupiedSpan = Math.max(gameObject.sizeX(), gameObject.sizeY());
-		model.calculateBoundsCylinder();
-		int modelRadius = model.getXYZMag();
-		if (definition.getAnimationId() >= 0)
-		{
-			int largestScale = Math.max(calibration.getScaleX(), calibration.getScaleY());
-			modelRadius = Math.max(1, modelRadius * largestScale / 128);
-		}
-		replacement.setRadius(renderRadius(occupiedSpan, modelRadius));
+		int occupiedSpan = Math.max(definition.getSizeX(), definition.getSizeY());
+		replacement.setRadius(Math.max(60, 64 * occupiedSpan - 4));
 
 		if (definition.getAnimationId() >= 0)
 		{
@@ -833,12 +826,6 @@ class PohCosmeticTransmogsManager
 		int x = (object.getSceneMinLocation().getX() + object.getSceneMaxLocation().getX() + 1) * 64;
 		int y = (object.getSceneMinLocation().getY() + object.getSceneMaxLocation().getY() + 1) * 64;
 		return new LocalPoint(x, y, object.getWorldView().getId());
-	}
-
-	static int renderRadius(int occupiedSpan, int modelRadius)
-	{
-		// The drawing footprint covers both the target tiles and scaled model bounds.
-		return Math.max(60, Math.max(64 * occupiedSpan, modelRadius));
 	}
 
 	private static LocalPoint offsetAnchor(LocalPoint point, int orientation, int offsetX, int offsetY)
