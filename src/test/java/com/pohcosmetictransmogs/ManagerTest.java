@@ -29,6 +29,73 @@ import static org.junit.Assert.*;
 public class ManagerTest
 {
 	@Test
+	public void alignmentUsesActualFootprintParityPerAxis()
+	{
+		for (int targetX = 1; targetX <= 4; targetX++)
+		{
+			for (int targetY = 1; targetY <= 4; targetY++)
+			{
+				for (int replacementSize = 1; replacementSize <= 7; replacementSize++)
+				{
+					for (Catalogue.Alignment alignment : Catalogue.Alignment.values())
+					{
+						Harness h = new Harness("\"sizeX\":" + replacementSize + ",\"sizeY\":" + replacementSize
+							+ ",\"alignment\":\"" + alignment + "\",");
+						h.sizeX = targetX;
+						h.sizeY = targetY;
+						h.manager.addObject(h.object(1));
+						assertEquals((10 + targetX) * 64 + ((targetX - replacementSize) & 1) * alignment.x * 64,
+							h.only().getLocation().getX());
+						assertEquals((10 + targetY) * 64 + ((targetY - replacementSize) & 1) * alignment.y * 64,
+							h.only().getLocation().getY());
+						h.manager.stop();
+					}
+				}
+			}
+		}
+	}
+
+	@Test
+	public void alignmentRespectsFinalQuarterTurnAndAddsRotatedManualOffsets()
+	{
+		Harness h = new Harness("\"sizeX\":2,\"sizeY\":3,\"rotation\":512,"
+			+ "\"alignment\":\"SOUTH_WEST\",\"offsetX\":128,\"offsetY\":256,");
+		h.manager.addObject(h.object(1));
+		assertEquals(704 + 128, h.only().getLocation().getX());
+		assertEquals(704 - 64 + 256, h.only().getLocation().getY());
+		h.manager.stop();
+
+		h = new Harness("\"sizeX\":2,\"sizeY\":3,\"alignment\":\"SOUTH_WEST\","
+			+ "\"offsetX\":128,\"offsetY\":256,");
+		h.orientation = 512;
+		h.manager.addObject(h.object(1));
+		assertEquals(704 + 256, h.only().getLocation().getX());
+		assertEquals(704 - 64 - 128, h.only().getLocation().getY());
+		h.manager.stop();
+	}
+
+	@Test
+	public void omittedAlignmentPreservesTheOriginalCentre()
+	{
+		Harness h = new Harness("\"sizeX\":2,\"sizeY\":2,");
+		h.manager.addObject(h.object(1));
+		assertEquals(704, h.only().getLocation().getX());
+		assertEquals(704, h.only().getLocation().getY());
+		h.manager.stop();
+	}
+
+	@Test
+	public void diagonalSquareRotationAndScaleDoNotChangeDeclaredAlignment()
+	{
+		Harness h = new Harness("\"sizeX\":2,\"sizeY\":2,\"rotation\":256,"
+			+ "\"modelScaleX\":900,\"alignment\":\"SOUTH_WEST\",");
+		h.manager.addObject(h.object(1));
+		assertEquals(640, h.only().getLocation().getX());
+		assertEquals(640, h.only().getLocation().getY());
+		h.manager.stop();
+	}
+
+	@Test
 	public void radiusUsesFootprintAndOriginalInteractionsRemainInTheScene()
 	{
 		Harness h = new Harness("\"sizeX\":3,\"sizeY\":7,\"modelScaleX\":900,");
@@ -173,7 +240,8 @@ public class ManagerTest
 	@Test
 	public void shatterEffectsHandOffAndAreRemovedOnShutdown()
 	{
-		Harness h = new Harness("\"open\":{\"modelIds\":[20]},\"transitionModelId\":30,\"transitionAnimationId\":100,\"transitionHandoff\":20,");
+		Harness h = new Harness("\"sizeX\":2,\"sizeY\":2,\"alignment\":\"SOUTH_WEST\","
+			+ "\"open\":{\"modelIds\":[20]},\"transitionModelId\":30,\"transitionAnimationId\":100,\"transitionHandoff\":20,");
 		GameObject closed = h.object(1);
 		h.manager.addObject(closed);
 		h.manager.removeObject(closed);
@@ -181,6 +249,11 @@ public class ManagerTest
 		RuneLiteObject effect = h.only();
 		effect.tick(2);
 		assertEquals(2, h.active.size());
+		for (RuneLiteObject part : h.active)
+		{
+			assertEquals(640, part.getLocation().getX());
+			assertEquals(640, part.getLocation().getY());
+		}
 		effect.tick(8);
 		assertEquals(1, h.active.size());
 		h.manager.stop();
@@ -257,6 +330,9 @@ public class ManagerTest
 		final WorldView world;
 		final PohCosmeticTransmogsManager manager;
 		boolean modelsAvailable = true;
+		int sizeX = 1;
+		int sizeY = 1;
+		int orientation;
 		int invalidations;
 		int lights;
 		GameState gameState = GameState.LOGGED_IN;
@@ -336,10 +412,11 @@ public class ManagerTest
 				{
 					case "getId": return id;
 					case "getWorldView": return world;
-					case "getSceneMinLocation":
-					case "getSceneMaxLocation": return new Point(5, 5);
-					case "sizeX":
-					case "sizeY": return 1;
+					case "getSceneMinLocation": return new Point(5, 5);
+					case "getSceneMaxLocation": return new Point(4 + sizeX, 4 + sizeY);
+					case "sizeX": return sizeX;
+					case "sizeY": return sizeY;
+					case "getOrientation": return orientation;
 					default: return DEFAULT;
 				}
 			});

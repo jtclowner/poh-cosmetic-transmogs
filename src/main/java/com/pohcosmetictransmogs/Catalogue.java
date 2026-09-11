@@ -170,6 +170,7 @@ final class Catalogue
 		Definition open;
 		String[] bindTargets = {};
 		int orientation;
+		Alignment alignment = Alignment.NONE;
 		boolean bobbing;
 		int transitionModelId = -1;
 		int transitionAnimationId = -1;
@@ -184,6 +185,24 @@ final class Catalogue
 		String stateKey(Definition state)
 		{
 			return state == this ? "default" : state == closed ? "closed" : "open";
+		}
+	}
+
+	enum Alignment
+	{
+		NONE(0, 0),
+		SOUTH_WEST(-1, -1),
+		SOUTH_EAST(1, -1),
+		NORTH_WEST(-1, 1),
+		NORTH_EAST(1, 1);
+
+		final int x;
+		final int y;
+
+		Alignment(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
 		}
 	}
 

@@ -542,6 +542,23 @@ class PohCosmeticTransmogsManager
 		int correction = calibration.getRotation();
 		int defaultOrientation = (baseOrientation + correction) & 2047;
 		LocalPoint anchor = occupiedTileCentre(gameObject);
+		Catalogue.Alignment alignment = resolved.appearance.alignment;
+		if (alignment != null && alignment != Catalogue.Alignment.NONE)
+		{
+			int width = resolved.appearance.getSizeX();
+			int depth = resolved.appearance.getSizeY();
+			if (defaultOrientation == 512 || defaultOrientation == 1536)
+			{
+				int swap = width;
+				width = depth;
+				depth = swap;
+			}
+			// Alignment is world-relative; manual offsets retain the target's orientation.
+			int x = (gameObject.getSceneMaxLocation().getX() - gameObject.getSceneMinLocation().getX() + 1 - width) & 1;
+			int y = (gameObject.getSceneMaxLocation().getY() - gameObject.getSceneMinLocation().getY() + 1 - depth) & 1;
+			anchor = new LocalPoint(anchor.getX() + x * alignment.x * 64,
+				anchor.getY() + y * alignment.y * 64, anchor.getWorldView());
+		}
 		if (calibration.getOffsetX() != 0 || calibration.getOffsetY() != 0)
 		{
 			anchor = offsetAnchor(anchor, baseOrientation,
