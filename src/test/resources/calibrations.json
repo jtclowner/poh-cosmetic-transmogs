@@ -1,0 +1,1392 @@
+{
+  "entrance_portal:circle_1": {
+    "rotation": 1024,
+    "scaleX": 256,
+    "scaleHeight": 256,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": -2,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:circle_2": {
+    "rotation": 1024,
+    "scaleX": 200,
+    "scaleHeight": 200,
+    "scaleY": 200,
+    "offsetX": 0,
+    "offsetHeight": -2,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:ferox_dark_portal": {
+    "rotation": 1024,
+    "scaleX": 96,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:ferox_dark_portal": {
+    "rotation": 0,
+    "scaleX": 75,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:ferox_light_portal": {
+    "rotation": 1024,
+    "scaleX": 96,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:ferox_light_portal": {
+    "rotation": 0,
+    "scaleX": 75,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:ferox_red_portal": {
+    "rotation": 1024,
+    "scaleX": 96,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:ferox_red_portal": {
+    "rotation": 0,
+    "scaleX": 75,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:isle_of_souls_dark_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:isle_of_souls_dark_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:isle_of_souls_dead_trees": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:isle_of_souls_dead_trees": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:isle_of_souls_light_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:isle_of_souls_light_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:pest_control_purple_portal": {
+    "rotation": 1536,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:pest_control_blue_portal": {
+    "rotation": 1536,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:pest_control_yellow_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:pest_control_red_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:a_kingdom_divided_portal": {
+    "rotation": 1024,
+    "scaleX": 232,
+    "scaleHeight": 232,
+    "scaleY": 232,
+    "offsetX": 0,
+    "offsetHeight": 84,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:abyssal_portal": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:castle_drakan_portal": {
+    "rotation": 1024,
+    "scaleX": 112,
+    "scaleHeight": 112,
+    "scaleY": 112,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:christmas_portal": {
+    "rotation": 1024,
+    "scaleX": 90,
+    "scaleHeight": 90,
+    "scaleY": 90,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:christmas_portal": {
+    "rotation": 1024,
+    "scaleX": 90,
+    "scaleHeight": 90,
+    "scaleY": 90,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:clan_hall_portal": {
+    "rotation": -1024,
+    "scaleX": 100,
+    "scaleHeight": 100,
+    "scaleY": 100,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:cox_olm_barrier": {
+    "rotation": 1024,
+    "scaleX": 102,
+    "scaleHeight": 102,
+    "scaleY": 102,
+    "offsetX": 0,
+    "offsetHeight": -2,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:dt2_portal": {
+    "rotation": 1536,
+    "scaleX": 160,
+    "scaleHeight": 160,
+    "scaleY": 160,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:dt2_portal": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 110,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:elven_portal": {
+    "rotation": 1024,
+    "scaleX": 86,
+    "scaleHeight": 86,
+    "scaleY": 86,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:elven_portal": {
+    "rotation": 0,
+    "scaleX": 75,
+    "scaleHeight": 86,
+    "scaleY": 86,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:evil_chicken_lair_portal": {
+    "rotation": 1024,
+    "scaleX": 86,
+    "scaleHeight": 86,
+    "scaleY": 86,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:evil_chicken_lair_portal": {
+    "rotation": 0,
+    "scaleX": 75,
+    "scaleHeight": 86,
+    "scaleY": 40,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:gauntlet_portal": {
+    "rotation": 1024,
+    "scaleX": 102,
+    "scaleHeight": 102,
+    "scaleY": 102,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:gauntlet_portal": {
+    "rotation": 1024,
+    "scaleX": 80,
+    "scaleHeight": 80,
+    "scaleY": 40,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": -16,
+    "flipX": false
+  },
+  "entrance_portal:golem_portal": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:golem_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 90,
+    "scaleY": 50,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": -16,
+    "flipX": false
+  },
+  "entrance_portal:gwenith_glide_portal": {
+    "rotation": 1536,
+    "scaleX": 192,
+    "scaleHeight": 192,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": -2,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:infernal_rift": {
+    "rotation": 1024,
+    "scaleX": 216,
+    "scaleHeight": 216,
+    "scaleY": 216,
+    "offsetX": 0,
+    "offsetHeight": 55,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:myths_guild_portal": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:myths_guild_portal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 90,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": -10,
+    "flipX": false
+  },
+  "entrance_portal:node_portal": {
+    "rotation": 1024,
+    "scaleX": 115,
+    "scaleHeight": 115,
+    "scaleY": 115,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:prifddinas_agility_portal": {
+    "rotation": 1536,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:prifddinas_agility_portal": {
+    "rotation": 512,
+    "scaleX": 60,
+    "scaleHeight": 105,
+    "scaleY": 300,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": -16,
+    "flipX": false
+  },
+  "entrance_portal:raging_echoes_portal": {
+    "rotation": 0,
+    "scaleX": 117,
+    "scaleHeight": 117,
+    "scaleY": 117,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "magic_wardrobe:raging_echoes_portal": {
+    "rotation": 0,
+    "scaleX": 117,
+    "scaleHeight": 117,
+    "scaleY": 117,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:recipe_for_disaster_portal": {
+    "rotation": 1024,
+    "scaleX": 192,
+    "scaleHeight": 192,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:sepulchre_portal": {
+    "rotation": 1024,
+    "scaleX": 76,
+    "scaleHeight": 76,
+    "scaleY": 76,
+    "offsetX": 0,
+    "offsetHeight": -156,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:shadow_realm_portal": {
+    "rotation": 1024,
+    "scaleX": 48,
+    "scaleHeight": 48,
+    "scaleY": 48,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:trouble_brewing_portal": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "entrance_portal:wizards_tower_portal": {
+    "rotation": 1024,
+    "scaleX": 176,
+    "scaleHeight": 176,
+    "scaleY": 176,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:tob_monumental_chest": {
+    "rotation": 1024,
+    "scaleX": 82,
+    "scaleHeight": 82,
+    "scaleY": 82,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 30,
+    "flipX": false
+  },
+  "fancy_dress_box:tob_monumental_chest": {
+    "rotation": 0,
+    "scaleX": 100,
+    "scaleHeight": 100,
+    "scaleY": 100,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:tob_monumental_chest": {
+    "rotation": 1024,
+    "scaleX": 82,
+    "scaleHeight": 82,
+    "scaleY": 82,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 30,
+    "flipX": false
+  },
+  "treasure_chest:toa_sarcophagus": {
+    "rotation": -1024,
+    "scaleX": 85,
+    "scaleHeight": 85,
+    "scaleY": 80,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 25,
+    "flipX": true
+  },
+  "fancy_dress_box:toa_sarcophagus": {
+    "rotation": 0,
+    "scaleX": 104,
+    "scaleHeight": 104,
+    "scaleY": 104,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:toa_sarcophagus": {
+    "rotation": -1024,
+    "scaleX": 85,
+    "scaleHeight": 85,
+    "scaleY": 80,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 25,
+    "flipX": false
+  },
+  "cape_rack:toa_chest_1": {
+    "rotation": 256,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:toa_chest_1": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:toa_chest_1": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:toa_chest_1": {
+    "rotation": -1024,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:toa_chest_1": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:toa_chest_2": {
+    "rotation": 256,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:toa_chest_2": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:toa_chest_2": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:toa_chest_2": {
+    "rotation": -1024,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:toa_chest_2": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 96,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:gauntlet_reward_chest": {
+    "rotation": 256,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:gauntlet_reward_chest": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 80,
+    "scaleY": 70,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 10,
+    "flipX": false
+  },
+  "fancy_dress_box:gauntlet_reward_chest": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 80,
+    "scaleY": 100,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:gauntlet_reward_chest": {
+    "rotation": -1024,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 10,
+    "flipX": false
+  },
+  "toy_box:gauntlet_reward_chest": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 80,
+    "scaleY": 70,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 10,
+    "flipX": false
+  },
+  "cape_rack:deadman_supply_chest": {
+    "rotation": 512,
+    "scaleX": 64,
+    "scaleHeight": 64,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": -1,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:deadman_supply_chest": {
+    "rotation": -768,
+    "scaleX": 70,
+    "scaleHeight": 70,
+    "scaleY": 70,
+    "offsetX": 0,
+    "offsetHeight": -1,
+    "offsetY": 42,
+    "flipX": false
+  },
+  "fancy_dress_box:deadman_supply_chest": {
+    "rotation": 256,
+    "scaleX": 100,
+    "scaleHeight": 100,
+    "scaleY": 100,
+    "offsetX": 0,
+    "offsetHeight": -1,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:deadman_supply_chest": {
+    "rotation": -768,
+    "scaleX": 70,
+    "scaleHeight": 70,
+    "scaleY": 70,
+    "offsetX": 0,
+    "offsetHeight": -1,
+    "offsetY": 42,
+    "flipX": false
+  },
+  "cape_rack:cox_thieving_chest": {
+    "rotation": 256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_thieving_chest": {
+    "rotation": -1024,
+    "scaleX": 250,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_thieving_chest": {
+    "rotation": 0,
+    "scaleX": 256,
+    "scaleHeight": 128,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_thieving_chest": {
+    "rotation": -1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 10,
+    "flipX": false
+  },
+  "toy_box:cox_thieving_chest": {
+    "rotation": -1024,
+    "scaleX": 250,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_crystal_chest": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_crystal_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_crystal_chest": {
+    "rotation": -512,
+    "scaleX": 256,
+    "scaleHeight": 128,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_crystal_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "toy_box:cox_crystal_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_ancient_chest": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_ancient_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_ancient_chest": {
+    "rotation": 512,
+    "scaleX": 256,
+    "scaleHeight": 128,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_ancient_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:cox_ancient_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_bank_chest": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_bank_chest": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_bank_chest": {
+    "rotation": -512,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 200,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_bank_chest": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "toy_box:cox_bank_chest": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_small_storage": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_small_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_small_storage": {
+    "rotation": -512,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 200,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_small_storage": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "toy_box:cox_small_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_medium_storage": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_medium_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_medium_storage": {
+    "rotation": -512,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 200,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_medium_storage": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "toy_box:cox_medium_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_large_storage": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_large_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_large_storage": {
+    "rotation": -512,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 200,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_large_storage": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "toy_box:cox_large_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:cox_massive_storage": {
+    "rotation": -256,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "treasure_chest:cox_massive_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_massive_storage": {
+    "rotation": -512,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 200,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "armour_case:cox_massive_storage": {
+    "rotation": 512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "toy_box:cox_massive_storage": {
+    "rotation": 512,
+    "scaleX": 111,
+    "scaleHeight": 128,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 16,
+    "flipX": false
+  },
+  "cape_rack:colourless_crystal": {
+    "rotation": 0,
+    "scaleX": 64,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:colourless_crystal": {
+    "rotation": 0,
+    "scaleX": 80,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "fancy_dress_box:colourless_crystal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:colourless_crystal": {
+    "rotation": 0,
+    "scaleX": 64,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:colourless_crystal": {
+    "rotation": 0,
+    "scaleX": 80,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "cape_rack:cox_large_crystal": {
+    "rotation": 0,
+    "scaleX": 64,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:cox_large_crystal": {
+    "rotation": 0,
+    "scaleX": 80,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_large_crystal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:cox_large_crystal": {
+    "rotation": 0,
+    "scaleX": 64,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:cox_large_crystal": {
+    "rotation": 0,
+    "scaleX": 80,
+    "scaleHeight": 128,
+    "scaleY": 64,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "cape_rack:cox_crystal_bomb": {
+    "rotation": 0,
+    "scaleX": 192,
+    "scaleHeight": 180,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": -4,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:cox_crystal_bomb": {
+    "rotation": 0,
+    "scaleX": 336,
+    "scaleHeight": 210,
+    "scaleY": 224,
+    "offsetX": 0,
+    "offsetHeight": -4,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "fancy_dress_box:cox_crystal_bomb": {
+    "rotation": 0,
+    "scaleX": 384,
+    "scaleHeight": 240,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": -4,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:cox_crystal_bomb": {
+    "rotation": 0,
+    "scaleX": 192,
+    "scaleHeight": 180,
+    "scaleY": 192,
+    "offsetX": 0,
+    "offsetHeight": -4,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:cox_crystal_bomb": {
+    "rotation": 0,
+    "scaleX": 336,
+    "scaleHeight": 210,
+    "scaleY": 224,
+    "offsetX": 0,
+    "offsetHeight": -4,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "cape_rack:crystal_outcrop": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "treasure_chest:crystal_outcrop": {
+    "rotation": 0,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "fancy_dress_box:crystal_outcrop": {
+    "rotation": 0,
+    "scaleX": 256,
+    "scaleHeight": 128,
+    "scaleY": 256,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:crystal_outcrop": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "toy_box:crystal_outcrop": {
+    "rotation": 0,
+    "scaleX": 160,
+    "scaleHeight": 128,
+    "scaleY": 96,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "cape_rack:tob_teleport_crystal": {
+    "rotation": 0,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:armour_display": {
+    "rotation": -512,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:armadyl_armour": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:bandos_armour": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  },
+  "armour_case:justiciar_armour": {
+    "rotation": 1024,
+    "scaleX": 128,
+    "scaleHeight": 128,
+    "scaleY": 128,
+    "offsetX": 0,
+    "offsetHeight": 0,
+    "offsetY": 0,
+    "flipX": false
+  }
+}

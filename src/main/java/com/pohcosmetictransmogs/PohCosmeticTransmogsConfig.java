@@ -283,14 +283,14 @@ public interface PohCosmeticTransmogsConfig extends Config
 
 	interface AppearanceOption
 	{
-		int getObjectId();
+		String getAppearanceKey();
 
-		static <T extends Enum<T> & AppearanceOption> T find(T[] options, int objectId)
+		static <T extends Enum<T> & AppearanceOption> T find(T[] options, String appearanceKey)
 		{
-			int id = PohAppearanceCatalog.canonicalSelectionId(objectId);
+
 			for (T option : options)
 			{
-				if (option.getObjectId() == id)
+				if (option.getAppearanceKey().equals(appearanceKey))
 				{
 					return option;
 				}
@@ -327,48 +327,48 @@ public interface PohCosmeticTransmogsConfig extends Config
 	@RequiredArgsConstructor
 	enum EntranceAppearance implements AppearanceOption
 	{
-		ORIGINAL(-1),
-		A_KINGDOM_DIVIDED_PORTAL(41807),
-		ABYSSAL_PORTAL(49242),
-		CASTLE_DRAKAN_PORTAL(61216),
-		CHRISTMAS_PORTAL(46442),
-		CIRCLE_1(47346),
-		CIRCLE_2(4408),
-		CLAN_HALL_PORTAL(41724),
-		COX_OLM_BARRIER(29879),
-		DT2_PORTAL(12334),
-		ELVEN_PORTAL(34947),
-		EVIL_CHICKEN_LAIR_PORTAL(12260),
-		FEROX_DARK_PORTAL(26642),
-		FEROX_LIGHT_PORTAL(26732),
-		FEROX_RED_PORTAL(26727),
-		GAUNTLET_PORTAL(36081),
-		NODE_PORTAL(42819),
-		GOLEM_PORTAL(6282),
-		GWENITH_GLIDE_PORTAL(58942),
-		INFERNAL_RIFT(56397),
-		ISLE_OF_SOULS_DARK_PORTAL(40460),
-		ISLE_OF_SOULS_DEAD_TREES(40461),
-		ISLE_OF_SOULS_LIGHT_PORTAL(40476),
-		MYTHS_GUILD_PORTAL(31618),
-		PEST_CONTROL_BLUE_PORTAL(1748),
-		PEST_CONTROL_PURPLE_PORTAL(1747),
-		PEST_CONTROL_RED_PORTAL(1750),
-		PEST_CONTROL_YELLOW_PORTAL(1749),
-		PRIFDDINAS_AGILITY_PORTAL(36240),
-		RAGING_ECHOES_PORTAL(56074),
-		RECIPE_FOR_DISASTER_PORTAL(12355),
-		SEPULCHRE_PORTAL(38829),
-		SHADOW_REALM_PORTAL(33037),
-		TROUBLE_BREWING_PORTAL(15996),
-		WIZARDS_TOWER_PORTAL(43765);
+		ORIGINAL(""),
+		A_KINGDOM_DIVIDED_PORTAL("a_kingdom_divided_portal"),
+		ABYSSAL_PORTAL("abyssal_portal"),
+		CASTLE_DRAKAN_PORTAL("castle_drakan_portal"),
+		CHRISTMAS_PORTAL("christmas_portal"),
+		CIRCLE_1("circle_1"),
+		CIRCLE_2("circle_2"),
+		CLAN_HALL_PORTAL("clan_hall_portal"),
+		COX_OLM_BARRIER("cox_olm_barrier"),
+		DT2_PORTAL("dt2_portal"),
+		ELVEN_PORTAL("elven_portal"),
+		EVIL_CHICKEN_LAIR_PORTAL("evil_chicken_lair_portal"),
+		FEROX_DARK_PORTAL("ferox_dark_portal"),
+		FEROX_LIGHT_PORTAL("ferox_light_portal"),
+		FEROX_RED_PORTAL("ferox_red_portal"),
+		GAUNTLET_PORTAL("gauntlet_portal"),
+		NODE_PORTAL("node_portal"),
+		GOLEM_PORTAL("golem_portal"),
+		GWENITH_GLIDE_PORTAL("gwenith_glide_portal"),
+		INFERNAL_RIFT("infernal_rift"),
+		ISLE_OF_SOULS_DARK_PORTAL("isle_of_souls_dark_portal"),
+		ISLE_OF_SOULS_DEAD_TREES("isle_of_souls_dead_trees"),
+		ISLE_OF_SOULS_LIGHT_PORTAL("isle_of_souls_light_portal"),
+		MYTHS_GUILD_PORTAL("myths_guild_portal"),
+		PEST_CONTROL_BLUE_PORTAL("pest_control_blue_portal"),
+		PEST_CONTROL_PURPLE_PORTAL("pest_control_purple_portal"),
+		PEST_CONTROL_RED_PORTAL("pest_control_red_portal"),
+		PEST_CONTROL_YELLOW_PORTAL("pest_control_yellow_portal"),
+		PRIFDDINAS_AGILITY_PORTAL("prifddinas_agility_portal"),
+		RAGING_ECHOES_PORTAL("raging_echoes_portal"),
+		RECIPE_FOR_DISASTER_PORTAL("recipe_for_disaster_portal"),
+		SEPULCHRE_PORTAL("sepulchre_portal"),
+		SHADOW_REALM_PORTAL("shadow_realm_portal"),
+		TROUBLE_BREWING_PORTAL("trouble_brewing_portal"),
+		WIZARDS_TOWER_PORTAL("wizards_tower_portal");
 
-		private final int objectId;
+		private final String appearanceKey;
 
 		@Override
 		public String toString()
 		{
-			return PohAppearanceCatalog.name(objectId);
+			return Catalogue.name(appearanceKey);
 		}
 	}
 
@@ -376,31 +376,31 @@ public interface PohCosmeticTransmogsConfig extends Config
 	@RequiredArgsConstructor
 	enum StorageAppearance implements AppearanceOption
 	{
-		ORIGINAL(-1),
-		COX_BANK_CHEST(47419),
-		COX_CRYSTAL_BOMB(29766),
-		COX_ANCIENT_CHEST(30028),
-		COX_CRYSTAL_CHEST(30027),
-		COX_LARGE_CRYSTAL(29794),
-		COX_LARGE_STORAGE(29780),
-		COX_MASSIVE_STORAGE(37978),
-		COX_MEDIUM_STORAGE(29779),
-		COX_SMALL_STORAGE(29770),
-		COX_THIEVING_CHEST(29742),
-		CRYSTAL_OUTCROP_1(4928),
-		COLOURLESS_CRYSTAL(29757),
-		DEADMAN_SUPPLY_CHEST(33125),
-		GAUNTLET_REWARD_CHEST(36087),
-		TOA_CHEST_1(44788),
-		TOA_CHEST_2(41696),
-		TOB_TELEPORT_CRYSTAL(32996);
+		ORIGINAL(""),
+		COX_BANK_CHEST("cox_bank_chest"),
+		COX_CRYSTAL_BOMB("cox_crystal_bomb"),
+		COX_ANCIENT_CHEST("cox_ancient_chest"),
+		COX_CRYSTAL_CHEST("cox_crystal_chest"),
+		COX_LARGE_CRYSTAL("cox_large_crystal"),
+		COX_LARGE_STORAGE("cox_large_storage"),
+		COX_MASSIVE_STORAGE("cox_massive_storage"),
+		COX_MEDIUM_STORAGE("cox_medium_storage"),
+		COX_SMALL_STORAGE("cox_small_storage"),
+		COX_THIEVING_CHEST("cox_thieving_chest"),
+		CRYSTAL_OUTCROP_1("crystal_outcrop"),
+		COLOURLESS_CRYSTAL("colourless_crystal"),
+		DEADMAN_SUPPLY_CHEST("deadman_supply_chest"),
+		GAUNTLET_REWARD_CHEST("gauntlet_reward_chest"),
+		TOA_CHEST_1("toa_chest_1"),
+		TOA_CHEST_2("toa_chest_2"),
+		TOB_TELEPORT_CRYSTAL("tob_teleport_crystal");
 
-		private final int objectId;
+		private final String appearanceKey;
 
 		@Override
 		public String toString()
 		{
-			return PohAppearanceCatalog.name(objectId);
+			return Catalogue.name(appearanceKey);
 		}
 	}
 
@@ -408,33 +408,33 @@ public interface PohCosmeticTransmogsConfig extends Config
 	@RequiredArgsConstructor
 	enum ArmourAppearance implements AppearanceOption
 	{
-		ORIGINAL(-1),
-		ARMOUR_DISPLAY(21447),
-		ARMADYL_ARMOUR(31904),
-		BANDOS_ARMOUR(31903),
-		JUSTICIAR_ARMOUR(33012),
-		COX_BANK_CHEST(47419),
-		COX_ANCIENT_CHEST(30028),
-		COX_LARGE_CRYSTAL(29794),
-		COX_CRYSTAL_CHEST(30027),
-		COX_LARGE_STORAGE(29780),
-		COX_MASSIVE_STORAGE(37978),
-		COX_MEDIUM_STORAGE(29779),
-		COX_SMALL_STORAGE(29770),
-		COX_THIEVING_CHEST(29742),
-		COX_CRYSTAL_BOMB(29766),
-		CRYSTAL_OUTCROP_1(4928),
-		COLOURLESS_CRYSTAL(29757),
-		GAUNTLET_REWARD_CHEST(36087),
-		TOA_CHEST_1(44788),
-		TOA_CHEST_2(41696);
+		ORIGINAL(""),
+		ARMOUR_DISPLAY("armour_display"),
+		ARMADYL_ARMOUR("armadyl_armour"),
+		BANDOS_ARMOUR("bandos_armour"),
+		JUSTICIAR_ARMOUR("justiciar_armour"),
+		COX_BANK_CHEST("cox_bank_chest"),
+		COX_ANCIENT_CHEST("cox_ancient_chest"),
+		COX_LARGE_CRYSTAL("cox_large_crystal"),
+		COX_CRYSTAL_CHEST("cox_crystal_chest"),
+		COX_LARGE_STORAGE("cox_large_storage"),
+		COX_MASSIVE_STORAGE("cox_massive_storage"),
+		COX_MEDIUM_STORAGE("cox_medium_storage"),
+		COX_SMALL_STORAGE("cox_small_storage"),
+		COX_THIEVING_CHEST("cox_thieving_chest"),
+		COX_CRYSTAL_BOMB("cox_crystal_bomb"),
+		CRYSTAL_OUTCROP_1("crystal_outcrop"),
+		COLOURLESS_CRYSTAL("colourless_crystal"),
+		GAUNTLET_REWARD_CHEST("gauntlet_reward_chest"),
+		TOA_CHEST_1("toa_chest_1"),
+		TOA_CHEST_2("toa_chest_2");
 
-		private final int objectId;
+		private final String appearanceKey;
 
 		@Override
 		public String toString()
 		{
-			return PohAppearanceCatalog.name(objectId);
+			return Catalogue.name(appearanceKey);
 		}
 	}
 
@@ -442,32 +442,32 @@ public interface PohCosmeticTransmogsConfig extends Config
 	@RequiredArgsConstructor
 	enum ChestAppearance implements AppearanceOption
 	{
-		ORIGINAL(-1),
-		DEADMAN_SUPPLY_CHEST(33125),
-		GAUNTLET_REWARD_CHEST(36087),
-		TOA_CHEST_1(44788),
-		TOA_CHEST_2(41696),
-		TOA_SARCOPHAGUS(44825),
-		TOB_MONUMENTAL_CHEST(32991),
-		COX_ANCIENT_CHEST(30028),
-		COX_BANK_CHEST(47419),
-		COX_SMALL_STORAGE(29770),
-		COX_MEDIUM_STORAGE(29779),
-		COX_LARGE_STORAGE(29780),
-		COX_MASSIVE_STORAGE(37978),
-		COX_THIEVING_CHEST(29742),
-		COX_CRYSTAL_CHEST(30027),
-		COX_CRYSTAL_BOMB(29766),
-		COX_LARGE_CRYSTAL(29794),
-		COLOURLESS_CRYSTAL(29757),
-		CRYSTAL_OUTCROP_1(4928);
+		ORIGINAL(""),
+		DEADMAN_SUPPLY_CHEST("deadman_supply_chest"),
+		GAUNTLET_REWARD_CHEST("gauntlet_reward_chest"),
+		TOA_CHEST_1("toa_chest_1"),
+		TOA_CHEST_2("toa_chest_2"),
+		TOA_SARCOPHAGUS("toa_sarcophagus"),
+		TOB_MONUMENTAL_CHEST("tob_monumental_chest"),
+		COX_ANCIENT_CHEST("cox_ancient_chest"),
+		COX_BANK_CHEST("cox_bank_chest"),
+		COX_SMALL_STORAGE("cox_small_storage"),
+		COX_MEDIUM_STORAGE("cox_medium_storage"),
+		COX_LARGE_STORAGE("cox_large_storage"),
+		COX_MASSIVE_STORAGE("cox_massive_storage"),
+		COX_THIEVING_CHEST("cox_thieving_chest"),
+		COX_CRYSTAL_CHEST("cox_crystal_chest"),
+		COX_CRYSTAL_BOMB("cox_crystal_bomb"),
+		COX_LARGE_CRYSTAL("cox_large_crystal"),
+		COLOURLESS_CRYSTAL("colourless_crystal"),
+		CRYSTAL_OUTCROP_1("crystal_outcrop");
 
-		private final int objectId;
+		private final String appearanceKey;
 
 		@Override
 		public String toString()
 		{
-			return PohAppearanceCatalog.name(objectId);
+			return Catalogue.name(appearanceKey);
 		}
 	}
 
@@ -475,29 +475,29 @@ public interface PohCosmeticTransmogsConfig extends Config
 	@RequiredArgsConstructor
 	enum WardrobeAppearance implements AppearanceOption
 	{
-		ORIGINAL(-1),
-		CHRISTMAS_PORTAL(46442),
-		DT2_PORTAL(12334),
-		ELVEN_PORTAL(34947),
-		EVIL_CHICKEN_LAIR_PORTAL(12260),
-		FEROX_DARK_PORTAL(26642),
-		FEROX_LIGHT_PORTAL(26732),
-		FEROX_RED_PORTAL(26727),
-		GAUNTLET_PORTAL(36081),
-		GOLEM_PORTAL(6282),
-		ISLE_OF_SOULS_DARK_PORTAL(40460),
-		ISLE_OF_SOULS_DEAD_TREES(40461),
-		ISLE_OF_SOULS_LIGHT_PORTAL(40476),
-		MYTHS_GUILD_PORTAL(31618),
-		PRIFDDINAS_AGILITY_PORTAL(36240),
-		RAGING_ECHOES_PORTAL(56074);
+		ORIGINAL(""),
+		CHRISTMAS_PORTAL("christmas_portal"),
+		DT2_PORTAL("dt2_portal"),
+		ELVEN_PORTAL("elven_portal"),
+		EVIL_CHICKEN_LAIR_PORTAL("evil_chicken_lair_portal"),
+		FEROX_DARK_PORTAL("ferox_dark_portal"),
+		FEROX_LIGHT_PORTAL("ferox_light_portal"),
+		FEROX_RED_PORTAL("ferox_red_portal"),
+		GAUNTLET_PORTAL("gauntlet_portal"),
+		GOLEM_PORTAL("golem_portal"),
+		ISLE_OF_SOULS_DARK_PORTAL("isle_of_souls_dark_portal"),
+		ISLE_OF_SOULS_DEAD_TREES("isle_of_souls_dead_trees"),
+		ISLE_OF_SOULS_LIGHT_PORTAL("isle_of_souls_light_portal"),
+		MYTHS_GUILD_PORTAL("myths_guild_portal"),
+		PRIFDDINAS_AGILITY_PORTAL("prifddinas_agility_portal"),
+		RAGING_ECHOES_PORTAL("raging_echoes_portal");
 
-		private final int objectId;
+		private final String appearanceKey;
 
 		@Override
 		public String toString()
 		{
-			return PohAppearanceCatalog.name(objectId);
+			return Catalogue.name(appearanceKey);
 		}
 	}
 }

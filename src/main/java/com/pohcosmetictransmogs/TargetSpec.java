@@ -13,6 +13,13 @@ final class TargetSpec
 	int orientationOffset;
 	boolean scaleTransition;
 	boolean portalRecolour;
+	FitMode defaultFitMode = FitMode.NONE;
+
+	enum FitMode
+	{
+		NONE,
+		FOOTPRINT
+	}
 
 	boolean isOpen(int objectId)
 	{

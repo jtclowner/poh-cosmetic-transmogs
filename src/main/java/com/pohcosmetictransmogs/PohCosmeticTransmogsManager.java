@@ -3,8 +3,6 @@ package com.pohcosmetictransmogs;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
@@ -46,11 +44,11 @@ class PohCosmeticTransmogsManager
 {
 	private static final int SCALE_TRANSITION_DURATION = 30;
 	private final Client client;
-	private final PohAppearanceCatalog.ModelFactory modelFactory;
-	private final Map<PohFurniture, Integer> selections = new EnumMap<>(PohFurniture.class);
+	private final Catalogue.ModelFactory modelFactory;
+	private final Map<String, String> selections = new HashMap<>();
 	private final Map<ModelCacheKey, Model> modelCache = new HashMap<>();
 	private final Map<Integer, TargetBinding> targetsById = new HashMap<>();
-	private final Set<Integer> reportedModelFailures = new HashSet<>();
+	private final Set<String> reportedModelFailures = new HashSet<>();
 	private final Set<TileObject> sceneObjects = identitySet();
 	private final Set<TileObject> retiredObjects = identitySet();
 	private final Set<TileObject> suppressedObjects = identitySet();
@@ -66,7 +64,8 @@ class PohCosmeticTransmogsManager
 	private volatile Set<TileObject> activeSnapshot = Collections.emptySet();
 	private volatile boolean running;
 	private volatile boolean hidden;
-	private final Set<PohFurniture> pendingModelSlots = EnumSet.noneOf(PohFurniture.class);
+	private final Set<TileObject> pendingModels = identitySet();
+	private Catalogue catalogue = Catalogue.current;
 	private int zoneInvalidationBatchDepth;
 	private boolean snapshotsDirty;
 
@@ -74,17 +73,17 @@ class PohCosmeticTransmogsManager
 	PohCosmeticTransmogsManager(Client client, PohCosmeticTransmogsConfig config)
 	{
 		this.client = client;
-		modelFactory = new PohAppearanceCatalog.ModelFactory(client, config);
-		selections.putAll(PohFurniture.emptySelections());
+		modelFactory = new Catalogue.ModelFactory(client, config);
 	}
 
-	void start(Map<PohFurniture, Integer> initialSelections, boolean hidden)
+	void start(Map<String, String> initialSelections, boolean hidden)
 	{
 		DrawCallbacks callbacks = client.getDrawCallbacks();
 		log.debug("Starting PoH furniture transmogs with renderer {}",
 			callbacks == null ? "software" : callbacks.getClass().getName());
 		this.hidden = hidden;
 		running = true;
+		catalogue = Catalogue.current;
 		rebuildTargets();
 		setSelections(initialSelections);
 		rescanLoadedWorldViews();
@@ -114,46 +113,42 @@ class PohCosmeticTransmogsManager
 		pendingZoneInvalidations.clear();
 		zoneInvalidationBatchDepth = 0;
 		snapshotsDirty = false;
-		pendingModelSlots.clear();
+		pendingModels.clear();
 	}
 
-	void setSelections(Map<PohFurniture, Integer> updated)
+	void setSelections(Map<String, String> updated)
 	{
+		if (!running || selections.equals(updated))
+		{
+			return;
+		}
+		Set<String> changed = new HashSet<>(selections.keySet());
+		changed.addAll(updated.keySet());
+		changed.removeIf(key -> java.util.Objects.equals(selections.get(key), updated.get(key)));
+		selections.clear();
+		selections.putAll(updated);
+		reportedModelFailures.clear();
+		rebuildTargets();
+		refreshObjects(changed);
+		rescanLoadedWorldViews();
+	}
+
+	void setCatalogue(Catalogue catalogue)
+	{
+		this.catalogue = catalogue;
 		if (!running)
 		{
 			return;
 		}
-		beginZoneInvalidationBatch();
-		try
-		{
-			Set<PohFurniture> changed = EnumSet.noneOf(PohFurniture.class);
-			for (PohFurniture furniture : PohFurniture.values())
-			{
-				int sourceId = PohAppearanceCatalog.canonicalSelectionId(
-					updated.getOrDefault(furniture, -1));
-				int accepted = PohFurniture.isAllowed(furniture, sourceId) ? sourceId : -1;
-				Integer previous = selections.put(furniture, accepted);
-				if (previous == null || previous != accepted)
-				{
-					changed.add(furniture);
-					pendingModelSlots.add(furniture);
-				}
-			}
-			if (changed.isEmpty())
-			{
-				return;
-			}
-			reportedModelFailures.clear();
-			changed.addAll(loadModels());
-			rebuildTargets();
-			refreshObjects(changed);
-		}
-		finally
-		{
-			endZoneInvalidationBatch();
-		}
+		deactivateAll();
+		invalidateAllKnownZones();
+		clearSceneState();
+		modelCache.clear();
+		reportedModelFailures.clear();
+		pendingModels.clear();
+		rebuildTargets();
+		rescanLoadedWorldViews();
 	}
-
 	void setHidden(boolean hidden)
 	{
 		if (!running)
@@ -182,8 +177,6 @@ class PohCosmeticTransmogsManager
 		try
 		{
 			modelCache.clear();
-			pendingModelSlots.addAll(selections.keySet());
-			loadModels();
 			refreshAllObjects();
 		}
 		finally
@@ -194,13 +187,14 @@ class PohCosmeticTransmogsManager
 
 	void loadMissingModels()
 	{
-		Set<PohFurniture> loaded = loadModels();
-		if (!loaded.isEmpty())
+		if (running && !hidden)
 		{
-			refreshObjects(loaded);
+			for (TileObject object : new ArrayList<>(pendingModels))
+			{
+				refreshObject(object);
+			}
 		}
 	}
-
 	void addObject(@Nullable TileObject object)
 	{
 		if (!running || !(object instanceof GameObject))
@@ -227,8 +221,8 @@ class PohCosmeticTransmogsManager
 			? candidate.getId() : recentState == null ? -1 : recentState;
 		boolean stateTransition = previousId >= 0
 			&& target == targetsById.get(previousId)
-			&& target.isOpen(previousId) != target.isOpen(object.getId());
-		boolean opening = target.isOpen(object.getId());
+			&& target.target.isOpen(previousId) != target.target.isOpen(object.getId());
+		boolean opening = target.target.isOpen(object.getId());
 		if (candidate != null && candidate != object)
 		{
 			// Suppress the retired state until its despawn event so it cannot flash.
@@ -247,7 +241,7 @@ class PohCosmeticTransmogsManager
 			refreshObject(object);
 			if (stateTransition)
 			{
-				target.transition(object, opening);
+				transition(object, target, opening);
 			}
 		}
 	}
@@ -257,13 +251,14 @@ class PohCosmeticTransmogsManager
 		if (object != null)
 		{
 			deactivate(object);
+			pendingModels.remove(object);
 			boolean tracked = sceneObjects.remove(object);
 			if (object instanceof GameObject)
 			{
 				TargetBinding target = targetsById.get(object.getId());
 				PlacementKey placement = new PlacementKey((GameObject) object, target);
 				// Late despawns from a retired state must not replace the current state.
-				if (tracked && target != null && target.remembersState())
+				if (tracked && target != null && target.target.isStateful())
 				{
 					recentDespawnedStates.put(placement, object.getId());
 				}
@@ -302,6 +297,7 @@ class PohCosmeticTransmogsManager
 
 	void clearSceneState()
 	{
+		pendingModels.clear();
 		deactivateAll();
 		sceneObjects.clear();
 		scenePlacements.clear();
@@ -418,120 +414,50 @@ class PohCosmeticTransmogsManager
 		return client.isGpu() && callbacks != null;
 	}
 
-	private static TargetSpec singleTarget(int id)
-	{
-		TargetSpec target = new TargetSpec();
-		target.key = Integer.toString(id);
-		target.objectIds = new int[] {id};
-		return target;
-	}
-
 	private void rebuildTargets()
 	{
 		targetsById.clear();
-		PohAppearanceCatalog.targetDefinitions().forEach((id, definition) ->
-			targetsById.put(id, new TargetBinding(singleTarget(id), null, PohAppearanceCatalog.recipe(definition.getObjectId()))));
-		for (PohFurniture furniture : PohFurniture.values())
-		{
-			TargetBinding target = new TargetBinding(PohAppearanceCatalog.target(furniture.name().toLowerCase(java.util.Locale.ROOT)), furniture,
-				PohAppearanceCatalog.recipe(selections.getOrDefault(furniture, -1)));
-			for (int objectId : furniture.getObjectIds())
-			{
-				targetsById.put(objectId, target);
-			}
-		}
-	}
-
-	private Set<PohFurniture> loadModels()
-	{
-		if (!running || pendingModelSlots.isEmpty())
-		{
-			return Collections.emptySet();
-		}
-		Set<PohFurniture> loaded = EnumSet.noneOf(PohFurniture.class);
-		for (PohFurniture furniture : EnumSet.copyOf(pendingModelSlots))
-		{
-			int sourceId = selections.getOrDefault(furniture, -1);
-			if (sourceId < 0)
-			{
-				pendingModelSlots.remove(furniture);
-				continue;
-			}
-			boolean ready = loadState(furniture, sourceId, false) != null;
-			if (furniture.getRepresentativeOpenObjectId() >= 0)
-			{
-				ready &= loadState(furniture, sourceId, true) != null;
-			}
-			if (ready)
-			{
-				loaded.add(furniture);
-				pendingModelSlots.remove(furniture);
-				reportedModelFailures.remove(sourceId);
-			}
-			else if (reportedModelFailures.add(sourceId))
-			{
-				log.warn("Unable to load PoH transmog appearance {} for {}", sourceId, furniture);
-			}
-		}
-		return loaded;
+		targetsById.putAll(catalogue.bind(selections));
 	}
 
 	@Nullable
-	private Model loadState(PohFurniture furniture, int appearanceId, boolean open)
+	private Model loadState(TargetBinding binding, GameObject object, boolean open)
 	{
-		PohAppearanceCatalog.Definition definition = PohAppearanceCatalog.state(appearanceId, open);
-		if (definition == null)
-		{
-			return null;
-		}
-		PohAppearanceCatalog.Definition appearance = PohAppearanceCatalog.get(
-			PohAppearanceCatalog.canonicalSelectionId(appearanceId));
-		return loadModel(furniture, definition, modelCacheKey(furniture, definition,
-			PohAppearanceCatalog.ModelFactory.calibration(furniture, appearance)));
-	}
-
-	private ModelCacheKey modelCacheKey(@Nullable PohFurniture furniture,
-		PohAppearanceCatalog.Definition definition,
-		PohAppearanceCatalog.Calibration calibration)
-	{
-		return new ModelCacheKey(definition.getObjectId(), definition.getModelIds(),
-			modelFactory.recoloursPortal(furniture, definition), calibration);
+		Catalogue.Definition state = binding.appearance.state(open);
+		return loadModel(binding, state, binding.appearance.stateKey(state),
+			binding.calibration(object.sizeX(), object.sizeY()));
 	}
 
 	@Nullable
-	private Model loadModel(@Nullable PohFurniture furniture,
-		@Nullable PohAppearanceCatalog.Definition definition,
-		@Nullable ModelCacheKey recipe)
+	private Model loadModel(TargetBinding binding, Catalogue.Definition definition, String stateKey,
+		Catalogue.Calibration calibration)
 	{
-		if (definition == null || recipe == null)
-		{
-			return null;
-		}
-		Model model = modelCache.get(recipe);
+		ModelCacheKey key = new ModelCacheKey(binding.appearance.key, stateKey, definition.getModelIds(),
+			modelFactory.recoloursPortal(binding.target, definition), calibration);
+		Model model = modelCache.get(key);
 		if (model == null)
 		{
-			model = modelFactory.load(furniture, definition, recipe.calibration);
+			model = modelFactory.load(binding.target, definition, calibration);
 			if (model != null)
 			{
-				modelCache.put(recipe, model);
+				modelCache.put(key, model);
 			}
 		}
 		return model;
 	}
-
 	private void refreshAllObjects()
 	{
 		refreshObjects(null);
 	}
 
-	private void refreshObjects(@Nullable Set<PohFurniture> furniture)
+	private void refreshObjects(@Nullable Set<String> targetKeys)
 	{
 		beginZoneInvalidationBatch();
 		try
 		{
 			for (TileObject object : sceneObjects)
 			{
-				if (furniture == null || furniture.contains(PohFurniture.fromObjectId(object.getId())))
+				if (targetKeys == null || changedTarget(object.getId(), targetKeys))
 				{
 					refreshObject(object);
 				}
@@ -541,6 +467,25 @@ class PohCosmeticTransmogsManager
 		{
 			endZoneInvalidationBatch();
 		}
+	}
+
+	private boolean changedTarget(int objectId, Set<String> keys)
+	{
+		for (String key : keys)
+		{
+			TargetSpec target = catalogue.targets.get(key);
+			if (target != null)
+			{
+				for (int id : target.objectIds)
+				{
+					if (id == objectId)
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private void refreshObject(TileObject object)
@@ -563,8 +508,8 @@ class PohCosmeticTransmogsManager
 			invalidateZone(object);
 			return;
 		}
-		PohAppearanceCatalog.Definition definition = resolved.definition;
-		PohAppearanceCatalog.Calibration calibration = resolved.calibration;
+		Catalogue.Definition definition = resolved.definition;
+		Catalogue.Calibration calibration = resolved.calibration;
 		Model model = resolved.model;
 		WorldView worldView = object.getWorldView();
 		if (worldView == null || !isVisibleLevel(object.getPlane(), worldView.getPlane()))
@@ -576,12 +521,12 @@ class PohCosmeticTransmogsManager
 			return;
 		}
 
-		int sourceObjectId = resolved.appearance.source.getObjectId();
+		String appearanceKey = resolved.appearance.key;
 		RuneLiteObject replacement = resolved.appearance.bobbing
 			? new BobbingRuneLiteObject(client) : client.createRuneLiteObject();
 		replacement.setModel(model);
 		int baseOrientation = (gameObject.getOrientation()
-			+ targetsById.get(gameObject.getId()).spec.orientationOffset) & 2047;
+			+ targetsById.get(gameObject.getId()).target.orientationOffset) & 2047;
 		int correction = calibration.getRotation();
 		int defaultOrientation = (baseOrientation + correction) & 2047;
 		LocalPoint anchor = occupiedTileCentre(gameObject);
@@ -648,7 +593,7 @@ class PohCosmeticTransmogsManager
 			publishSnapshots();
 		}
 		log.debug("Activated appearance {} for target object {}",
-			sourceObjectId, object.getId());
+			appearanceKey, object.getId());
 		invalidateZone(object);
 	}
 
@@ -656,7 +601,24 @@ class PohCosmeticTransmogsManager
 	private ResolvedReplacement resolve(GameObject object)
 	{
 		TargetBinding target = targetsById.get(object.getId());
-		return target == null ? null : target.resolve(object);
+		pendingModels.remove(object);
+		if (target == null)
+		{
+			return null;
+		}
+		Catalogue.Definition definition = target.state(object.getId());
+		Catalogue.Calibration calibration = target.calibration(object.sizeX(), object.sizeY());
+		Model model = loadModel(target, definition, target.appearance.stateKey(definition), calibration);
+		if (model == null)
+		{
+			pendingModels.add(object);
+			if (reportedModelFailures.add(target.appearance.key))
+			{
+				log.warn("Unable to load appearance {}", target.appearance.key);
+			}
+			return null;
+		}
+		return new ResolvedReplacement(definition, model, target.appearance, calibration);
 	}
 
 	private void rescanLoadedWorldViews()
@@ -682,21 +644,22 @@ class PohCosmeticTransmogsManager
 	}
 
 	private void startModelTransition(
-		TileObject object, PohFurniture furniture, PohAppearanceCatalog.Recipe appearance, boolean opening)
+		TileObject object, TargetBinding binding, boolean opening)
 	{
-		PohAppearanceCatalog.Definition source = appearance.source;
+		Catalogue.Recipe appearance = binding.appearance;
+		Catalogue.Definition source = appearance;
 		Animation animation = client.loadAnimation(appearance.transitionAnimationId);
 		RuneLiteObject replacement = activeReplacements.get(object);
 		if (animation == null || replacement == null)
 		{
 			return;
 		}
-		Model open = loadState(furniture, source.getObjectId(), true);
-		Model closed = loadState(furniture, source.getObjectId(), false);
-		PohAppearanceCatalog.Calibration calibration =
-			PohAppearanceCatalog.ModelFactory.calibration(furniture, source);
+		Model open = loadState(binding, (GameObject) object, true);
+		Model closed = loadState(binding, (GameObject) object, false);
+		Catalogue.Calibration calibration =
+			binding.calibration(((GameObject) object).sizeX(), ((GameObject) object).sizeY());
 		Model transition = loadTransitionModel(
-			furniture, source, appearance.transitionModelId, appearance.transitionAnimationId, calibration);
+			binding, source, appearance.transitionModelId, appearance.transitionAnimationId, calibration);
 		if (open == null || closed == null || transition == null)
 		{
 			return;
@@ -740,17 +703,16 @@ class PohCosmeticTransmogsManager
 		transitionEffects.put(replacement, effect);
 	}
 
-	private void reverseOpenTransition(TileObject object, PohFurniture furniture,
-		PohAppearanceCatalog.Recipe appearance)
+	private void reverseOpenTransition(TileObject object, TargetBinding binding)
 	{
 		RuneLiteObject replacement = activeReplacements.get(object);
-		Animation transition = client.loadAnimation(appearance.open.getSpawnAnimationId());
+		Animation transition = client.loadAnimation(binding.appearance.open.getSpawnAnimationId());
 		if (replacement == null || transition == null)
 		{
 			return;
 		}
-		PohAppearanceCatalog.Calibration calibration =
-			PohAppearanceCatalog.ModelFactory.calibration(furniture, appearance.source);
+		Catalogue.Calibration calibration =
+			binding.calibration(((GameObject) object).sizeX(), ((GameObject) object).sizeY());
 		PostTransformAnimationController controller =
 			new PostTransformAnimationController(client, transition, calibration, true);
 		controller.setReverseFinished(() ->
@@ -759,18 +721,16 @@ class PohCosmeticTransmogsManager
 			{
 				return;
 			}
-			Animation idle = client.loadAnimation(appearance.closed.getAnimationId());
+			Animation idle = client.loadAnimation(binding.appearance.closed.getAnimationId());
 			replacement.setAnimationController(idle == null ? null
 				: new PostTransformAnimationController(client, idle, calibration));
 		});
 		replacement.setAnimationController(controller);
 	}
 
-	private void startScaleTransition(TileObject object, PohFurniture furniture, boolean opening)
+	private void startScaleTransition(TileObject object, TargetBinding binding, boolean opening)
 	{
-		int sourceId = PohAppearanceCatalog.canonicalSelectionId(
-			selections.getOrDefault(furniture, -1));
-		PohAppearanceCatalog.Definition source = PohAppearanceCatalog.get(sourceId);
+		Catalogue.Definition source = binding.appearance;
 		RuneLiteObject replacement = activeReplacements.get(object);
 		if (source == null || replacement == null)
 		{
@@ -778,24 +738,24 @@ class PohCosmeticTransmogsManager
 		}
 		Animation idle = source.getAnimationId() < 0
 			? null : client.loadAnimation(source.getAnimationId());
-		PohAppearanceCatalog.Calibration calibration =
-			PohAppearanceCatalog.ModelFactory.calibration(furniture, source);
+		Catalogue.Calibration calibration =
+			binding.calibration(((GameObject) object).sizeX(), ((GameObject) object).sizeY());
 		replacement.setAnimationController(new ScaleTransitionController(
 			client, idle, calibration, opening, SCALE_TRANSITION_DURATION));
 	}
 
 	@Nullable
-	private Model loadTransitionModel(PohFurniture furniture,
-		PohAppearanceCatalog.Definition source, int modelId, int animationId,
-		PohAppearanceCatalog.Calibration calibration)
+	private Model loadTransitionModel(TargetBinding binding,
+		Catalogue.Definition source, int modelId, int animationId,
+		Catalogue.Calibration calibration)
 	{
-		PohAppearanceCatalog.Definition transition = new PohAppearanceCatalog.Definition(
-			source.getObjectId(), source.getSizeX(), source.getSizeY(),
+		Catalogue.Definition transition = new Catalogue.Definition(
+			source.getSourceObjectId(), source.getSizeX(), source.getSizeY(),
 			new int[] {modelId}, animationId);
 		transition.recolorFrom = source.getRecolorFrom();
 		transition.recolorTo = source.getRecolorTo();
 		transition.crystalColours = source.getCrystalColours();
-		return loadModel(furniture, transition, modelCacheKey(furniture, transition, calibration));
+		return loadModel(binding, transition, "transition", calibration);
 	}
 
 	private boolean spawnVisible(GameObject object)
@@ -816,7 +776,7 @@ class PohCosmeticTransmogsManager
 	}
 
 	private static void applyCalibration(Model model,
-		PohAppearanceCatalog.Calibration calibration)
+		Catalogue.Calibration calibration)
 	{
 		int scaleX = calibration.signedScaleX();
 		if (scaleX != 128 || calibration.getScaleHeight() != 128 || calibration.getScaleY() != 128)
@@ -852,7 +812,7 @@ class PohCosmeticTransmogsManager
 		return object.getWorldView().getId() + ":" + object.getPlane() + ":"
 			+ object.getSceneMinLocation().getX() + ":"
 			+ object.getSceneMinLocation().getY() + ":"
-			+ (target == null ? object.getId() : target.appearanceKey());
+			+ (target == null ? object.getId() : target.target.key);
 	}
 
 	static boolean isVisibleLevel(int objectPlane, int activePlane)
@@ -1005,97 +965,40 @@ class PohCosmeticTransmogsManager
 		}
 	}
 
-	private final class TargetBinding
+	private void transition(TileObject object, TargetBinding binding, boolean opening)
 	{
-		private final TargetSpec spec;
-		private final PohFurniture furniture;
-		private final PohAppearanceCatalog.Recipe appearance;
-
-		private TargetBinding(TargetSpec spec, @Nullable PohFurniture furniture,
-			@Nullable PohAppearanceCatalog.Recipe appearance)
+		Catalogue.Recipe appearance = binding.appearance;
+		if (!binding.target.isStateful())
 		{
-			this.spec = spec;
-			this.furniture = furniture;
-			this.appearance = appearance;
+			return;
 		}
-
-		@Nullable
-		ResolvedReplacement resolve(GameObject object)
+		if (appearance.transitionModelId >= 0)
 		{
-			if (appearance == null)
-			{
-				return null;
-			}
-			PohAppearanceCatalog.Definition definition = remembersState()
-				? appearance.state(isOpen(object.getId()))
-				: appearance.source;
-			if (definition == null)
-			{
-				return null;
-			}
-			PohAppearanceCatalog.Calibration calibration = PohAppearanceCatalog.ModelFactory.calibration(
-				furniture, spec.sizeX > 0 ? spec.sizeX : object.sizeX(),
-				spec.sizeY > 0 ? spec.sizeY : object.sizeY(), appearance.source);
-			Model model = loadModel(furniture, definition, modelCacheKey(furniture, definition, calibration));
-			return model == null ? null : new ResolvedReplacement(
-				definition, model, appearance, calibration);
+			startModelTransition(object, binding, opening);
 		}
-
-		String placementId()
+		else if (!opening && appearance.open.getSpawnAnimationId() >= 0)
 		{
-			return spec.key;
+			reverseOpenTransition(object, binding);
 		}
-
-		String appearanceKey()
+		else if (binding.target.scaleTransition && appearance.closed == appearance.open)
 		{
-			return spec.key;
-		}
-
-		boolean isOpen(int objectId)
-		{
-			return spec.isOpen(objectId);
-		}
-
-		boolean remembersState()
-		{
-			return spec.isStateful();
-		}
-
-		void transition(TileObject object, boolean opening)
-		{
-			if (!remembersState() || appearance == null)
-			{
-				return;
-			}
-			if (appearance.transitionModelId >= 0)
-			{
-				startModelTransition(object, furniture, appearance, opening);
-			}
-			else if (!opening && appearance.open.getSpawnAnimationId() >= 0)
-			{
-				reverseOpenTransition(object, furniture, appearance);
-			}
-			else if (spec.scaleTransition
-				&& appearance.closed == appearance.open)
-			{
-				startScaleTransition(object, furniture, opening);
-			}
+			startScaleTransition(object, binding, opening);
 		}
 	}
-
 	@Value
 	private static class ResolvedReplacement
 	{
-		PohAppearanceCatalog.Definition definition;
+		Catalogue.Definition definition;
 		Model model;
-		PohAppearanceCatalog.Recipe appearance;
-		PohAppearanceCatalog.Calibration calibration;
+		Catalogue.Recipe appearance;
+		Catalogue.Calibration calibration;
 	}
 
 	@Value
 	private static class ModelCacheKey
 	{
-		int objectId;
+		String appearanceKey;
+		String stateKey;
 		int[] modelIds;
 		boolean portalRecolour;
 		int scaleX;
@@ -1104,12 +1007,13 @@ class PohCosmeticTransmogsManager
 		int offsetHeight;
 		boolean flipX;
 		@EqualsAndHashCode.Exclude
-		PohAppearanceCatalog.Calibration calibration;
+		Catalogue.Calibration calibration;
 
-		private ModelCacheKey(int objectId, int[] modelIds, boolean portalRecolour,
-			PohAppearanceCatalog.Calibration calibration)
+		private ModelCacheKey(String appearanceKey, String stateKey, int[] modelIds, boolean portalRecolour,
+			Catalogue.Calibration calibration)
 		{
-			this.objectId = objectId;
+			this.appearanceKey = appearanceKey;
+			this.stateKey = stateKey;
 			this.modelIds = modelIds;
 			this.portalRecolour = portalRecolour;
 			scaleX = calibration.getScaleX();
@@ -1135,7 +1039,7 @@ class PohCosmeticTransmogsManager
 			plane = object.getPlane();
 			x = object.getSceneMinLocation().getX();
 			y = object.getSceneMinLocation().getY();
-			this.target = target == null ? Integer.toString(object.getId()) : target.placementId();
+			this.target = target == null ? Integer.toString(object.getId()) : target.target.key;
 		}
 
 		@Override
@@ -1204,7 +1108,7 @@ class PohCosmeticTransmogsManager
 	/** Applies visual fitting to the completed pose, including its animated translations. */
 	private static final class PostTransformAnimationController extends AnimationController
 	{
-		private final PohAppearanceCatalog.Calibration calibration;
+		private final Catalogue.Calibration calibration;
 		private final boolean reverse;
 		private int reverseElapsedTicks;
 		private Runnable reverseFinished = () -> { };
@@ -1214,13 +1118,13 @@ class PohCosmeticTransmogsManager
 		private BooleanSupplier waitUntil;
 
 		private PostTransformAnimationController(Client client, Animation animation,
-			PohAppearanceCatalog.Calibration calibration)
+			Catalogue.Calibration calibration)
 		{
 			this(client, animation, calibration, false);
 		}
 
 		private PostTransformAnimationController(Client client, Animation animation,
-			PohAppearanceCatalog.Calibration calibration, boolean reverse)
+			Catalogue.Calibration calibration, boolean reverse)
 		{
 			super(client, animation);
 			this.calibration = calibration;
@@ -1322,14 +1226,14 @@ class PohCosmeticTransmogsManager
 	{
 		private final Client client;
 		private static final int OPEN_SCALE = 160;
-		private final PohAppearanceCatalog.Calibration calibration;
+		private final Catalogue.Calibration calibration;
 		private final boolean opening;
 		private final int duration;
 		private int elapsed;
 		private Model finalPose;
 
 		private ScaleTransitionController(Client client, @Nullable Animation animation,
-			PohAppearanceCatalog.Calibration calibration, boolean opening, int duration)
+			Catalogue.Calibration calibration, boolean opening, int duration)
 		{
 			super(client, animation);
 			this.client = client;

@@ -2,7 +2,8 @@ package com.pohcosmetictransmogs;
 
 import com.google.gson.Gson;
 import com.google.inject.Provides;
-import java.util.EnumMap;
+import java.io.StringReader;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
@@ -89,7 +90,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	@Provides
 	PohCosmeticTransmogsConfig provideConfig(ConfigManager manager, Gson gson)
 	{
-		PohAppearanceCatalog.loadCatalogue(gson);
+		Catalogue.current = Catalogue.loadCatalogue(gson, null, Catalogue.openCatalogueReader());
 		return manager.getConfig(PohCosmeticTransmogsConfig.class);
 	}
 
@@ -107,9 +108,8 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 			{
 				return;
 			}
-			PohAppearanceCatalog.initialize(gson, client,
-				configManager.getConfiguration(PohCosmeticTransmogsConfig.GROUP, "pohtransmogs"));
-			Map<PohFurniture, Integer> selections = readFurnitureSelections();
+			reloadCatalogue();
+			Map<String, String> selections = readSelections();
 			if (manager.isSupportedRenderer())
 			{
 				startManager(selections);
@@ -132,11 +132,11 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	@Override
 	public void resetConfiguration()
 	{
-		Map<PohFurniture, Integer> selections = PohFurniture.emptySelections();
-		for (PohFurniture furniture : PohFurniture.values())
+		Map<String, String> selections = new LinkedHashMap<>();
+		for (PohTargetSlot furniture : PohTargetSlot.values())
 		{
 			String key = furniture.getConfigKey();
-			Enum<?> original = furniture.option(-1);
+			Enum<?> original = furniture.option("");
 			if (!original.name().equals(configManager.getConfiguration(PohCosmeticTransmogsConfig.GROUP, key)))
 			{
 				configManager.setConfiguration(PohCosmeticTransmogsConfig.GROUP, key, original);
@@ -153,15 +153,17 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 			return;
 		}
 
-		PohFurniture furniture = PohFurniture.fromConfigKey(event.getKey());
-		if (furniture != null)
+		if (PohTargetSlot.isConfigKey(event.getKey()))
 		{
-			clientThread.invokeLater(() -> manager.setSelections(readFurnitureSelections()));
+			clientThread.invokeLater(() -> manager.setSelections(readSelections()));
 			return;
 		}
 
 		switch (event.getKey())
 		{
+			case "pohtransmogs":
+				clientThread.invokeLater(this::reloadCatalogue);
+				break;
 			case "hideFurnitureTransmogs":
 				clientThread.invokeLater(() -> manager.setHidden(config.hideFurnitureTransmogs()));
 				break;
@@ -187,7 +189,11 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	@Subscribe
 	public void onProfileChanged(ProfileChanged event)
 	{
-		clientThread.invokeLater(() -> manager.setSelections(readFurnitureSelections()));
+		clientThread.invokeLater(() ->
+		{
+			reloadCatalogue();
+			manager.setSelections(readSelections());
+		});
 	}
 
 	@Subscribe
@@ -204,7 +210,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 		rendererWaitTicks = 0;
 		if (!managerStarted)
 		{
-			startManager(readFurnitureSelections());
+			startManager(readSelections());
 		}
 		manager.syncVisibleLevels();
 		manager.loadMissingModels();
@@ -261,7 +267,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 		manager.removeObject(event.getGameObject());
 	}
 
-	private void startManager(Map<PohFurniture, Integer> selections)
+	private void startManager(Map<String, String> selections)
 	{
 		manager.start(selections, config.hideFurnitureTransmogs());
 		managerStarted = true;
@@ -310,27 +316,35 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 		}
 	}
 
-	private Map<PohFurniture, Integer> readFurnitureSelections()
+	private void reloadCatalogue()
 	{
-		Map<PohFurniture, Integer> selections = new EnumMap<>(PohFurniture.class);
-		for (PohFurniture furniture : PohFurniture.values())
+		Catalogue.current = Catalogue.loadCatalogue(gson, client, Catalogue.openCatalogueReader(),
+			new StringReader(java.util.Objects.toString(configManager.getConfiguration(
+				PohCosmeticTransmogsConfig.GROUP, "pohtransmogs"), "{}")));
+		manager.setCatalogue(Catalogue.current);
+	}
+
+	private Map<String, String> readSelections()
+	{
+		Map<String, String> selections = new LinkedHashMap<>();
+		for (PohTargetSlot furniture : PohTargetSlot.values())
 		{
-			selections.put(furniture, readAppearanceId(furniture));
+			selections.put(furniture.getTargetKey(), readAppearanceKey(furniture));
 		}
 		return selections;
 	}
 
-	private int readAppearanceId(PohFurniture furniture)
+	private String readAppearanceKey(PohTargetSlot furniture)
 	{
 		switch (furniture)
 		{
-			case ENTRANCE_PORTAL: return config.entrancePortal().getObjectId();
-			case FANCY_DRESS_BOX: return config.fancyDressBox().getObjectId();
-			case MAGIC_WARDROBE: return config.magicWardrobe().getObjectId();
-			case TREASURE_CHEST: return config.treasureChest().getObjectId();
-			case CAPE_RACK: return config.capeRack().getObjectId();
-			case ARMOUR_CASE: return config.armourCase().getObjectId();
-			case TOY_BOX: return config.toyBox().getObjectId();
+			case ENTRANCE_PORTAL: return config.entrancePortal().getAppearanceKey();
+			case FANCY_DRESS_BOX: return config.fancyDressBox().getAppearanceKey();
+			case MAGIC_WARDROBE: return config.magicWardrobe().getAppearanceKey();
+			case TREASURE_CHEST: return config.treasureChest().getAppearanceKey();
+			case CAPE_RACK: return config.capeRack().getAppearanceKey();
+			case ARMOUR_CASE: return config.armourCase().getAppearanceKey();
+			case TOY_BOX: return config.toyBox().getAppearanceKey();
 			default: throw new IllegalArgumentException(furniture.name());
 		}
 	}
