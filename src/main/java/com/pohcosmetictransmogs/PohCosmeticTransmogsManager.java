@@ -95,9 +95,7 @@ class PohCosmeticTransmogsManager
 	{
 		running = false;
 		deactivateAll();
-		// GPU/117 HD cache scenery by zone. Shutdown unregisters the render
-		// callback before this client-thread cleanup, so rebuilding these zones
-		// restores every original object as the RuneLiteObjects are removed.
+		// Rebuild cached scenery after removing replacements and ending suppression.
 		invalidateAllKnownZones();
 		sceneObjects.clear();
 		scenePlacements.clear();

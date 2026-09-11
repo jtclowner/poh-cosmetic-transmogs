@@ -6,8 +6,6 @@ import java.io.StringReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.inject.Inject;
-import javax.swing.SwingUtilities;
-import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
@@ -28,8 +26,6 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.events.ProfileChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.PluginInstantiationException;
-import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.ui.overlay.OverlayManager;
 
 @PluginDescriptor(
@@ -37,11 +33,8 @@ import net.runelite.client.ui.overlay.OverlayManager;
 	description = "Transmog specific PoH slot and props into curated, whitelisted cosmetic objects",
 	tags = {"poh", "house", "slot", "cosmetic", "transmog"}
 )
-@Slf4j
 public class PohCosmeticTransmogsPlugin extends Plugin
 {
-	private static final int RENDERER_STARTUP_GRACE_TICKS = 5;
-
 	@Inject
 	private Client client;
 
@@ -59,9 +52,6 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 
 	@Inject
 	private PohCosmeticTransmogsManager manager;
-
-	@Inject
-	private PluginManager pluginManager;
 
 	@Inject
 	private RenderCallbackManager renderCallbackManager;
@@ -84,7 +74,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	private int sceneScanTicksRemaining;
 	private volatile boolean enabled;
 	private boolean managerStarted;
-	private int rendererWaitTicks;
+	private boolean rendererWarningShown;
 	private boolean overlayAdded;
 
 	@Provides
@@ -102,7 +92,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	{
 		enabled = true;
 		managerStarted = false;
-		rendererWaitTicks = 0;
+		rendererWarningShown = false;
 		renderCallbackManager.register(renderCallback);
 		updateShapeOverlay();
 		clientThread.invokeLater(() ->
@@ -112,11 +102,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 				return;
 			}
 			reloadCatalogue();
-			Map<String, String> selections = readSelections();
-			if (manager.isSupportedRenderer())
-			{
-				startManager(selections);
-			}
+			updateRenderer();
 		});
 	}
 
@@ -129,7 +115,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 		clientThread.invoke(manager::stop);
 		sceneScanTicksRemaining = 0;
 		managerStarted = false;
-		rendererWaitTicks = 0;
+		rendererWarningShown = false;
 	}
 
 	@Override
@@ -202,18 +188,10 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	@Subscribe
 	public void onGameTick(GameTick event)
 	{
-		if (!manager.isSupportedRenderer())
-		{
-			if (managerStarted || ++rendererWaitTicks >= RENDERER_STARTUP_GRACE_TICKS)
-			{
-				disableForUnsupportedRenderer();
-			}
-			return;
-		}
-		rendererWaitTicks = 0;
+		updateRenderer();
 		if (!managerStarted)
 		{
-			startManager(readSelections());
+			return;
 		}
 		manager.syncVisibleLevels();
 		manager.loadMissingModels();
@@ -270,39 +248,43 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 		manager.removeObject(event.getGameObject());
 	}
 
-	private void startManager(Map<String, String> selections)
-	{
-		manager.start(selections, config.hideFurnitureTransmogs());
-		managerStarted = true;
-	}
-
-	private void disableForUnsupportedRenderer()
+	private void updateRenderer()
 	{
 		if (!enabled)
 		{
 			return;
 		}
-		enabled = false;
-		client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
-			"GPU or 117 HD must be enabled to use PoH Cosmetic Transmogs. GPU Legacy is not supported.", null);
-		log.warn("PoH Cosmetic Transmogs requires GPU or 117 HD (not GPU Legacy); disabling plugin");
-		SwingUtilities.invokeLater(() ->
+		if (manager.isSupportedRenderer())
 		{
-			pluginManager.setPluginEnabled(this, false);
-			try
+			rendererWarningShown = false;
+			if (!managerStarted)
 			{
-				pluginManager.stopPlugin(this);
+				manager.start(readSelections(), config.hideFurnitureTransmogs());
+				managerStarted = true;
+				updateShapeOverlay();
 			}
-			catch (PluginInstantiationException ex)
+		}
+		else
+		{
+			if (managerStarted)
 			{
-				log.error("Unable to stop PoH Cosmetic Transmogs", ex);
+				manager.stop();
+				managerStarted = false;
+				updateShapeOverlay();
 			}
-		});
+			// Chat is not visible at the login screen; report the pause after login.
+			if (!rendererWarningShown && client.getGameState() == GameState.LOGGED_IN)
+			{
+				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
+					"PoH Cosmetic Transmogs is paused. Enable GPU or 117 HD to resume automatically. GPU Legacy is not supported.", null);
+				rendererWarningShown = true;
+			}
+		}
 	}
 
 	private void updateShapeOverlay()
 	{
-		boolean shouldAdd = enabled && config.outlineOriginalShape();
+		boolean shouldAdd = enabled && managerStarted && config.outlineOriginalShape();
 		if (shouldAdd == overlayAdded)
 		{
 			return;

@@ -30,6 +30,46 @@ import static org.junit.Assert.*;
 public class ManagerTest
 {
 	@Test
+	public void rendererAvailabilityRequiresGpuAndCallbacks()
+	{
+		Harness h = new Harness("");
+		assertTrue(h.manager.isSupportedRenderer());
+		h.gpu = false;
+		assertFalse(h.manager.isSupportedRenderer());
+		h.gpu = true;
+		h.callbacksAvailable = false;
+		assertFalse(h.manager.isSupportedRenderer());
+		h.callbacksAvailable = true;
+		assertTrue(h.manager.isSupportedRenderer());
+		h.manager.stop();
+	}
+
+	@Test
+	public void pausingRestoresOriginalsAndRestartRescansLoadedObjects()
+	{
+		Harness h = new Harness("");
+		GameObject object = h.object(1);
+		h.loaded.add(object);
+		h.manager.addObject(object);
+		assertFalse(h.manager.shouldDrawObject(object));
+		h.gpu = false;
+		h.manager.stop();
+		assertTrue(h.active.isEmpty());
+		assertTrue(h.manager.shouldDrawObject(object));
+		h.manager.addObject(object);
+		assertTrue(h.active.isEmpty());
+		h.gpu = true;
+		h.manager.start(Collections.emptyMap(), false);
+		assertEquals(1, h.active.size());
+		assertFalse(h.manager.shouldDrawObject(object));
+		h.manager.stop();
+		h.manager.start(Collections.emptyMap(), true);
+		assertTrue(h.active.isEmpty());
+		assertTrue(h.manager.shouldDrawObject(object));
+		h.manager.stop();
+	}
+
+	@Test
 	public void configColourChannelsRunAfterFixedRecoloursAndRespectToggles()
 	{
 		for (boolean enabled : new boolean[] {false, true})
@@ -361,6 +401,8 @@ public class ManagerTest
 		final WorldView world;
 		final PohCosmeticTransmogsManager manager;
 		boolean modelsAvailable = true;
+		boolean gpu = true;
+		boolean callbacksAvailable = true;
 		int sizeX = 1;
 		int sizeY = 1;
 		int orientation;
@@ -405,8 +447,8 @@ public class ManagerTest
 			{
 				switch (name)
 				{
-					case "isGpu": return true;
-					case "getDrawCallbacks": return callbacks;
+					case "isGpu": return gpu;
+					case "getDrawCallbacks": return callbacksAvailable ? callbacks : null;
 					case "getTopLevelWorldView":
 					case "getWorldView": return world;
 					case "createRuneLiteObject": return new RuneLiteObject(client());
