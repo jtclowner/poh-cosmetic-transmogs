@@ -90,7 +90,10 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	@Provides
 	PohCosmeticTransmogsConfig provideConfig(ConfigManager manager, Gson gson)
 	{
-		Catalogue.current = Catalogue.loadCatalogue(gson, null, Catalogue.openCatalogueReader());
+		if (Catalogue.current.appearances.isEmpty())
+		{
+			Catalogue.current = Catalogue.loadCatalogue(gson, null, Catalogue.openCatalogueReader());
+		}
 		return manager.getConfig(PohCosmeticTransmogsConfig.class);
 	}
 

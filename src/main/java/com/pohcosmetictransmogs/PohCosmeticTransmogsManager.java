@@ -258,13 +258,20 @@ class PohCosmeticTransmogsManager
 			if (object instanceof GameObject)
 			{
 				TargetBinding target = targetsById.get(object.getId());
-				PlacementKey placement = new PlacementKey((GameObject) object, target);
-				// Late despawns from a retired state must not replace the current state.
-				if (tracked && target != null && target.target.isStateful())
+				if (target != null)
 				{
-					recentDespawnedStates.put(placement, object.getId());
+					PlacementKey placement = new PlacementKey((GameObject) object, target);
+					// Late despawns from a retired state must not replace the current state.
+					if (tracked && target.target.isStateful())
+					{
+						recentDespawnedStates.put(placement, object.getId());
+					}
+					scenePlacements.remove(placement, object);
 				}
-				scenePlacements.remove(placement, object);
+				else
+				{
+					scenePlacements.values().removeIf(candidate -> candidate == object);
+				}
 			}
 			retiredObjects.remove(object);
 			suppressedObjects.remove(object);
@@ -735,7 +742,7 @@ class PohCosmeticTransmogsManager
 	{
 		Catalogue.Definition source = binding.appearance;
 		RuneLiteObject replacement = activeReplacements.get(object);
-		if (source == null || replacement == null)
+		if (replacement == null)
 		{
 			return;
 		}
@@ -815,7 +822,7 @@ class PohCosmeticTransmogsManager
 		return object.getWorldView().getId() + ":" + object.getPlane() + ":"
 			+ object.getSceneMinLocation().getX() + ":"
 			+ object.getSceneMinLocation().getY() + ":"
-			+ (target == null ? object.getId() : target.target.key);
+			+ target.target.key;
 	}
 
 	static boolean isVisibleLevel(int objectPlane, int activePlane)
@@ -1036,13 +1043,13 @@ class PohCosmeticTransmogsManager
 		private final int y;
 		private final String target;
 
-		private PlacementKey(GameObject object, @Nullable TargetBinding target)
+		private PlacementKey(GameObject object, TargetBinding target)
 		{
 			worldView = object.getWorldView();
 			plane = object.getPlane();
 			x = object.getSceneMinLocation().getX();
 			y = object.getSceneMinLocation().getY();
-			this.target = target == null ? Integer.toString(object.getId()) : target.target.key;
+			this.target = target.target.key;
 		}
 
 		@Override

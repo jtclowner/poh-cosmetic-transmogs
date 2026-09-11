@@ -1,7 +1,5 @@
 package com.pohcosmetictransmogs;
 
-import java.util.Arrays;
-
 /** Scene IDs and placement semantics for one logical target. */
 final class TargetSpec
 {
@@ -23,7 +21,14 @@ final class TargetSpec
 
 	boolean isOpen(int objectId)
 	{
-		return Arrays.stream(openObjectIds).anyMatch(id -> id == objectId);
+		for (int id : openObjectIds)
+		{
+			if (id == objectId)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	boolean isStateful()

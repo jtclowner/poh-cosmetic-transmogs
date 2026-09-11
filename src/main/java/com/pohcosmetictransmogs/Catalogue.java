@@ -71,6 +71,10 @@ final class Catalogue
 		Reader reader, CatalogueData data)
 	{
 		JsonObject json = gson.fromJson(reader, JsonObject.class);
+		if (json == null)
+		{
+			return;
+		}
 		if (json.has("targets"))
 		{
 			for (Map.Entry<String, JsonElement> entry : json.getAsJsonObject("targets").entrySet())
