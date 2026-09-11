@@ -93,10 +93,8 @@
           "scaleX": 256,
           "scaleHeight": 256,
           "scaleY": 256,
-          "offsetX": 0,
           "offsetHeight": -2,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -121,10 +119,8 @@
           "scaleX": 200,
           "scaleHeight": 200,
           "scaleY": 200,
-          "offsetX": 0,
           "offsetHeight": -2,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -148,20 +144,13 @@
           "scaleX": 96,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
           "scaleX": 75,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -185,20 +174,13 @@
           "scaleX": 96,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
           "scaleX": 75,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -220,20 +202,13 @@
           "scaleX": 96,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
           "scaleX": 75,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -248,24 +223,10 @@
       "portalColours": [-24927, -24925, -24921, -23891, -24911],
       "placements": {
         "entrance_portal": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -284,23 +245,10 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -320,24 +268,10 @@
       "portalColours": [9901, 9905, 11061, 10935, 11076],
       "placements": {
         "entrance_portal": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -357,13 +291,7 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1536,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -385,13 +313,7 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1536,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -412,14 +334,7 @@
       "orientation": 1024,
       "placements": {
         "entrance_portal": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -440,14 +355,7 @@
       "orientation": 1024,
       "placements": {
         "entrance_portal": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -475,10 +383,8 @@
           "scaleX": 232,
           "scaleHeight": 232,
           "scaleY": 232,
-          "offsetX": 0,
           "offsetHeight": 84,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -494,13 +400,7 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -527,10 +427,7 @@
           "scaleX": 112,
           "scaleHeight": 112,
           "scaleY": 112,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -552,20 +449,14 @@
           "scaleX": 90,
           "scaleHeight": 90,
           "scaleY": 90,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
           "rotation": 1024,
           "scaleX": 90,
           "scaleHeight": 90,
           "scaleY": 90,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -587,10 +478,7 @@
           "scaleX": 100,
           "scaleHeight": 100,
           "scaleY": 100,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -610,10 +498,8 @@
           "scaleX": 102,
           "scaleHeight": 102,
           "scaleY": 102,
-          "offsetX": 0,
           "offsetHeight": -2,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -641,20 +527,13 @@
           "scaleX": 160,
           "scaleHeight": 160,
           "scaleY": 160,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
           "rotation": 512,
-          "scaleX": 128,
           "scaleHeight": 110,
           "scaleY": 256,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -676,20 +555,13 @@
           "scaleX": 86,
           "scaleHeight": 86,
           "scaleY": 86,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
           "scaleX": 75,
           "scaleHeight": 86,
           "scaleY": 86,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -711,20 +583,13 @@
           "scaleX": 86,
           "scaleHeight": 86,
           "scaleY": 86,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
           "scaleX": 75,
           "scaleHeight": 86,
           "scaleY": 40,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -745,20 +610,15 @@
           "scaleX": 102,
           "scaleHeight": 102,
           "scaleY": 102,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
           "rotation": 1024,
           "scaleX": 80,
           "scaleHeight": 80,
           "scaleY": 40,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": -16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -776,23 +636,13 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
-          "scaleX": 128,
           "scaleHeight": 90,
           "scaleY": 50,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": -16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -821,10 +671,8 @@
           "scaleX": 192,
           "scaleHeight": 192,
           "scaleY": 192,
-          "offsetX": 0,
           "offsetHeight": -2,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -847,10 +695,8 @@
           "scaleX": 216,
           "scaleHeight": 216,
           "scaleY": 216,
-          "offsetX": 0,
           "offsetHeight": 55,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -868,23 +714,12 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
-          "scaleX": 128,
           "scaleHeight": 90,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": -10,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -911,10 +746,7 @@
           "scaleX": 115,
           "scaleHeight": 115,
           "scaleY": 115,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -931,23 +763,15 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1536,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
           "rotation": 512,
           "scaleX": 60,
           "scaleHeight": 105,
           "scaleY": 300,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": -16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -969,24 +793,16 @@
       "modelScaleY": 117,
       "placements": {
         "entrance_portal": {
-          "rotation": 0,
           "scaleX": 117,
           "scaleHeight": 117,
           "scaleY": 117,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "magic_wardrobe": {
-          "rotation": 0,
           "scaleX": 117,
           "scaleHeight": 117,
           "scaleY": 117,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -1009,10 +825,7 @@
           "scaleX": 192,
           "scaleHeight": 192,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -1035,10 +848,8 @@
           "scaleX": 76,
           "scaleHeight": 76,
           "scaleY": 76,
-          "offsetX": 0,
           "offsetHeight": -156,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -1061,10 +872,7 @@
           "scaleX": 48,
           "scaleHeight": 48,
           "scaleY": 48,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -1080,13 +888,7 @@
       "placements": {
         "entrance_portal": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1113,10 +915,7 @@
           "scaleX": 176,
           "scaleHeight": 176,
           "scaleY": 176,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       }
     },
@@ -1144,30 +943,22 @@
           "scaleX": 82,
           "scaleHeight": 82,
           "scaleY": 82,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 30,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
           "scaleX": 100,
           "scaleHeight": 100,
           "scaleY": 100,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 1024,
           "scaleX": 82,
           "scaleHeight": 82,
           "scaleY": 82,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 30,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1201,30 +992,23 @@
           "scaleX": 85,
           "scaleHeight": 85,
           "scaleY": 80,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 25,
-          "flipX": true
+          "flipX": true,
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
           "scaleX": 104,
           "scaleHeight": 104,
           "scaleY": 104,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": -1024,
           "scaleX": 85,
           "scaleHeight": 85,
           "scaleY": 80,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 25,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1255,50 +1039,32 @@
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": -1024,
-          "scaleX": 128,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": -1024,
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": -1024,
-          "scaleX": 128,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1329,50 +1095,32 @@
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": -1024,
-          "scaleX": 128,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": -1024,
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": -1024,
-          "scaleX": 128,
           "scaleHeight": 96,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1403,50 +1151,34 @@
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": -1024,
-          "scaleX": 128,
           "scaleHeight": 80,
           "scaleY": 70,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 10,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
-          "scaleX": 128,
           "scaleHeight": 80,
           "scaleY": 100,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": -1024,
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 10,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": -1024,
-          "scaleX": 128,
           "scaleHeight": 80,
           "scaleY": 70,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 10,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1480,40 +1212,34 @@
           "scaleX": 64,
           "scaleHeight": 64,
           "scaleY": 64,
-          "offsetX": 0,
           "offsetHeight": -1,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": -768,
           "scaleX": 70,
           "scaleHeight": 70,
           "scaleY": 70,
-          "offsetX": 0,
           "offsetHeight": -1,
           "offsetY": 42,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": 256,
           "scaleX": 100,
           "scaleHeight": 100,
           "scaleY": 100,
-          "offsetX": 0,
           "offsetHeight": -1,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": -768,
           "scaleX": 70,
           "scaleHeight": 70,
           "scaleY": 70,
-          "offsetX": 0,
           "offsetHeight": -1,
           "offsetY": 42,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1539,53 +1265,31 @@
       "placements": {
         "cape_rack": {
           "rotation": 256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": -1024,
           "scaleX": 250,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
           "scaleX": 256,
-          "scaleHeight": 128,
           "scaleY": 256,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": -1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 10,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": -1024,
           "scaleX": 250,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1616,53 +1320,32 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": -512,
           "scaleX": 256,
-          "scaleHeight": 128,
           "scaleY": 256,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1689,53 +1372,31 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": 512,
           "scaleX": 256,
-          "scaleHeight": 128,
           "scaleY": 256,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1761,53 +1422,34 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": -512,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 200,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1825,53 +1467,34 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": -512,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 200,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1889,53 +1512,34 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": -512,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 200,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -1953,53 +1557,34 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": -512,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 200,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2017,53 +1602,34 @@
       "placements": {
         "cape_rack": {
           "rotation": -256,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
           "rotation": -512,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 200,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
           "rotation": 512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
           "rotation": 512,
           "scaleX": 111,
-          "scaleHeight": 128,
           "scaleY": 192,
-          "offsetX": 0,
-          "offsetHeight": 0,
           "offsetY": 16,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2082,54 +1648,27 @@
       "crystalColours": [107, 127, 123, 115],
       "placements": {
         "cape_rack": {
-          "rotation": 0,
           "scaleX": 64,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
-          "rotation": 0,
           "scaleX": 80,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
-          "rotation": 0,
           "scaleX": 64,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
-          "rotation": 0,
           "scaleX": 80,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2146,54 +1685,27 @@
       "crystalColours": [15296, 15273, 15029, 16163],
       "placements": {
         "cape_rack": {
-          "rotation": 0,
           "scaleX": 64,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
-          "rotation": 0,
           "scaleX": 80,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
-          "rotation": 0,
           "scaleX": 64,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
-          "rotation": 0,
           "scaleX": 80,
-          "scaleHeight": 128,
           "scaleY": 64,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2211,54 +1723,39 @@
       "bobbing": true,
       "placements": {
         "cape_rack": {
-          "rotation": 0,
           "scaleX": 192,
           "scaleHeight": 180,
           "scaleY": 192,
-          "offsetX": 0,
           "offsetHeight": -4,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "treasure_chest": {
-          "rotation": 0,
           "scaleX": 336,
           "scaleHeight": 210,
           "scaleY": 224,
-          "offsetX": 0,
           "offsetHeight": -4,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
           "scaleX": 384,
           "scaleHeight": 240,
           "scaleY": 256,
-          "offsetX": 0,
           "offsetHeight": -4,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
-          "rotation": 0,
           "scaleX": 192,
           "scaleHeight": 180,
           "scaleY": 192,
-          "offsetX": 0,
           "offsetHeight": -4,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
-          "rotation": 0,
           "scaleX": 336,
           "scaleHeight": 210,
           "scaleY": 224,
-          "offsetX": 0,
           "offsetHeight": -4,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2275,54 +1772,25 @@
       "crystalColours": [-11359],
       "placements": {
         "treasure_chest": {
-          "rotation": 0,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "toy_box": {
-          "rotation": 0,
           "scaleX": 160,
-          "scaleHeight": 128,
           "scaleY": 96,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "cape_rack": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "fancy_dress_box": {
-          "rotation": 0,
           "scaleX": 256,
-          "scaleHeight": 128,
           "scaleY": 256,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         },
         "armour_case": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2340,14 +1808,7 @@
       "crystalColours": [-11954, -13133, -13129, -13120, -13112, -14021, -14052],
       "placements": {
         "cape_rack": {
-          "rotation": 0,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2364,13 +1825,7 @@
       "placements": {
         "armour_case": {
           "rotation": -512,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2387,13 +1842,7 @@
       "placements": {
         "armour_case": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2410,13 +1859,7 @@
       "placements": {
         "armour_case": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,
@@ -2433,13 +1876,7 @@
       "placements": {
         "armour_case": {
           "rotation": 1024,
-          "scaleX": 128,
-          "scaleHeight": 128,
-          "scaleY": 128,
-          "offsetX": 0,
-          "offsetHeight": 0,
-          "offsetY": 0,
-          "flipX": false
+          "fitMode": "NONE"
         }
       },
       "modelScaleX": 128,

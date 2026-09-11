@@ -34,8 +34,8 @@ import net.runelite.client.ui.overlay.OverlayManager;
 
 @PluginDescriptor(
 	name = "PoH Cosmetic Transmogs",
-	description = "Transmog specific PoH furniture and props into curated, whitelisted cosmetic objects",
-	tags = {"poh", "house", "furniture", "cosmetic", "transmog"}
+	description = "Transmog specific PoH slot and props into curated, whitelisted cosmetic objects",
+	tags = {"poh", "house", "slot", "cosmetic", "transmog"}
 )
 @Slf4j
 public class PohCosmeticTransmogsPlugin extends Plugin
@@ -133,10 +133,10 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	public void resetConfiguration()
 	{
 		Map<String, String> selections = new LinkedHashMap<>();
-		for (PohTargetSlot furniture : PohTargetSlot.values())
+		for (PohTargetSlot slot : PohTargetSlot.values())
 		{
-			String key = furniture.getConfigKey();
-			Enum<?> original = furniture.option("");
+			String key = slot.getConfigKey();
+			Enum<?> original = slot.option("");
 			if (!original.name().equals(configManager.getConfiguration(PohCosmeticTransmogsConfig.GROUP, key)))
 			{
 				configManager.setConfiguration(PohCosmeticTransmogsConfig.GROUP, key, original);
@@ -327,16 +327,16 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 	private Map<String, String> readSelections()
 	{
 		Map<String, String> selections = new LinkedHashMap<>();
-		for (PohTargetSlot furniture : PohTargetSlot.values())
+		for (PohTargetSlot slot : PohTargetSlot.values())
 		{
-			selections.put(furniture.getTargetKey(), readAppearanceKey(furniture));
+			selections.put(slot.getTargetKey(), readAppearanceKey(slot));
 		}
 		return selections;
 	}
 
-	private String readAppearanceKey(PohTargetSlot furniture)
+	private String readAppearanceKey(PohTargetSlot slot)
 	{
-		switch (furniture)
+		switch (slot)
 		{
 			case ENTRANCE_PORTAL: return config.entrancePortal().getAppearanceKey();
 			case FANCY_DRESS_BOX: return config.fancyDressBox().getAppearanceKey();
@@ -345,7 +345,7 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 			case CAPE_RACK: return config.capeRack().getAppearanceKey();
 			case ARMOUR_CASE: return config.armourCase().getAppearanceKey();
 			case TOY_BOX: return config.toyBox().getAppearanceKey();
-			default: throw new IllegalArgumentException(furniture.name());
+			default: throw new IllegalArgumentException(slot.name());
 		}
 	}
 

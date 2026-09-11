@@ -149,6 +149,7 @@ class PohCosmeticTransmogsManager
 		rebuildTargets();
 		rescanLoadedWorldViews();
 	}
+
 	void setHidden(boolean hidden)
 	{
 		if (!running)
@@ -195,6 +196,7 @@ class PohCosmeticTransmogsManager
 			}
 		}
 	}
+
 	void addObject(@Nullable TileObject object)
 	{
 		if (!running || !(object instanceof GameObject))
@@ -445,6 +447,7 @@ class PohCosmeticTransmogsManager
 		}
 		return model;
 	}
+
 	private void refreshAllObjects()
 	{
 		refreshObjects(null);
@@ -750,7 +753,7 @@ class PohCosmeticTransmogsManager
 		Catalogue.Calibration calibration)
 	{
 		Catalogue.Definition transition = new Catalogue.Definition(
-			source.getSourceObjectId(), source.getSizeX(), source.getSizeY(),
+			source.getSizeX(), source.getSizeY(),
 			new int[] {modelId}, animationId);
 		transition.recolorFrom = source.getRecolorFrom();
 		transition.recolorTo = source.getRecolorTo();

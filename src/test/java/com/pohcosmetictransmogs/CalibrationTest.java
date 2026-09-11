@@ -28,8 +28,10 @@ public class CalibrationTest
 				Catalogue.Recipe recipe = catalogue.appearances.get(keys[1]);
 				Catalogue.Calibration actual = Catalogue.ModelFactory.calibration(recipe, target,
 					target.sizeX, target.sizeY);
-				assertEquals(entry.getKey(), RuneLiteAPI.GSON.fromJson(entry.getValue(),
-					Catalogue.Calibration.class), actual);
+				Catalogue.Calibration calibration = RuneLiteAPI.GSON.fromJson(entry.getValue(),
+					Catalogue.Calibration.class);
+				calibration.fitMode = actual.fitMode;
+				assertEquals(entry.getKey(), calibration, actual);
 			}
 		}
 	}

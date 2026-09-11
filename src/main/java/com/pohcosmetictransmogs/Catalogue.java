@@ -282,9 +282,8 @@ final class Catalogue
 			}
 		}
 
-		Definition(int sourceObjectId, int sizeX, int sizeY, int[] modelIds, int animationId)
+		Definition(int sizeX, int sizeY, int[] modelIds, int animationId)
 		{
-			this.sourceObjectId = sourceObjectId;
 			this.sizeX = sizeX;
 			this.sizeY = sizeY;
 			this.modelIds = modelIds;
@@ -309,16 +308,17 @@ final class Catalogue
 		static Calibration calibration(Recipe recipe, TargetSpec target, int targetSizeX, int targetSizeY)
 		{
 			Calibration tuned = recipe.placements.get(target.key);
-			if (tuned != null && tuned.fitMode == null)
+			TargetSpec.FitMode fit = tuned != null && tuned.fitMode != null
+				? tuned.fitMode : target.defaultFitMode;
+			if (tuned != null && fit == TargetSpec.FitMode.NONE)
 			{
 				return tuned;
 			}
 			int scaleX = tuned == null ? recipe.getModelScaleX() : tuned.scaleX;
 			int scaleHeight = tuned == null ? recipe.getModelScaleHeight() : tuned.scaleHeight;
 			int scaleY = tuned == null ? recipe.getModelScaleY() : tuned.scaleY;
-			int rotation = recipe.rotation == null ? recipe.orientation : recipe.rotation;
-			TargetSpec.FitMode fit = tuned != null && tuned.fitMode != null
-				? tuned.fitMode : target.defaultFitMode;
+			int rotation = tuned != null ? tuned.rotation
+				: recipe.rotation == null ? recipe.orientation : recipe.rotation;
 			if (fit == TargetSpec.FitMode.FOOTPRINT)
 			{
 				if (isQuarterTurn(rotation))
@@ -330,7 +330,7 @@ final class Catalogue
 				scaleX = footprintScale(scaleX, targetSizeX, recipe.sizeX);
 				scaleY = footprintScale(scaleY, targetSizeY, recipe.sizeY);
 			}
-			Calibration result = new Calibration(tuned == null ? rotation : tuned.rotation,
+			Calibration result = new Calibration(rotation,
 				scaleX, scaleHeight, scaleY,
 				tuned == null ? recipe.offsetX : tuned.offsetX,
 				tuned == null ? recipe.offsetHeight : tuned.offsetHeight,
@@ -338,6 +338,7 @@ final class Catalogue
 			result.flipX = tuned != null && tuned.flipX;
 			return result;
 		}
+
 		boolean recoloursPortal(TargetSpec target, Definition definition)
 		{
 			return config.portalColour().getHue() >= 0
