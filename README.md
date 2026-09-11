@@ -1,4 +1,4 @@
-# PoH Furniture Transmog
+# PoH Cosmetic Transmogs
 
 A cosmetic RuneLite plugin that allows users to transmog specific PoH furniture and props into curated, whitelisted objects.
 

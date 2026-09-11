@@ -3,6 +3,7 @@
 build/
 out/
 backups/
+/docs/
 *.local.properties
 *.log
 *.bak
