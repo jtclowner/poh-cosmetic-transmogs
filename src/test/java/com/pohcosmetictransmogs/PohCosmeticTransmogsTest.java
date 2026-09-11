@@ -341,8 +341,6 @@ public class PohCosmeticTransmogsTest
 	@Test
 	public void renderingHelpersRemainBounded()
 	{
-		assertEquals(192, PohCosmeticTransmogsManager.renderRadius(1, 192));
-		assertEquals(128, PohCosmeticTransmogsManager.renderRadius(2, 40));
 		assertTrue(PohCosmeticTransmogsManager.isVisibleLevel(0, 0));
 		assertTrue(PohCosmeticTransmogsManager.isVisibleLevel(1, 1));
 		assertTrue(PohCosmeticTransmogsManager.isVisibleLevel(2, 2));

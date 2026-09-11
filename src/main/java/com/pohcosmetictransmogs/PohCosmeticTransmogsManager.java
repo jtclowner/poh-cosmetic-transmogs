@@ -49,7 +49,7 @@ class PohCosmeticTransmogsManager
 	private final PohAppearanceCatalog.ModelFactory modelFactory;
 	private final Map<PohFurniture, Integer> selections = new EnumMap<>(PohFurniture.class);
 	private final Map<ModelCacheKey, Model> modelCache = new HashMap<>();
-	private final Map<Integer, Target> targetsById = new HashMap<>();
+	private final Map<Integer, TargetBinding> targetsById = new HashMap<>();
 	private final Set<Integer> reportedModelFailures = new HashSet<>();
 	private final Set<TileObject> sceneObjects = identitySet();
 	private final Set<TileObject> retiredObjects = identitySet();
@@ -208,7 +208,7 @@ class PohCosmeticTransmogsManager
 			return;
 		}
 		GameObject gameObject = (GameObject) object;
-		Target target = targetsById.get(object.getId());
+		TargetBinding target = targetsById.get(object.getId());
 		if (target == null)
 		{
 			return;
@@ -260,7 +260,7 @@ class PohCosmeticTransmogsManager
 			boolean tracked = sceneObjects.remove(object);
 			if (object instanceof GameObject)
 			{
-				Target target = targetsById.get(object.getId());
+				TargetBinding target = targetsById.get(object.getId());
 				PlacementKey placement = new PlacementKey((GameObject) object, target);
 				// Late despawns from a retired state must not replace the current state.
 				if (tracked && target != null && target.remembersState())
@@ -418,14 +418,22 @@ class PohCosmeticTransmogsManager
 		return client.isGpu() && callbacks != null;
 	}
 
+	private static TargetSpec singleTarget(int id)
+	{
+		TargetSpec target = new TargetSpec();
+		target.key = Integer.toString(id);
+		target.objectIds = new int[] {id};
+		return target;
+	}
+
 	private void rebuildTargets()
 	{
 		targetsById.clear();
 		PohAppearanceCatalog.targetDefinitions().forEach((id, definition) ->
-			targetsById.put(id, new Target(id, null, PohAppearanceCatalog.recipe(definition.getObjectId()))));
+			targetsById.put(id, new TargetBinding(singleTarget(id), null, PohAppearanceCatalog.recipe(definition.getObjectId()))));
 		for (PohFurniture furniture : PohFurniture.values())
 		{
-			Target target = new Target(-furniture.ordinal() - 1, furniture,
+			TargetBinding target = new TargetBinding(TargetSpec.from(furniture), furniture,
 				PohAppearanceCatalog.recipe(selections.getOrDefault(furniture, -1)));
 			for (int objectId : furniture.getObjectIds())
 			{
@@ -573,7 +581,7 @@ class PohCosmeticTransmogsManager
 			? new BobbingRuneLiteObject(client) : client.createRuneLiteObject();
 		replacement.setModel(model);
 		int baseOrientation = (gameObject.getOrientation()
-			+ PohFurniture.orientationOffset(gameObject.getId())) & 2047;
+			+ targetsById.get(gameObject.getId()).spec.orientationOffset) & 2047;
 		int correction = calibration.getRotation();
 		int defaultOrientation = (baseOrientation + correction) & 2047;
 		LocalPoint anchor = occupiedTileCentre(gameObject);
@@ -647,7 +655,7 @@ class PohCosmeticTransmogsManager
 	@Nullable
 	private ResolvedReplacement resolve(GameObject object)
 	{
-		Target target = targetsById.get(object.getId());
+		TargetBinding target = targetsById.get(object.getId());
 		return target == null ? null : target.resolve(object);
 	}
 
@@ -840,7 +848,7 @@ class PohCosmeticTransmogsManager
 
 	private String spawnAnimationKey(GameObject object)
 	{
-		Target target = targetsById.get(object.getId());
+		TargetBinding target = targetsById.get(object.getId());
 		return object.getWorldView().getId() + ":" + object.getPlane() + ":"
 			+ object.getSceneMinLocation().getX() + ":"
 			+ object.getSceneMinLocation().getY() + ":"
@@ -997,16 +1005,16 @@ class PohCosmeticTransmogsManager
 		}
 	}
 
-	private final class Target
+	private final class TargetBinding
 	{
-		private final int id;
+		private final TargetSpec spec;
 		private final PohFurniture furniture;
 		private final PohAppearanceCatalog.Recipe appearance;
 
-		private Target(int id, @Nullable PohFurniture furniture,
+		private TargetBinding(TargetSpec spec, @Nullable PohFurniture furniture,
 			@Nullable PohAppearanceCatalog.Recipe appearance)
 		{
-			this.id = id;
+			this.spec = spec;
 			this.furniture = furniture;
 			this.appearance = appearance;
 		}
@@ -1026,31 +1034,31 @@ class PohCosmeticTransmogsManager
 				return null;
 			}
 			PohAppearanceCatalog.Calibration calibration = PohAppearanceCatalog.ModelFactory.calibration(
-				furniture, furniture == null ? object.sizeX() : furniture.getSizeX(),
-				furniture == null ? object.sizeY() : furniture.getSizeY(), appearance.source);
+				furniture, spec.sizeX > 0 ? spec.sizeX : object.sizeX(),
+				spec.sizeY > 0 ? spec.sizeY : object.sizeY(), appearance.source);
 			Model model = loadModel(furniture, definition, modelCacheKey(furniture, definition, calibration));
 			return model == null ? null : new ResolvedReplacement(
 				definition, model, appearance, calibration);
 		}
 
-		int placementId()
+		String placementId()
 		{
-			return id;
+			return spec.key;
 		}
 
 		String appearanceKey()
 		{
-			return furniture == null ? Integer.toString(id) : furniture.toString();
+			return spec.key;
 		}
 
 		boolean isOpen(int objectId)
 		{
-			return remembersState() && PohFurniture.isOpenState(objectId);
+			return spec.isOpen(objectId);
 		}
 
 		boolean remembersState()
 		{
-			return furniture != null;
+			return spec.isStateful();
 		}
 
 		void transition(TileObject object, boolean opening)
@@ -1067,8 +1075,7 @@ class PohCosmeticTransmogsManager
 			{
 				reverseOpenTransition(object, furniture, appearance);
 			}
-			else if (furniture != PohFurniture.ARMOUR_CASE
-				&& furniture != PohFurniture.MAGIC_WARDROBE
+			else if (spec.scaleTransition
 				&& appearance.closed == appearance.open)
 			{
 				startScaleTransition(object, furniture, opening);
@@ -1120,15 +1127,15 @@ class PohCosmeticTransmogsManager
 		private final int plane;
 		private final int x;
 		private final int y;
-		private final int target;
+		private final String target;
 
-		private PlacementKey(GameObject object, @Nullable Target target)
+		private PlacementKey(GameObject object, @Nullable TargetBinding target)
 		{
 			worldView = object.getWorldView();
 			plane = object.getPlane();
 			x = object.getSceneMinLocation().getX();
 			y = object.getSceneMinLocation().getY();
-			this.target = target == null ? object.getId() : target.placementId();
+			this.target = target == null ? Integer.toString(object.getId()) : target.placementId();
 		}
 
 		@Override
@@ -1144,7 +1151,7 @@ class PohCosmeticTransmogsManager
 			}
 			PlacementKey key = (PlacementKey) other;
 			return worldView == key.worldView && plane == key.plane
-				&& x == key.x && y == key.y && target == key.target;
+				&& x == key.x && y == key.y && target.equals(key.target);
 		}
 
 		@Override
@@ -1154,7 +1161,7 @@ class PohCosmeticTransmogsManager
 			hash = 31 * hash + plane;
 			hash = 31 * hash + x;
 			hash = 31 * hash + y;
-			return 31 * hash + target;
+			return 31 * hash + target.hashCode();
 		}
 	}
 
