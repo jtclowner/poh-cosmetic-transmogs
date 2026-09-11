@@ -284,8 +284,8 @@ public class PohCosmeticTransmogsPlugin extends Plugin
 		}
 		enabled = false;
 		client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
-			"GPU or 117 HD must be enabled to use PoH Cosmetic Transmogs.", null);
-		log.warn("PoH Cosmetic Transmogs requires GPU or 117 HD; disabling plugin");
+			"GPU or 117 HD must be enabled to use PoH Cosmetic Transmogs. GPU Legacy is not supported.", null);
+		log.warn("PoH Cosmetic Transmogs requires GPU or 117 HD (not GPU Legacy); disabling plugin");
 		SwingUtilities.invokeLater(() ->
 		{
 			pluginManager.setPluginEnabled(this, false);

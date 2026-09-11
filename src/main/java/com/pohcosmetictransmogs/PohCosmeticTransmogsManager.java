@@ -420,7 +420,9 @@ class PohCosmeticTransmogsManager
 
 	private boolean isSupportedRenderer(@Nullable DrawCallbacks callbacks)
 	{
-		return client.isGpu() && callbacks != null;
+		// GPU Legacy does not consult the object-suppression render callback.
+		return client.isGpu() && callbacks != null
+			&& !callbacks.getClass().getName().equals("info.sigterm.plugins.gpulegacy.GpuPlugin");
 	}
 
 	private void rebuildTargets()
