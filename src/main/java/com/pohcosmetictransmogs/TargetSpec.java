@@ -24,17 +24,4 @@ final class TargetSpec
 		return openObjectIds.length > 0;
 	}
 
-	static TargetSpec from(PohFurniture slot)
-	{
-		TargetSpec target = new TargetSpec();
-		target.key = slot.name().toLowerCase(java.util.Locale.ROOT);
-		target.objectIds = slot.getObjectIds();
-		target.openObjectIds = Arrays.stream(target.objectIds).filter(PohFurniture::isOpenState).toArray();
-		target.sizeX = slot.getSizeX();
-		target.sizeY = slot.getSizeY();
-		target.orientationOffset = slot.getOrientationOffset();
-		target.scaleTransition = slot != PohFurniture.ARMOUR_CASE && slot != PohFurniture.MAGIC_WARDROBE;
-		target.portalRecolour = slot == PohFurniture.ENTRANCE_PORTAL;
-		return target;
-	}
 }

@@ -433,7 +433,7 @@ class PohCosmeticTransmogsManager
 			targetsById.put(id, new TargetBinding(singleTarget(id), null, PohAppearanceCatalog.recipe(definition.getObjectId()))));
 		for (PohFurniture furniture : PohFurniture.values())
 		{
-			TargetBinding target = new TargetBinding(TargetSpec.from(furniture), furniture,
+			TargetBinding target = new TargetBinding(PohAppearanceCatalog.target(furniture.name().toLowerCase(java.util.Locale.ROOT)), furniture,
 				PohAppearanceCatalog.recipe(selections.getOrDefault(furniture, -1)));
 			for (int objectId : furniture.getObjectIds())
 			{

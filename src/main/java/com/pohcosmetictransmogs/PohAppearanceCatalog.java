@@ -33,6 +33,7 @@ final class PohAppearanceCatalog
 	private static final int NATIVE_MODEL_SCALE = 128;
 	private static final int[] NO_IDS = {};
 	private static final short[] NO_COLOURS = {};
+	private static final Map<String, TargetSpec> targetSpecs = new LinkedHashMap<>();
 	private static List<Recipe> catalogue = Collections.emptyList();
 	private static Map<Integer, Recipe> recipeIndex = Collections.emptyMap();
 	private static Map<Integer, Definition> definitions = Collections.emptyMap();
@@ -47,11 +48,11 @@ final class PohAppearanceCatalog
 		{
 			return;
 		}
-		try (InputStream stream = PohAppearanceCatalog.class.getResourceAsStream("/appearances.json"))
+		try (InputStream stream = PohAppearanceCatalog.class.getResourceAsStream("/catalogue.json"))
 		{
 			if (stream == null)
 			{
-				throw new IllegalStateException("Missing appearances.json");
+				throw new IllegalStateException("Missing catalogue.json");
 			}
 			try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8))
 			{
@@ -61,8 +62,13 @@ final class PohAppearanceCatalog
 		}
 		catch (IOException ex)
 		{
-			throw new IllegalStateException("Unable to load appearances.json", ex);
+			throw new IllegalStateException("Unable to load catalogue.json", ex);
 		}
+	}
+
+	static TargetSpec target(String key)
+	{
+		return targetSpecs.get(key);
 	}
 
 	static List<Recipe> catalogue()
@@ -93,6 +99,16 @@ final class PohAppearanceCatalog
 		List<Recipe> values = new ArrayList<>();
 		for (Map.Entry<String, JsonElement> group : gson.fromJson(reader, JsonObject.class).entrySet())
 		{
+			if (group.getKey().equals("targets"))
+			{
+				for (Map.Entry<String, JsonElement> entry : group.getValue().getAsJsonObject().entrySet())
+				{
+					TargetSpec spec = gson.fromJson(entry.getValue(), TargetSpec.class);
+					spec.key = entry.getKey();
+					targetSpecs.put(spec.key, spec);
+				}
+				continue;
+			}
 			for (Recipe recipe : gson.fromJson(group.getValue(), Recipe[].class))
 			{
 				for (Definition state : new Definition[] {recipe.source, recipe.closed, recipe.open})
