@@ -55,9 +55,8 @@ public class PohCosmeticTransmogsTest
 	}
 
 	@Test
-	public void allowedPlacementsUseExplicitFitsOrCrystalOutcropFitting()
+	public void selectablePlacementsHaveExplicitCalibrations()
 	{
-		definition(30027);
 		for (PohTargetSlot furniture : PohTargetSlot.values())
 		{
 			for (Catalogue.Recipe recipe : Catalogue.current.appearances.values())
@@ -65,16 +64,8 @@ public class PohCosmeticTransmogsTest
 				int id = recipe.getSourceObjectId();
 				if (isAllowed(furniture, id))
 				{
-					if (Catalogue.current.appearances.get(key(id)).placements.get(furniture.getTargetKey()) == null)
-					{
-						assertEquals(furniture + ":" + id, 4928, id);
-						Catalogue.Calibration fit = calibration(furniture, id);
-						assertEquals(furniture == PohTargetSlot.FANCY_DRESS_BOX ? 256
-							: furniture == PohTargetSlot.TREASURE_CHEST || furniture == PohTargetSlot.TOY_BOX ? 160 : 128,
-							fit.getScaleX());
-						assertEquals(128, fit.getScaleHeight());
-						assertEquals(furniture == PohTargetSlot.FANCY_DRESS_BOX ? 256 : 128, fit.getScaleY());
-					}
+					assertNotNull(recipe.key + ":" + furniture.getTargetKey(),
+						recipe.placements.get(furniture.getTargetKey()));
 				}
 			}
 		}
@@ -102,7 +93,7 @@ public class PohCosmeticTransmogsTest
 	}
 
 	@Test
-	public void authoritativeCalibrationsAreCompiledIn()
+	public void containerAndPortalCalibrationsMatchCatalogue()
 	{
 		Catalogue.Calibration portal = calibration(PohTargetSlot.ENTRANCE_PORTAL, 41807);
 		assertEquals(1024, portal.getRotation());

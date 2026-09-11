@@ -287,7 +287,6 @@ public interface PohCosmeticTransmogsConfig extends Config
 
 		static <T extends Enum<T> & AppearanceOption> T find(T[] options, String appearanceKey)
 		{
-
 			for (T option : options)
 			{
 				if (option.getAppearanceKey().equals(appearanceKey))
