@@ -13,6 +13,79 @@ import static org.junit.Assert.*;
 public class CatalogueTest
 {
 	@Test
+	public void explicitGeometryDoesNotNeedCacheMetadata()
+	{
+		Client client = ApiDouble.of(Client.class, (name, args) ->
+		{
+			throw new AssertionError("Unexpected cache lookup: " + name);
+		});
+		Catalogue catalogue = Catalogue.loadCatalogue(RuneLiteAPI.GSON, client,
+			new StringReader("{\"appearances\":{\"gem\":{\"sourceObjectId\":42,\"modelIds\":[10],"
+				+ "\"sizeX\":2,\"sizeY\":3,\"scale\":180,\"open\":{\"sourceObjectId\":43,\"modelIds\":[11]}}}}"));
+		assertEquals(180, catalogue.appearances.get("gem").open.scaleHeight);
+	}
+
+	@Test
+	public void placementsInheritTransformsAndExpandGroupedTargets()
+	{
+		Catalogue catalogue = read("{\"appearances\":{\"gem\":{\"modelIds\":[10],\"scale\":200,"
+			+ "\"rotation\":512,\"offsetY\":16,\"flipX\":true,"
+			+ "\"placements\":{\"a,b\":{\"scaleX\":250},\"c\":{\"scale\":100,\"scaleHeight\":150,\"flipX\":false}}}}}");
+		Catalogue.Recipe gem = catalogue.appearances.get("gem");
+		assertEquals(3, gem.placements.size());
+		assertSame(gem.placements.get("a"), gem.placements.get("b"));
+		Catalogue.Calibration a = gem.placements.get("a");
+		assertEquals(250, a.scaleX);
+		assertEquals(200, a.scaleY);
+		assertEquals(200, a.scaleHeight);
+		assertEquals(512, a.rotation);
+		assertEquals(16, a.offsetY);
+		assertTrue(a.flipX);
+		Catalogue.Calibration c = gem.placements.get("c");
+		assertEquals(100, c.scaleX);
+		assertEquals(100, c.scaleY);
+		assertEquals(150, c.scaleHeight);
+		assertFalse(c.flipX);
+		assertEquals(200, gem.scaleX);
+	}
+
+	@Test
+	public void statesInheritSharedModelsAndColoursAndCanExplicitlyResetThem()
+	{
+		Catalogue catalogue = read("{\"appearances\":{\"gem\":{\"modelIds\":[10],\"scale\":180,"
+			+ "\"sizeX\":3,\"sizeY\":2,\"animationId\":99,\"spawnAnimationId\":100,\"spawnOnce\":true,"
+			+ "\"recolours\":{\"127\":730},\"colours\":{\"CRYSTALS\":[730]},"
+			+ "\"closed\":{\"animationId\":98},"
+			+ "\"open\":{\"modelIds\":[11],\"animationId\":-1,\"spawnAnimationId\":-1,"
+			+ "\"spawnOnce\":false,\"recolours\":{},\"colours\":{}}}}}");
+		Catalogue.Recipe gem = catalogue.appearances.get("gem");
+		assertArrayEquals(new int[] {10}, gem.closed.modelIds);
+		assertEquals(gem.recolours, gem.closed.recolours);
+		assertArrayEquals(new short[] {730}, gem.closed.colours(Catalogue.ColourChannel.CRYSTALS));
+		assertEquals(98, gem.closed.animationId);
+		assertEquals(-1, gem.open.animationId);
+		assertEquals(-1, gem.open.spawnAnimationId);
+		assertFalse(gem.open.spawnOnce);
+		assertEquals(3, gem.open.sizeX);
+		assertEquals(2, gem.open.sizeY);
+		assertEquals(180, gem.open.scaleX);
+		assertTrue(gem.open.recolours.isEmpty());
+		assertTrue(gem.open.colours.isEmpty());
+		assertEquals(1, gem.recolours.size());
+	}
+
+	@Test
+	public void fixedRecoloursAndConfigChannelsHaveIndependentEffects()
+	{
+		Catalogue catalogue = read("{\"appearances\":{\"gem\":{\"modelIds\":[10],"
+			+ "\"recolours\":{\"127\":730},\"colours\":{\"PORTAL\":[730]}}}}");
+		Catalogue.Recipe gem = catalogue.appearances.get("gem");
+		assertEquals(Short.valueOf((short) 730), gem.recolours.get((short) 127));
+		assertArrayEquals(new short[] {730}, gem.colours(Catalogue.ColourChannel.PORTAL));
+		assertEquals(0, gem.colours(Catalogue.ColourChannel.CRYSTALS).length);
+	}
+
+	@Test
 	public void everyReaderUsesTheSameCacheAwareNormalization()
 	{
 		ObjectComposition composition = ApiDouble.of(ObjectComposition.class, (name, args) ->
@@ -31,9 +104,9 @@ public class CatalogueTest
 		{
 			assertEquals(6, recipe.sizeX);
 			assertEquals(8, recipe.sizeY);
-			assertEquals(256, recipe.modelScaleX);
-			assertEquals(512, recipe.modelScaleY);
-			assertEquals(256, recipe.modelScaleHeight);
+			assertEquals(256, recipe.scaleX);
+			assertEquals(512, recipe.scaleY);
+			assertEquals(256, recipe.scaleHeight);
 		}
 	}
 
@@ -83,13 +156,13 @@ public class CatalogueTest
 	public void modelMetadataDoesNotDefineAppearanceIdentity()
 	{
 		Catalogue catalogue = read("{\"appearances\":{"
-			+ "\"red\":{\"sourceObjectId\":1,\"modelIds\":[10],\"recolorFrom\":[127],\"recolorTo\":[730]},"
-			+ "\"blue\":{\"sourceObjectId\":1,\"modelIds\":[10],\"recolorFrom\":[127],\"recolorTo\":[44762]},"
-			+ "\"explicit\":{\"modelIds\":[10],\"modelScaleX\":200}}}");
+			+ "\"red\":{\"sourceObjectId\":1,\"modelIds\":[10],\"recolours\":{\"127\":730}},"
+			+ "\"blue\":{\"sourceObjectId\":1,\"modelIds\":[10],\"recolours\":{\"127\":44762}},"
+			+ "\"explicit\":{\"modelIds\":[10],\"scaleX\":200}}}");
 		assertEquals(3, catalogue.appearances.size());
 		assertNotSame(catalogue.appearances.get("red"), catalogue.appearances.get("blue"));
 		assertEquals(-1, catalogue.appearances.get("explicit").sourceObjectId);
-		assertEquals(200, catalogue.appearances.get("explicit").modelScaleX);
+		assertEquals(200, catalogue.appearances.get("explicit").scaleX);
 	}
 
 	@Test
@@ -114,7 +187,7 @@ public class CatalogueTest
 	{
 		Catalogue catalogue = read("{\"targets\":{\"box\":{\"objectIds\":[1],\"defaultFitMode\":\"FOOTPRINT\"}},"
 			+ "\"appearances\":{\"gem\":{\"sizeX\":1,\"sizeY\":1,\"modelIds\":[10],"
-			+ "\"modelScaleX\":200,\"modelScaleY\":180,\"modelScaleHeight\":150}}}");
+			+ "\"scaleX\":200,\"scaleY\":180,\"scaleHeight\":150}}}");
 		TargetBinding binding = catalogue.bind(Map.of("box", "gem")).get(1);
 		Catalogue.Calibration fit = binding.calibration(2, 3);
 		assertEquals(400, fit.scaleX);
@@ -126,7 +199,7 @@ public class CatalogueTest
 		binding.appearance.placements.put("box", placement);
 		assertEquals(300, binding.calibration(2, 3).scaleX);
 		assertEquals(1, binding.appearance.sizeX);
-		assertEquals(200, binding.appearance.modelScaleX);
+		assertEquals(200, binding.appearance.scaleX);
 	}
 
 	@Test

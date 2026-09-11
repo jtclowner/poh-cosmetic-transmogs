@@ -781,9 +781,8 @@ class PohCosmeticTransmogsManager
 		Catalogue.Definition transition = new Catalogue.Definition(
 			source.getSizeX(), source.getSizeY(),
 			new int[] {modelId}, animationId);
-		transition.recolorFrom = source.getRecolorFrom();
-		transition.recolorTo = source.getRecolorTo();
-		transition.crystalColours = source.getCrystalColours();
+		transition.recolours = source.recolours;
+		transition.colours.put(Catalogue.ColourChannel.CRYSTALS, source.colours(Catalogue.ColourChannel.CRYSTALS));
 		return loadModel(binding, transition, "transition", calibration);
 	}
 

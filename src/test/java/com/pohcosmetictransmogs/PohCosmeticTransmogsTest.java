@@ -43,9 +43,9 @@ public class PohCosmeticTransmogsTest
 			{
 				assertTrue(recipe.name, state.getModelIds().length > 0);
 				assertTrue(recipe.name, state.getSizeX() > 0 && state.getSizeY() > 0);
-				assertTrue(recipe.name, state.getModelScaleX() > 0
-					&& state.getModelScaleHeight() > 0 && state.getModelScaleY() > 0);
-				assertEquals(recipe.name, state.getRecolorFrom().length, state.getRecolorTo().length);
+				assertTrue(recipe.name, state.getScaleX() > 0
+					&& state.getScaleHeight() > 0 && state.getScaleY() > 0);
+				assertNotNull(recipe.name, state.recolours);
 			}
 			for (Catalogue.Calibration fit : recipe.placements.values())
 			{
@@ -173,45 +173,45 @@ public class PohCosmeticTransmogsTest
 	public void nodeAndCoxRecolourPalettesAreExplicit()
 	{
 		assertArrayEquals(new short[] {652, 908, 916, 920, 926},
-			definition(61216).getPortalColours());
+			definition(61216).colours(Catalogue.ColourChannel.PORTAL));
 		assertArrayEquals(new short[] {(short) 38040, (short) 38053, (short) 38309, (short) 38315},
-			definition(42819).getNodeColours());
-		assertEquals(11, definition(42819).getNodeGreyColours().length);
-		assertEquals(4, definition(29794).getCrystalColours().length);
-		assertEquals(4, definition(29757).getCrystalColours().length);
-		assertEquals(3, definition(29766).getCrystalColours().length);
-		assertEquals(2, definition(30027).getCrystalColours().length);
+			definition(42819).colours(Catalogue.ColourChannel.NODE_TRIM));
+		assertEquals(11, definition(42819).colours(Catalogue.ColourChannel.NODE_BODY).length);
+		assertEquals(4, definition(29794).colours(Catalogue.ColourChannel.CRYSTALS).length);
+		assertEquals(4, definition(29757).colours(Catalogue.ColourChannel.CRYSTALS).length);
+		assertEquals(3, definition(29766).colours(Catalogue.ColourChannel.CRYSTALS).length);
+		assertEquals(2, definition(30027).colours(Catalogue.ColourChannel.CRYSTALS).length);
 		short[] gauntletChestColours = {
 			(short) 32916, (short) 32922, (short) 32926, (short) 32200,
 			(short) 29518, (short) 29526, (short) 31192,
 			(short) 26776};
 		assertArrayEquals(gauntletChestColours,
-			definition(36087).getGauntletColours());
+			definition(36087).colours(Catalogue.ColourChannel.GAUNTLET_CHEST));
 		assertArrayEquals(gauntletChestColours,
-			definition(36088).getGauntletColours());
+			definition(36088).colours(Catalogue.ColourChannel.GAUNTLET_CHEST));
 		assertArrayEquals(new short[] {(short) 55219},
-			definition(32991).getTobColours());
-		assertArrayEquals(definition(32991).getTobColours(),
-			definition(41746).getTobColours());
+			definition(32991).colours(Catalogue.ColourChannel.TOB_CHEST));
+		assertArrayEquals(definition(32991).colours(Catalogue.ColourChannel.TOB_CHEST),
+			definition(41746).colours(Catalogue.ColourChannel.TOB_CHEST));
 		assertArrayEquals(new short[] {(short) 54177},
-			definition(4928).getCrystalColours());
+			definition(4928).colours(Catalogue.ColourChannel.CRYSTALS));
 		assertArrayEquals(new short[] {
 			(short) 53582, (short) 52403, (short) 52407, (short) 52416,
 			(short) 52424, (short) 51515, (short) 51484},
-			definition(32996).getCrystalColours());
+			definition(32996).colours(Catalogue.ColourChannel.CRYSTALS));
 		assertArrayEquals(new short[] {(short) 960, (short) 794, (short) 914},
-			definition(33125).getDeadmanColours());
-		assertArrayEquals(definition(33125).getDeadmanColours(),
-			definition(31583).getDeadmanColours());
-		assertEquals(23, definition(44825).getToaColours().length);
-		short[] toaChestColours = definition(44788).getToaColours();
+			definition(33125).colours(Catalogue.ColourChannel.DEADMAN_CHEST));
+		assertArrayEquals(definition(33125).colours(Catalogue.ColourChannel.DEADMAN_CHEST),
+			definition(31583).colours(Catalogue.ColourChannel.DEADMAN_CHEST));
+		assertEquals(23, definition(44825).colours(Catalogue.ColourChannel.TOA_CONTAINERS).length);
+		short[] toaChestColours = definition(44788).colours(Catalogue.ColourChannel.TOA_CONTAINERS);
 		assertEquals(17, toaChestColours.length);
 		assertArrayEquals(toaChestColours,
-			definition(44789).getToaColours());
+			definition(44789).colours(Catalogue.ColourChannel.TOA_CONTAINERS));
 		assertArrayEquals(toaChestColours,
-			definition(41696).getToaColours());
+			definition(41696).colours(Catalogue.ColourChannel.TOA_CONTAINERS));
 		assertArrayEquals(toaChestColours,
-			definition(44791).getToaColours());
+			definition(44791).colours(Catalogue.ColourChannel.TOA_CONTAINERS));
 		for (int chestColour : new int[] {6315, 6348, 6592, 6674, 6817, 6819,
 			6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872})
 		{
@@ -220,13 +220,13 @@ public class PohCosmeticTransmogsTest
 		for (int coinColour : new int[] {7384, 7690, 7349, 7343, 7506, 7500,
 			7492, 8123, 7616, 5943, 6986})
 		{
-			assertFalse(contains(definition(44825).getToaColours(),
+			assertFalse(contains(definition(44825).colours(Catalogue.ColourChannel.TOA_CONTAINERS),
 				(short) coinColour));
 			assertFalse(contains(toaChestColours, (short) coinColour));
 		}
 		for (int retainedColour : new int[] {5281, 5293, 6336, 6379, 6976})
 		{
-			assertFalse(contains(definition(44825).getToaColours(),
+			assertFalse(contains(definition(44825).colours(Catalogue.ColourChannel.TOA_CONTAINERS),
 				(short) retainedColour));
 		}
 		assertEquals(14, PohCosmeticTransmogsConfig.AppearanceColour.GREEN.getHue());

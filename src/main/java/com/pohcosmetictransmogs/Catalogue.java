@@ -88,27 +88,61 @@ final class Catalogue
 		{
 			for (Map.Entry<String, JsonElement> entry : json.getAsJsonObject("appearances").entrySet())
 			{
-				Recipe recipe = gson.fromJson(entry.getValue(), Recipe.class);
+				JsonObject source = entry.getValue().getAsJsonObject();
+				Recipe recipe = gson.fromJson(expandScale(source), Recipe.class);
 				recipe.key = entry.getKey();
-				for (Definition state : new Definition[] {recipe, recipe.closed, recipe.open})
+				recipe.normalize(client);
+				JsonObject defaults = gson.toJsonTree(recipe, Definition.class).getAsJsonObject();
+				recipe.closed = readState(gson, client, source, "closed", defaults, recipe);
+				recipe.open = readState(gson, client, source, "open", defaults, recipe);
+				if (source.has("placements"))
 				{
-					if (state != null)
+					for (Map.Entry<String, JsonElement> placement : source.getAsJsonObject("placements").entrySet())
 					{
-						state.normalize(client == null || state.sourceObjectId < 0 ? null
-							: client.getObjectDefinition(state.sourceObjectId));
+						Calibration calibration = gson.fromJson(overlay(defaults,
+							expandScale(placement.getValue().getAsJsonObject())), Calibration.class);
+						for (String target : placement.getKey().split(","))
+						{
+							recipe.placements.put(target.trim(), calibration);
+						}
 					}
-				}
-				if (recipe.closed == null)
-				{
-					recipe.closed = recipe;
-				}
-				if (recipe.open == null)
-				{
-					recipe.open = recipe;
 				}
 				data.appearances.put(recipe.key, recipe);
 			}
 		}
+	}
+
+	private static Definition readState(Gson gson, @Nullable Client client, JsonObject source,
+		String name, JsonObject defaults, Recipe recipe)
+	{
+		if (!source.has(name))
+		{
+			return recipe;
+		}
+		Definition state = gson.fromJson(overlay(defaults,
+			expandScale(source.getAsJsonObject(name))), Definition.class);
+		state.normalize(client);
+		return state;
+	}
+
+	private static JsonObject expandScale(JsonObject source)
+	{
+		JsonObject result = source.deepCopy();
+		if (source.has("scale"))
+		{
+			for (String axis : new String[] {"scaleX", "scaleHeight", "scaleY"})
+			{
+				if (!source.has(axis)) { result.add(axis, source.get("scale")); }
+			}
+		}
+		return result;
+	}
+
+	private static JsonObject overlay(JsonObject defaults, JsonObject overrides)
+	{
+		JsonObject result = defaults.deepCopy();
+		overrides.entrySet().forEach(entry -> result.add(entry.getKey(), entry.getValue()));
+		return result;
 	}
 
 	static String name(String appearanceKey)
@@ -166,16 +200,15 @@ final class Catalogue
 		String key;
 		String name;
 		String category;
-		Definition closed;
-		Definition open;
+		transient Definition closed;
+		transient Definition open;
 		String[] bindTargets = {};
-		int orientation;
 		Alignment alignment = Alignment.NONE;
 		boolean bobbing;
 		int transitionModelId = -1;
 		int transitionAnimationId = -1;
 		int transitionHandoff;
-		Map<String, Calibration> placements = new LinkedHashMap<>();
+		transient Map<String, Calibration> placements = new LinkedHashMap<>();
 
 		Definition state(boolean opened)
 		{
@@ -185,6 +218,24 @@ final class Catalogue
 		String stateKey(Definition state)
 		{
 			return state == this ? "default" : state == closed ? "closed" : "open";
+		}
+	}
+
+	enum ColourChannel
+	{
+		PORTAL, CRYSTALS, TOB_CHEST, GAUNTLET_CHEST, DEADMAN_CHEST, TOA_CONTAINERS, NODE_TRIM, NODE_BODY;
+
+		boolean enabled(PohCosmeticTransmogsConfig config)
+		{
+			switch (this)
+			{
+				case CRYSTALS: return config.recolourCrystals();
+				case TOB_CHEST: return config.recolourTobChest();
+				case GAUNTLET_CHEST: return config.recolourGauntletChest();
+				case DEADMAN_CHEST: return config.recolourDeadmanChest();
+				case TOA_CONTAINERS: return config.recolourToaContainers();
+				default: return false;
+			}
 		}
 	}
 
@@ -245,7 +296,8 @@ final class Catalogue
 	}
 
 	@Getter
-	static class Definition
+	@EqualsAndHashCode(callSuper = true)
+	static class Definition extends Calibration
 	{
 		int sourceObjectId = -1;
 		int sizeX;
@@ -254,33 +306,25 @@ final class Catalogue
 		int animationId = -1;
 		int spawnAnimationId = -1;
 		boolean spawnOnce;
-		int offsetX;
-		int offsetHeight;
-		int offsetY;
-		short[] recolorFrom = NO_COLOURS;
-		short[] recolorTo = NO_COLOURS;
-		// Exact portal-energy face colours; recolouring preserves each shade's luminance.
-		short[] portalColours = NO_COLOURS;
+		Map<Short, Short> recolours = new LinkedHashMap<>();
+		Map<ColourChannel, short[]> colours = new LinkedHashMap<>();
 		int portalSaturation = -1;
-		short[] crystalColours = NO_COLOURS;
-		short[] tobColours = NO_COLOURS;
-		short[] gauntletColours = NO_COLOURS;
-		short[] deadmanColours = NO_COLOURS;
-		short[] toaColours = NO_COLOURS;
-		short[] nodeColours = NO_COLOURS;
-		short[] nodeGreyColours = NO_COLOURS;
-		int modelScaleX;
-		int modelScaleHeight;
-		int modelScaleY;
 
-		Integer rotation;
+		short[] colours(ColourChannel channel)
+		{
+			return colours.getOrDefault(channel, NO_COLOURS);
+		}
 
 		Definition()
 		{
+			scaleX = scaleHeight = scaleY = 0;
 		}
 
-		private void normalize(@Nullable ObjectComposition source)
+		void normalize(@Nullable Client client)
 		{
+			ObjectComposition source = client != null && sourceObjectId >= 0
+				&& (sizeX == 0 || sizeY == 0 || scaleX == 0 || scaleY == 0)
+				? client.getObjectDefinition(sourceObjectId) : null;
 			int nativeSizeX = source == null ? Math.max(1, sizeX) : source.getSizeX();
 			int nativeSizeY = source == null ? Math.max(1, sizeY) : source.getSizeY();
 			if (sizeX == 0)
@@ -291,17 +335,17 @@ final class Catalogue
 			{
 				sizeY = nativeSizeY;
 			}
-			if (modelScaleX == 0)
+			if (scaleX == 0)
 			{
-				modelScaleX = ModelFactory.footprintScale(NATIVE_MODEL_SCALE, sizeX, nativeSizeX);
+				scaleX = ModelFactory.footprintScale(NATIVE_MODEL_SCALE, sizeX, nativeSizeX);
 			}
-			if (modelScaleY == 0)
+			if (scaleY == 0)
 			{
-				modelScaleY = ModelFactory.footprintScale(NATIVE_MODEL_SCALE, sizeY, nativeSizeY);
+				scaleY = ModelFactory.footprintScale(NATIVE_MODEL_SCALE, sizeY, nativeSizeY);
 			}
-			if (modelScaleHeight == 0)
+			if (scaleHeight == 0)
 			{
-				modelScaleHeight = Math.min(modelScaleX, modelScaleY);
+				scaleHeight = Math.min(scaleX, scaleY);
 			}
 		}
 
@@ -311,9 +355,9 @@ final class Catalogue
 			this.sizeY = sizeY;
 			this.modelIds = modelIds;
 			this.animationId = animationId;
-			modelScaleX = NATIVE_MODEL_SCALE;
-			modelScaleHeight = NATIVE_MODEL_SCALE;
-			modelScaleY = NATIVE_MODEL_SCALE;
+			scaleX = NATIVE_MODEL_SCALE;
+			scaleHeight = NATIVE_MODEL_SCALE;
+			scaleY = NATIVE_MODEL_SCALE;
 		}
 	}
 
@@ -330,42 +374,30 @@ final class Catalogue
 
 		static Calibration calibration(Recipe recipe, TargetSpec target, int targetSizeX, int targetSizeY)
 		{
-			Calibration tuned = recipe.placements.get(target.key);
-			TargetSpec.FitMode fit = tuned != null && tuned.fitMode != null
-				? tuned.fitMode : target.defaultFitMode;
-			if (tuned != null && fit == TargetSpec.FitMode.NONE)
+			Calibration selected = recipe.placements.getOrDefault(target.key, recipe);
+			TargetSpec.FitMode fit = selected.fitMode == null ? target.defaultFitMode : selected.fitMode;
+			if (fit == TargetSpec.FitMode.NONE)
 			{
-				return tuned;
+				return selected;
 			}
-			int scaleX = tuned == null ? recipe.getModelScaleX() : tuned.scaleX;
-			int scaleHeight = tuned == null ? recipe.getModelScaleHeight() : tuned.scaleHeight;
-			int scaleY = tuned == null ? recipe.getModelScaleY() : tuned.scaleY;
-			int rotation = tuned != null ? tuned.rotation
-				: recipe.rotation == null ? recipe.orientation : recipe.rotation;
-			if (fit == TargetSpec.FitMode.FOOTPRINT)
+			if (isQuarterTurn(selected.rotation))
 			{
-				if (isQuarterTurn(rotation))
-				{
-					int swap = targetSizeX;
-					targetSizeX = targetSizeY;
-					targetSizeY = swap;
-				}
-				scaleX = footprintScale(scaleX, targetSizeX, recipe.sizeX);
-				scaleY = footprintScale(scaleY, targetSizeY, recipe.sizeY);
+				int swap = targetSizeX;
+				targetSizeX = targetSizeY;
+				targetSizeY = swap;
 			}
-			Calibration result = new Calibration(rotation,
-				scaleX, scaleHeight, scaleY,
-				tuned == null ? recipe.offsetX : tuned.offsetX,
-				tuned == null ? recipe.offsetHeight : tuned.offsetHeight,
-				tuned == null ? recipe.offsetY : tuned.offsetY);
-			result.flipX = tuned != null && tuned.flipX;
+			Calibration result = new Calibration(selected.rotation,
+				footprintScale(selected.scaleX, targetSizeX, recipe.sizeX), selected.scaleHeight,
+				footprintScale(selected.scaleY, targetSizeY, recipe.sizeY),
+				selected.offsetX, selected.offsetHeight, selected.offsetY);
+			result.flipX = selected.flipX;
 			return result;
 		}
 
 		boolean recoloursPortal(TargetSpec target, Definition definition)
 		{
 			return config.portalColour().getHue() >= 0
-				&& definition.getPortalColours().length > 0
+				&& definition.colours(ColourChannel.PORTAL).length > 0
 				&& (target.portalRecolour
 					|| config.recolourPortalsInAllPositions());
 		}
@@ -391,40 +423,24 @@ final class Catalogue
 			}
 			model.cloneVertices();
 			model.cloneColors();
-			for (int i = 0; i < definition.getRecolorFrom().length; i++)
-			{
-				model.recolor(definition.getRecolorFrom()[i], definition.getRecolorTo()[i]);
-			}
+			definition.recolours.forEach((from, to) -> model.recolor(from, to));
 			if (recoloursPortal(target, definition))
 			{
-				recolorHue(model, definition.getPortalColours(), config.portalColour().getHue(),
+				recolorHue(model, definition.colours(ColourChannel.PORTAL), config.portalColour().getHue(),
 					definition.getPortalSaturation());
 			}
 			int hue = config.recolourColour().getHue();
 			if (hue >= 0)
 			{
-				if (config.recolourCrystals())
+				for (Map.Entry<ColourChannel, short[]> channel : definition.colours.entrySet())
 				{
-					recolorHue(model, definition.getCrystalColours(), hue, -1);
-				}
-				if (config.recolourTobChest())
-				{
-					recolorHue(model, definition.getTobColours(), hue, -1);
-				}
-				if (config.recolourGauntletChest())
-				{
-					recolorHue(model, definition.getGauntletColours(), hue, -1);
-				}
-				if (config.recolourDeadmanChest())
-				{
-					recolorHue(model, definition.getDeadmanColours(), hue, -1);
-				}
-				if (config.recolourToaContainers())
-				{
-					recolorHue(model, definition.getToaColours(), hue, -1);
+					if (channel.getKey().enabled(config))
+					{
+						recolorHue(model, channel.getValue(), hue, -1);
+					}
 				}
 			}
-			if (config.recolourNodePortal() && definition.getNodeColours().length > 0)
+			if (config.recolourNodePortal() && definition.colours(ColourChannel.NODE_TRIM).length > 0)
 			{
 				recolorNodePortal(model, definition);
 			}
@@ -495,26 +511,26 @@ final class Catalogue
 			switch (accountType)
 			{
 				case 1: // Ironman - grey
-					recolorHue(model, definition.getNodeColours(), 0, 0);
+					recolorHue(model, definition.colours(ColourChannel.NODE_TRIM), 0, 0);
 					break;
 				case 2: // Ultimate ironman - light grey
-					recolorHue(model, definition.getNodeColours(), 0, 0, 20);
+					recolorHue(model, definition.colours(ColourChannel.NODE_TRIM), 0, 0, 20);
 					break;
 				case 3: // Hardcore ironman - red
-					recolorHue(model, definition.getNodeColours(), 0, 6);
-					recolorHue(model, definition.getNodeGreyColours(), 0, 6);
+					recolorHue(model, definition.colours(ColourChannel.NODE_TRIM), 0, 6);
+					recolorHue(model, definition.colours(ColourChannel.NODE_BODY), 0, 6);
 					break;
 				case 4: // Ranked group ironman native
 					break;
 				case 5: // Hardcore group ironman - red trim
-					recolorHue(model, definition.getNodeColours(), 0, 6);
+					recolorHue(model, definition.colours(ColourChannel.NODE_TRIM), 0, 6);
 					break;
 				case 6: // Unranked group ironman - green trim
-					recolorHue(model, definition.getNodeColours(), 14, 6);
+					recolorHue(model, definition.colours(ColourChannel.NODE_TRIM), 14, 6);
 					break;
 				default: // Main - bronze
-					recolorHue(model, definition.getNodeColours(), 5, 4);
-					recolorHue(model, definition.getNodeGreyColours(), 5, 4);
+					recolorHue(model, definition.colours(ColourChannel.NODE_TRIM), 5, 4);
+					recolorHue(model, definition.colours(ColourChannel.NODE_BODY), 5, 4);
 					break;
 			}
 		}

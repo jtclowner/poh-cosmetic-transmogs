@@ -2,23 +2,16 @@
   "targets": {
     "entrance_portal": {
       "objectIds": [4525, 60789],
-      "openObjectIds": [],
       "sizeX": 2,
       "sizeY": 2,
-      "orientationOffset": 0,
       "scaleTransition": true,
-      "portalRecolour": true,
-      "defaultFitMode": "NONE"
+      "portalRecolour": true
     },
     "cape_rack": {
       "objectIds": [18766, 18767, 18768, 18769, 18770, 18771],
-      "openObjectIds": [],
       "sizeX": 1,
       "sizeY": 1,
-      "orientationOffset": 0,
-      "scaleTransition": true,
-      "portalRecolour": false,
-      "defaultFitMode": "FOOTPRINT"
+      "scaleTransition": true
     },
     "treasure_chest": {
       "objectIds": [18804, 18805, 18806, 18807, 18808, 18809],
@@ -26,29 +19,21 @@
       "sizeX": 2,
       "sizeY": 1,
       "orientationOffset": -1024,
-      "scaleTransition": true,
-      "portalRecolour": false,
-      "defaultFitMode": "FOOTPRINT"
+      "scaleTransition": true
     },
     "fancy_dress_box": {
       "objectIds": [18772, 18773, 18774, 18775, 18776, 18777],
       "openObjectIds": [18773, 18775, 18777],
       "sizeX": 2,
       "sizeY": 2,
-      "orientationOffset": 0,
-      "scaleTransition": true,
-      "portalRecolour": false,
-      "defaultFitMode": "FOOTPRINT"
+      "scaleTransition": true
     },
     "armour_case": {
       "objectIds": [18778, 18779, 18780, 18781, 18782, 18783],
       "openObjectIds": [18779, 18781, 18783],
       "sizeX": 1,
       "sizeY": 1,
-      "orientationOffset": 512,
-      "scaleTransition": false,
-      "portalRecolour": false,
-      "defaultFitMode": "FOOTPRINT"
+      "orientationOffset": 512
     },
     "toy_box": {
       "objectIds": [18798, 18799, 18800, 18801, 18802, 18803],
@@ -56,19 +41,14 @@
       "sizeX": 2,
       "sizeY": 1,
       "orientationOffset": -1024,
-      "scaleTransition": true,
-      "portalRecolour": false,
-      "defaultFitMode": "FOOTPRINT"
+      "scaleTransition": true
     },
     "magic_wardrobe": {
       "objectIds": [18784, 18785, 18786, 18787, 18788, 18789, 18790, 18791, 18792, 18793, 18794, 18795, 18796, 18797],
       "openObjectIds": [18785, 18787, 18789, 18791, 18793, 18795, 18797],
       "sizeX": 1,
       "sizeY": 3,
-      "orientationOffset": 512,
-      "scaleTransition": false,
-      "portalRecolour": false,
-      "defaultFitMode": "NONE"
+      "orientationOffset": 512
     }
   },
   "appearances": {
@@ -81,22 +61,14 @@
       "modelIds": [48087],
       "animationId": 504,
       "offsetHeight": -2,
-      "recolorFrom": [11218],
-      "recolorTo": [960],
-      "portalColours": [960],
-      "modelScaleX": 256,
-      "modelScaleHeight": 256,
-      "modelScaleY": 256,
+      "recolours": {"11218": 960},
+      "colours": {
+        "PORTAL": [960]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 256,
-          "scaleHeight": 256,
-          "scaleY": 256,
-          "offsetHeight": -2,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 256
     },
     "circle_2": {
       "name": "Circle 2",
@@ -107,22 +79,14 @@
       "modelIds": [2318],
       "animationId": 504,
       "offsetHeight": -2,
-      "recolorFrom": [11218],
-      "recolorTo": [27584],
-      "portalColours": [27584],
-      "modelScaleX": 200,
-      "modelScaleHeight": 200,
-      "modelScaleY": 200,
+      "recolours": {"11218": 27584},
+      "colours": {
+        "PORTAL": [27584]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 200,
-          "scaleHeight": 200,
-          "scaleY": 200,
-          "offsetHeight": -2,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 200
     },
     "ferox_dark_portal": {
       "name": "Ferox Dark",
@@ -132,27 +96,15 @@
       "sizeY": 1,
       "modelIds": [10734, 11233],
       "animationId": 3174,
-      "recolorFrom": [20, 947],
-      "recolorTo": [28, 0],
-      "portalColours": [-15464, -15588, -15583, -15707, -15831],
-      "modelScaleX": 96,
-      "modelScaleHeight": 96,
-      "modelScaleY": 96,
+      "recolours": {"20": 28, "947": 0},
+      "colours": {
+        "PORTAL": [-15464, -15588, -15583, -15707, -15831]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 96,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleX": 75,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleX": 75}
+      },
+      "scale": 96
     },
     "ferox_light_portal": {
       "name": "Ferox Light",
@@ -162,27 +114,15 @@
       "sizeY": 1,
       "modelIds": [10734, 11233],
       "animationId": 3174,
-      "recolorFrom": [16, 947],
-      "recolorTo": [5272, 5268],
-      "portalColours": [-15464, -15588, -15583, -15707, -15831],
-      "modelScaleX": 96,
-      "modelScaleHeight": 96,
-      "modelScaleY": 96,
+      "recolours": {"16": 5272, "947": 5268},
+      "colours": {
+        "PORTAL": [-15464, -15588, -15583, -15707, -15831]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 96,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleX": 75,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleX": 75}
+      },
+      "scale": 96
     },
     "ferox_red_portal": {
       "name": "Ferox Red",
@@ -192,25 +132,14 @@
       "sizeY": 1,
       "modelIds": [10734, 11233],
       "animationId": 3174,
-      "portalColours": [-15464, -15588, -15583, -15707, -15831],
-      "modelScaleX": 96,
-      "modelScaleHeight": 96,
-      "modelScaleY": 96,
+      "colours": {
+        "PORTAL": [-15464, -15588, -15583, -15707, -15831]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 96,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleX": 75,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleX": 75}
+      },
+      "scale": 96
     },
     "isle_of_souls_dark_portal": {
       "name": "Isle of Souls Dark",
@@ -220,18 +149,13 @@
       "sizeY": 1,
       "modelIds": [41436],
       "animationId": 3174,
-      "portalColours": [-24927, -24925, -24921, -23891, -24911],
-      "placements": {
-        "entrance_portal": {
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "PORTAL": [-24927, -24925, -24921, -23891, -24911]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal,magic_wardrobe": {}
+      },
+      "scale": 128
     },
     "isle_of_souls_dead_trees": {
       "name": "Isle of Souls Dead Trees",
@@ -241,19 +165,14 @@
       "sizeY": 1,
       "modelIds": [41437],
       "animationId": 3174,
-      "portalColours": [673, 675, 679, 685, 689],
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "PORTAL": [673, 675, 679, 685, 689]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {}
+      },
+      "scale": 128
     },
     "isle_of_souls_light_portal": {
       "name": "Isle of Souls Light",
@@ -263,20 +182,14 @@
       "sizeY": 1,
       "modelIds": [41435],
       "animationId": 3174,
-      "recolorFrom": [17073, 17069, 17063, 17059, 17057],
-      "recolorTo": [9905, 9901, 10935, 11061, 11076],
-      "portalColours": [9901, 9905, 11061, 10935, 11076],
-      "placements": {
-        "entrance_portal": {
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "fitMode": "NONE"
-        }
+      "recolours": {"17073": 9905, "17069": 9901, "17063": 10935, "17059": 11061, "17057": 11076},
+      "colours": {
+        "PORTAL": [9901, 9905, 11061, 10935, 11076]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal,magic_wardrobe": {}
+      },
+      "scale": 128
     },
     "pest_control_purple_portal": {
       "name": "Pest Control Purple",
@@ -286,17 +199,14 @@
       "sizeY": 3,
       "modelIds": [14533, 14527, 14528],
       "animationId": 3933,
-      "portalColours": [-10333, -10317, -10792, -11033, -11149],
-      "orientation": 512,
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1536,
-          "fitMode": "NONE"
-        }
+      "rotation": 512,
+      "colours": {
+        "PORTAL": [-10333, -10317, -10792, -11033, -11149]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1536}
+      },
+      "scale": 128
     },
     "pest_control_blue_portal": {
       "name": "Pest Control Blue",
@@ -306,19 +216,15 @@
       "sizeY": 3,
       "modelIds": [14533, 14526],
       "animationId": 3936,
-      "recolorFrom": [-11149, -11033, -10792, -10317, -10333],
-      "recolorTo": [-22293, -22184, -22320, -22330, -22343],
-      "portalColours": [-22343, -22330, -22320, -22184, -22293],
-      "orientation": 512,
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1536,
-          "fitMode": "NONE"
-        }
+      "rotation": 512,
+      "recolours": {"-11149": -22293, "-11033": -22184, "-10792": -22320, "-10317": -22330, "-10333": -22343},
+      "colours": {
+        "PORTAL": [-22343, -22330, -22320, -22184, -22293]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1536}
+      },
+      "scale": 128
     },
     "pest_control_yellow_portal": {
       "name": "Pest Control Yellow",
@@ -328,18 +234,15 @@
       "sizeY": 3,
       "modelIds": [14533, 14522],
       "animationId": 3928,
-      "recolorFrom": [-11149, -11033, -10792, -10317, -10333],
-      "recolorTo": [10355, 10471, 10941, 11200, 11187],
-      "portalColours": [11187, 10941, 11200, 10471, 10355],
-      "orientation": 1024,
-      "placements": {
-        "entrance_portal": {
-          "fitMode": "NONE"
-        }
+      "rotation": 1024,
+      "recolours": {"-11149": 10355, "-11033": 10471, "-10792": 10941, "-10317": 11200, "-10333": 11187},
+      "colours": {
+        "PORTAL": [11187, 10941, 11200, 10471, 10355]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 0}
+      },
+      "scale": 128
     },
     "pest_control_red_portal": {
       "name": "Pest Control Red",
@@ -349,18 +252,15 @@
       "sizeY": 3,
       "modelIds": [14533, 14523, 14524, 14525],
       "animationId": 3928,
-      "recolorFrom": [-11149, -11033, -10792, -10317, -10333],
-      "recolorTo": [-2125, -2249, -2373, -2490, -2490],
-      "portalColours": [-2125, -2249, -2373, -2490],
-      "orientation": 1024,
-      "placements": {
-        "entrance_portal": {
-          "fitMode": "NONE"
-        }
+      "rotation": 1024,
+      "recolours": {"-11149": -2125, "-11033": -2249, "-10792": -2373, "-10317": -2490, "-10333": -2490},
+      "colours": {
+        "PORTAL": [-2125, -2249, -2373, -2490]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 0}
+      },
+      "scale": 128
     },
     "a_kingdom_divided_portal": {
       "name": "A Kingdom Divided",
@@ -371,22 +271,14 @@
       "modelIds": [6194],
       "animationId": 1908,
       "offsetHeight": 44,
-      "recolorFrom": [910, 916],
-      "recolorTo": [-27236, -27337],
-      "portalColours": [-27337, -27236],
-      "modelScaleX": 232,
-      "modelScaleHeight": 232,
-      "modelScaleY": 232,
+      "recolours": {"910": -27236, "916": -27337},
+      "colours": {
+        "PORTAL": [-27337, -27236]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 232,
-          "scaleHeight": 232,
-          "scaleY": 232,
-          "offsetHeight": 84,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024, "offsetHeight": 84}
+      },
+      "scale": 232
     },
     "abyssal_portal": {
       "name": "Abyssal",
@@ -396,16 +288,13 @@
       "sizeY": 1,
       "modelIds": [49397],
       "animationId": 7301,
-      "portalColours": [-22836, -23082, -23078],
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "PORTAL": [-22836, -23082, -23078]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 128
     },
     "castle_drakan_portal": {
       "name": "Castle Drakan",
@@ -416,20 +305,14 @@
       "modelIds": [60527],
       "animationId": 14170,
       "spawnAnimationId": 14167,
-      "portalColours": [652, 908, 916, 920, 926],
       "portalSaturation": 7,
-      "modelScaleX": 112,
-      "modelScaleHeight": 112,
-      "modelScaleY": 112,
+      "colours": {
+        "PORTAL": [652, 908, 916, 920, 926]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 112,
-          "scaleHeight": 112,
-          "scaleY": 112,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 112
     },
     "christmas_portal": {
       "name": "Christmas",
@@ -439,26 +322,13 @@
       "sizeY": 1,
       "modelIds": [46929],
       "animationId": 9843,
-      "portalColours": [10906, -27956, -28194],
-      "modelScaleX": 90,
-      "modelScaleHeight": 90,
-      "modelScaleY": 90,
+      "colours": {
+        "PORTAL": [10906, -27956, -28194]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 90,
-          "scaleHeight": 90,
-          "scaleY": 90,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "rotation": 1024,
-          "scaleX": 90,
-          "scaleHeight": 90,
-          "scaleY": 90,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal,magic_wardrobe": {"rotation": 1024}
+      },
+      "scale": 90
     },
     "clan_hall_portal": {
       "name": "Clan Hall",
@@ -468,18 +338,14 @@
       "sizeY": 1,
       "modelIds": [42246],
       "animationId": 9016,
-      "portalColours": [-22762, -22590, -22696],
-      "modelScaleX": 115,
-      "modelScaleHeight": 117,
-      "modelScaleY": 115,
+      "scaleX": 115,
+      "scaleHeight": 117,
+      "scaleY": 115,
+      "colours": {
+        "PORTAL": [-22762, -22590, -22696]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": -1024,
-          "scaleX": 100,
-          "scaleHeight": 100,
-          "scaleY": 100,
-          "fitMode": "NONE"
-        }
+        "entrance_portal": {"rotation": -1024, "scale": 100}
       }
     },
     "cox_olm_barrier": {
@@ -491,20 +357,13 @@
       "modelIds": [32750],
       "animationId": 7503,
       "offsetHeight": -2,
-      "portalColours": [15291, 14272],
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 102,
-          "scaleHeight": 102,
-          "scaleY": 102,
-          "offsetHeight": -2,
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "PORTAL": [15291, 14272]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1024, "scale": 102}
+      },
+      "scale": 128
     },
     "dt2_portal": {
       "name": "DT2 Portal",
@@ -514,28 +373,16 @@
       "sizeY": 1,
       "modelIds": [37828],
       "animationId": 8456,
-      "recolorFrom": [-32541, -32048, -32192, -32081],
-      "recolorTo": [-3624, -3632, -3646, -3661],
-      "portalColours": [-3661, -3646, -3632, -3624],
-      "modelScaleX": 160,
-      "modelScaleHeight": 160,
-      "modelScaleY": 160,
-      "orientation": 512,
+      "rotation": 512,
+      "recolours": {"-32541": -3624, "-32048": -3632, "-32192": -3646, "-32081": -3661},
+      "colours": {
+        "PORTAL": [-3661, -3646, -3632, -3624]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1536,
-          "scaleX": 160,
-          "scaleHeight": 160,
-          "scaleY": 160,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "rotation": 512,
-          "scaleHeight": 110,
-          "scaleY": 256,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1536},
+        "magic_wardrobe": {"scaleX": 128, "scaleHeight": 110, "scaleY": 256}
+      },
+      "scale": 160
     },
     "elven_portal": {
       "name": "Elven Portal",
@@ -545,25 +392,14 @@
       "sizeY": 1,
       "modelIds": [38744],
       "animationId": 3174,
-      "portalColours": [-15831, -15707, -15588, -15583, -15464],
-      "modelScaleX": 86,
-      "modelScaleHeight": 86,
-      "modelScaleY": 86,
+      "colours": {
+        "PORTAL": [-15831, -15707, -15588, -15583, -15464]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 86,
-          "scaleHeight": 86,
-          "scaleY": 86,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleX": 75,
-          "scaleHeight": 86,
-          "scaleY": 86,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleX": 75}
+      },
+      "scale": 86
     },
     "evil_chicken_lair_portal": {
       "name": "Evil Chicken Lair",
@@ -573,25 +409,14 @@
       "sizeY": 1,
       "modelIds": [12635, 11233],
       "animationId": 3174,
-      "portalColours": [-15464, -15588, -15583, -15707, -15831],
-      "modelScaleX": 86,
-      "modelScaleHeight": 86,
-      "modelScaleY": 86,
+      "colours": {
+        "PORTAL": [-15464, -15588, -15583, -15707, -15831]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 86,
-          "scaleHeight": 86,
-          "scaleY": 86,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleX": 75,
-          "scaleHeight": 86,
-          "scaleY": 40,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleX": 75, "scaleY": 40}
+      },
+      "scale": 86
     },
     "gauntlet_portal": {
       "name": "Gauntlet",
@@ -600,27 +425,14 @@
       "sizeX": 3,
       "sizeY": 1,
       "modelIds": [37928],
-      "portalColours": [-31862, -30811, -30535, 32204, -31784],
-      "modelScaleX": 80,
-      "modelScaleHeight": 80,
-      "modelScaleY": 80,
+      "colours": {
+        "PORTAL": [-31862, -30811, -30535, 32204, -31784]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 102,
-          "scaleHeight": 102,
-          "scaleY": 102,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "rotation": 1024,
-          "scaleX": 80,
-          "scaleHeight": 80,
-          "scaleY": 40,
-          "offsetY": -16,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024, "scale": 102},
+        "magic_wardrobe": {"rotation": 1024, "scaleY": 40, "offsetY": -16}
+      },
+      "scale": 80
     },
     "golem_portal": {
       "name": "Golem / Uzer",
@@ -630,24 +442,15 @@
       "sizeY": 1,
       "modelIds": [6194, 6195],
       "animationId": 1908,
-      "recolorFrom": [49, 41],
-      "recolorTo": [20, 16],
-      "portalColours": [910, 916, 20, 16],
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleHeight": 90,
-          "scaleY": 50,
-          "offsetY": -16,
-          "fitMode": "NONE"
-        }
+      "recolours": {"49": 20, "41": 16},
+      "colours": {
+        "PORTAL": [910, 916, 20, 16]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleHeight": 90, "scaleY": 50, "offsetY": -16}
+      },
+      "scale": 128
     },
     "gwenith_glide_portal": {
       "name": "Gwenith Glide",
@@ -658,23 +461,15 @@
       "modelIds": [37828],
       "animationId": 8456,
       "offsetHeight": -2,
-      "recolorFrom": [-32048, -32081, -32192],
-      "recolorTo": [-25929, -25929, -25929],
-      "portalColours": [-32541, -25929],
-      "modelScaleX": 192,
-      "modelScaleHeight": 192,
-      "modelScaleY": 192,
-      "orientation": 512,
+      "rotation": 512,
+      "recolours": {"-32048": -25929, "-32081": -25929, "-32192": -25929},
+      "colours": {
+        "PORTAL": [-32541, -25929]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1536,
-          "scaleX": 192,
-          "scaleHeight": 192,
-          "scaleY": 192,
-          "offsetHeight": -2,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1536}
+      },
+      "scale": 192
     },
     "infernal_rift": {
       "name": "Infernal Rift",
@@ -685,20 +480,13 @@
       "modelIds": [44082],
       "animationId": 9355,
       "offsetHeight": 133,
-      "portalColours": [-18624, -12468, -8244],
-      "modelScaleX": 240,
-      "modelScaleHeight": 240,
-      "modelScaleY": 240,
+      "colours": {
+        "PORTAL": [-18624, -12468, -8244]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 216,
-          "scaleHeight": 216,
-          "scaleY": 216,
-          "offsetHeight": 55,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024, "offsetHeight": 55, "scale": 216}
+      },
+      "scale": 240
     },
     "myths_guild_portal": {
       "name": "Myths Guild",
@@ -708,23 +496,15 @@
       "sizeY": 1,
       "modelIds": [11231, 34416],
       "animationId": 3174,
-      "recolorFrom": [-15464, -15588, -15583, -15707, -15831],
-      "recolorTo": [-24665, -24661, -24785, -24781, -24905],
-      "portalColours": [-24665, -24661, -24785, -24781, -24905],
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleHeight": 90,
-          "offsetY": -10,
-          "fitMode": "NONE"
-        }
+      "recolours": {"-15464": -24665, "-15588": -24661, "-15583": -24785, "-15707": -24781, "-15831": -24905},
+      "colours": {
+        "PORTAL": [-24665, -24661, -24785, -24781, -24905]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1024},
+        "magic_wardrobe": {"scaleHeight": 90, "offsetY": -10}
+      },
+      "scale": 128
     },
     "node_portal": {
       "name": "Node Portal",
@@ -734,21 +514,15 @@
       "sizeY": 1,
       "modelIds": [42962],
       "animationId": 9016,
-      "portalColours": [-26845, -26843, -26823],
-      "nodeColours": [-27496, -27483, -27227, -27221],
-      "nodeGreyColours": [0, 28, 30, 35, 43, 47, 51, 55, 16425, 21530, -20367],
-      "modelScaleX": 115,
-      "modelScaleHeight": 115,
-      "modelScaleY": 115,
+      "colours": {
+        "PORTAL": [-26845, -26843, -26823],
+        "NODE_TRIM": [-27496, -27483, -27227, -27221],
+        "NODE_BODY": [0, 28, 30, 35, 43, 47, 51, 55, 16425, 21530, -20367]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 115,
-          "scaleHeight": 115,
-          "scaleY": 115,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 115
     },
     "prifddinas_agility_portal": {
       "name": "Prifddinas Agility",
@@ -758,25 +532,15 @@
       "sizeY": 1,
       "modelIds": [37828],
       "animationId": 8456,
-      "portalColours": [-32541, -32048, -32192, -32081],
-      "orientation": 512,
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1536,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "rotation": 512,
-          "scaleX": 60,
-          "scaleHeight": 105,
-          "scaleY": 300,
-          "offsetY": -16,
-          "fitMode": "NONE"
-        }
+      "rotation": 512,
+      "colours": {
+        "PORTAL": [-32541, -32048, -32192, -32081]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1536},
+        "magic_wardrobe": {"scaleX": 60, "scaleHeight": 105, "scaleY": 300, "offsetY": -16}
+      },
+      "scale": 128
     },
     "raging_echoes_portal": {
       "name": "Raging Echoes",
@@ -786,25 +550,14 @@
       "sizeY": 1,
       "modelIds": [55509, 40773],
       "animationId": 3174,
-      "portalColours": [111, 115, 119],
       "portalSaturation": 7,
-      "modelScaleX": 117,
-      "modelScaleHeight": 117,
-      "modelScaleY": 117,
+      "colours": {
+        "PORTAL": [111, 115, 119]
+      },
       "placements": {
-        "entrance_portal": {
-          "scaleX": 117,
-          "scaleHeight": 117,
-          "scaleY": 117,
-          "fitMode": "NONE"
-        },
-        "magic_wardrobe": {
-          "scaleX": 117,
-          "scaleHeight": 117,
-          "scaleY": 117,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal,magic_wardrobe": {}
+      },
+      "scale": 117
     },
     "recipe_for_disaster_portal": {
       "name": "Recipe for Disaster",
@@ -814,20 +567,14 @@
       "sizeY": 2,
       "modelIds": [13691, 13692],
       "animationId": 3351,
-      "portalColours": [123, 127],
       "portalSaturation": 7,
-      "modelScaleX": 192,
-      "modelScaleHeight": 192,
-      "modelScaleY": 192,
+      "colours": {
+        "PORTAL": [123, 127]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 192,
-          "scaleHeight": 192,
-          "scaleY": 192,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 192
     },
     "sepulchre_portal": {
       "name": "Sepulchre",
@@ -838,20 +585,13 @@
       "modelIds": [40180],
       "animationId": 8694,
       "offsetHeight": -56,
-      "portalColours": [-25673, -25053],
-      "modelScaleX": 76,
-      "modelScaleHeight": 76,
-      "modelScaleY": 76,
+      "colours": {
+        "PORTAL": [-25673, -25053]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 76,
-          "scaleHeight": 76,
-          "scaleY": 76,
-          "offsetHeight": -156,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024, "offsetHeight": -156}
+      },
+      "scale": 76
     },
     "shadow_realm_portal": {
       "name": "Shadow Realm",
@@ -861,20 +601,14 @@
       "sizeY": 1,
       "modelIds": [35609],
       "animationId": 8142,
-      "portalColours": [107, 202],
       "portalSaturation": 7,
-      "modelScaleX": 48,
-      "modelScaleHeight": 48,
-      "modelScaleY": 48,
+      "colours": {
+        "PORTAL": [107, 202]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 48,
-          "scaleHeight": 48,
-          "scaleY": 48,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 48
     },
     "trouble_brewing_portal": {
       "name": "Trouble Brewing",
@@ -884,16 +618,13 @@
       "sizeY": 1,
       "modelIds": [11233, 15138],
       "animationId": 3174,
-      "portalColours": [-15464, -15588, -15583, -15707, -15831],
-      "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "PORTAL": [-15464, -15588, -15583, -15707, -15831]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 128
     },
     "wizards_tower_portal": {
       "name": "Wizards' Tower",
@@ -903,21 +634,14 @@
       "sizeY": 3,
       "modelIds": [44082],
       "animationId": 8750,
-      "recolorFrom": [-8244, -12468, -18624],
-      "recolorTo": [-25768, -25664, 32576],
-      "portalColours": [-25664, 32576, -25768],
-      "modelScaleX": 176,
-      "modelScaleHeight": 176,
-      "modelScaleY": 176,
+      "recolours": {"-8244": -25768, "-12468": -25664, "-18624": 32576},
+      "colours": {
+        "PORTAL": [-25664, 32576, -25768]
+      },
       "placements": {
-        "entrance_portal": {
-          "rotation": 1024,
-          "scaleX": 176,
-          "scaleHeight": 176,
-          "scaleY": 176,
-          "fitMode": "NONE"
-        }
-      }
+        "entrance_portal": {"rotation": 1024}
+      },
+      "scale": 176
     },
     "tob_monumental_chest": {
       "name": "ToB Chest",
@@ -926,44 +650,18 @@
       "sizeX": 3,
       "sizeY": 2,
       "modelIds": [35425],
-      "tobColours": [-10317],
+      "colours": {
+        "TOB_CHEST": [-10317]
+      },
       "open": {
         "sourceObjectId": 41746,
-        "sizeX": 3,
-        "sizeY": 2,
-        "modelIds": [42281],
-        "tobColours": [-10317],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [42281]
       },
       "placements": {
-        "treasure_chest": {
-          "rotation": 1024,
-          "scaleX": 82,
-          "scaleHeight": 82,
-          "scaleY": 82,
-          "offsetY": 30,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "scaleX": 100,
-          "scaleHeight": 100,
-          "scaleY": 100,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 1024,
-          "scaleX": 82,
-          "scaleHeight": 82,
-          "scaleY": 82,
-          "offsetY": 30,
-          "fitMode": "NONE"
-        }
+        "treasure_chest,toy_box": {"rotation": 1024, "offsetY": 30, "scale": 82},
+        "fancy_dress_box": {"scale": 100}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "toa_sarcophagus": {
       "name": "ToA Sarcophagus",
@@ -973,47 +671,20 @@
       "sizeY": 2,
       "modelIds": [46285],
       "animationId": 9504,
-      "toaColours": [6550, 6573, 6592, 6705, 6808, 6825, 6827, 6829, 6833, 6835, 6837, 6841, 6843, 6845, 6848, 6850, 6852, 6856, 6858, 6860, 6864, 6866, 6868],
+      "colours": {
+        "TOA_CONTAINERS": [6550, 6573, 6592, 6705, 6808, 6825, 6827, 6829, 6833, 6835, 6837, 6841, 6843, 6845, 6848, 6850, 6852, 6856, 6858, 6860, 6864, 6866, 6868]
+      },
       "open": {
         "sourceObjectId": 44934,
-        "sizeX": 3,
-        "sizeY": 2,
-        "modelIds": [46285],
         "animationId": 9506,
-        "spawnAnimationId": 9505,
-        "toaColours": [6550, 6573, 6592, 6705, 6808, 6825, 6827, 6829, 6833, 6835, 6837, 6841, 6843, 6845, 6848, 6850, 6852, 6856, 6858, 6860, 6864, 6866, 6868],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "spawnAnimationId": 9505
       },
       "placements": {
-        "treasure_chest": {
-          "rotation": -1024,
-          "scaleX": 85,
-          "scaleHeight": 85,
-          "scaleY": 80,
-          "offsetY": 25,
-          "flipX": true,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "scaleX": 104,
-          "scaleHeight": 104,
-          "scaleY": 104,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": -1024,
-          "scaleX": 85,
-          "scaleHeight": 85,
-          "scaleY": 80,
-          "offsetY": 25,
-          "fitMode": "NONE"
-        }
+        "treasure_chest": {"rotation": -1024, "scaleX": 85, "scaleHeight": 85, "scaleY": 80, "offsetY": 25, "flipX": true},
+        "fancy_dress_box": {"scale": 104},
+        "toy_box": {"rotation": -1024, "scaleX": 85, "scaleHeight": 85, "scaleY": 80, "offsetY": 25}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "toa_chest_1": {
       "name": "ToA Chest 1",
@@ -1022,54 +693,20 @@
       "sizeX": 2,
       "sizeY": 2,
       "modelIds": [46279],
-      "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872],
+      "colours": {
+        "TOA_CONTAINERS": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872]
+      },
       "open": {
         "sourceObjectId": 44789,
-        "sizeX": 2,
-        "sizeY": 2,
-        "modelIds": [46275],
-        "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [46275]
       },
       "placements": {
-        "cape_rack": {
-          "rotation": 256,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": -1024,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": -1024,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": -1024,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": 256, "scale": 64},
+        "treasure_chest,toy_box": {"rotation": -1024, "scaleHeight": 96, "scaleY": 96, "offsetY": 16},
+        "fancy_dress_box": {"offsetY": 16},
+        "armour_case": {"rotation": -1024, "scale": 64}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "toa_chest_2": {
       "name": "ToA Chest 2",
@@ -1078,54 +715,20 @@
       "sizeX": 2,
       "sizeY": 2,
       "modelIds": [46278],
-      "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872],
+      "colours": {
+        "TOA_CONTAINERS": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872]
+      },
       "open": {
         "sourceObjectId": 44791,
-        "sizeX": 2,
-        "sizeY": 2,
-        "modelIds": [46274],
-        "toaColours": [6315, 6348, 6592, 6674, 6817, 6819, 6823, 6825, 6827, 6833, 6837, 6839, 6848, 6856, 6864, 6868, 6872],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [46274]
       },
       "placements": {
-        "cape_rack": {
-          "rotation": 256,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": -1024,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": -1024,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": -1024,
-          "scaleHeight": 96,
-          "scaleY": 96,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": 256, "scale": 64},
+        "treasure_chest,toy_box": {"rotation": -1024, "scaleHeight": 96, "scaleY": 96, "offsetY": 16},
+        "fancy_dress_box": {"offsetY": 16},
+        "armour_case": {"rotation": -1024, "scale": 64}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "gauntlet_reward_chest": {
       "name": "Gauntlet Reward Chest",
@@ -1134,56 +737,20 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [37442],
-      "gauntletColours": [-32620, -32614, -32610, 32200, 29518, 29526, 31192, 26776],
+      "colours": {
+        "GAUNTLET_CHEST": [-32620, -32614, -32610, 32200, 29518, 29526, 31192, 26776]
+      },
       "open": {
         "sourceObjectId": 36088,
-        "sizeX": 1,
-        "sizeY": 1,
-        "modelIds": [37450],
-        "gauntletColours": [-32620, -32614, -32610, 32200, 29518, 29526, 31192, 26776],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [37450]
       },
       "placements": {
-        "cape_rack": {
-          "rotation": 256,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": -1024,
-          "scaleHeight": 80,
-          "scaleY": 70,
-          "offsetY": 10,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "scaleHeight": 80,
-          "scaleY": 100,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": -1024,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "offsetY": 10,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": -1024,
-          "scaleHeight": 80,
-          "scaleY": 70,
-          "offsetY": 10,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": 256, "scale": 64},
+        "treasure_chest,toy_box": {"rotation": -1024, "scaleHeight": 80, "scaleY": 70, "offsetY": 10},
+        "fancy_dress_box": {"scaleHeight": 80, "scaleY": 100},
+        "armour_case": {"rotation": -1024, "offsetY": 10, "scale": 64}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "deadman_supply_chest": {
       "name": "Deadman Supply Chest",
@@ -1195,56 +762,22 @@
       "animationId": 7824,
       "spawnAnimationId": 7823,
       "spawnOnce": true,
-      "deadmanColours": [960, 794, 914],
+      "colours": {
+        "DEADMAN_CHEST": [960, 794, 914]
+      },
       "open": {
         "sourceObjectId": 31583,
-        "sizeX": 2,
-        "sizeY": 2,
         "modelIds": [34265],
-        "deadmanColours": [960, 794, 914],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "animationId": -1,
+        "spawnAnimationId": -1,
+        "spawnOnce": false
       },
       "placements": {
-        "cape_rack": {
-          "rotation": 512,
-          "scaleX": 64,
-          "scaleHeight": 64,
-          "scaleY": 64,
-          "offsetHeight": -1,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": -768,
-          "scaleX": 70,
-          "scaleHeight": 70,
-          "scaleY": 70,
-          "offsetHeight": -1,
-          "offsetY": 42,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": 256,
-          "scaleX": 100,
-          "scaleHeight": 100,
-          "scaleY": 100,
-          "offsetHeight": -1,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": -768,
-          "scaleX": 70,
-          "scaleHeight": 70,
-          "scaleY": 70,
-          "offsetHeight": -1,
-          "offsetY": 42,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": 512, "offsetHeight": -1, "scale": 64},
+        "treasure_chest,toy_box": {"rotation": -768, "offsetHeight": -1, "offsetY": 42, "scale": 70},
+        "fancy_dress_box": {"rotation": 256, "offsetHeight": -1, "scale": 100}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_thieving_chest": {
       "name": "CoX Thieving Chest",
@@ -1255,46 +788,15 @@
       "modelIds": [32504],
       "open": {
         "sourceObjectId": 29743,
-        "sizeX": 1,
-        "sizeY": 1,
-        "modelIds": [32465],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [32465]
       },
       "placements": {
-        "cape_rack": {
-          "rotation": 256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": -1024,
-          "scaleX": 250,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "scaleX": 256,
-          "scaleY": 256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": -1024,
-          "offsetY": 10,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": -1024,
-          "scaleX": 250,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": 256, "offsetY": 16},
+        "treasure_chest,toy_box": {"rotation": -1024, "scaleX": 250, "offsetY": 16},
+        "fancy_dress_box": {"scaleX": 256, "scaleY": 256, "offsetY": 16},
+        "armour_case": {"rotation": -1024, "offsetY": 10}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_crystal_chest": {
       "name": "CoX Crystal Chest",
@@ -1303,54 +805,25 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [32752, 32755],
-      "crystalColours": [15296, 15029],
-      "open": {
-        "sourceObjectId": 30028,
-        "sizeX": 1,
-        "sizeY": 1,
-        "modelIds": [32756],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
-      },
-      "orientation": 512,
+      "rotation": 512,
       "transitionModelId": 32752,
       "transitionAnimationId": 7506,
       "transitionHandoff": 20,
-      "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": -512,
-          "scaleX": 256,
-          "scaleY": 256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "CRYSTALS": [15296, 15029]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "open": {
+        "sourceObjectId": 30028,
+        "modelIds": [32756],
+        "colours": {}
+      },
+      "placements": {
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"rotation": -512, "scaleX": 256, "scaleY": 256, "offsetY": 16},
+        "armour_case": {"offsetY": 16}
+      },
+      "scale": 128
     },
     "cox_ancient_chest": {
       "name": "CoX Chest",
@@ -1359,49 +832,17 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [32756],
+      "rotation": 512,
       "closed": {
-        "sourceObjectId": 30028,
-        "sizeX": 1,
-        "sizeY": 1,
-        "modelIds": [32755],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [32755]
       },
-      "orientation": 512,
       "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": 512,
-          "scaleX": 256,
-          "scaleY": 256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"scaleX": 256, "scaleY": 256, "offsetY": 16},
+        "armour_case": {}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_bank_chest": {
       "name": "CoX Bank",
@@ -1412,49 +853,15 @@
       "modelIds": [47948],
       "open": {
         "sourceObjectId": 47420,
-        "sizeX": 1,
-        "sizeY": 1,
-        "modelIds": [47946],
-        "modelScaleX": 128,
-        "modelScaleY": 128,
-        "modelScaleHeight": 128
+        "modelIds": [47946]
       },
       "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": -512,
-          "scaleX": 160,
-          "scaleY": 200,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"rotation": 512, "scaleX": 111, "scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"rotation": -512, "scaleX": 160, "scaleY": 200, "offsetY": 16},
+        "armour_case": {"rotation": 512, "offsetY": 16}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_small_storage": {
       "name": "CoX Small Storage",
@@ -1463,43 +870,14 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [32381],
-      "orientation": 512,
+      "rotation": 512,
       "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": -512,
-          "scaleX": 160,
-          "scaleY": 200,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"scaleX": 111, "scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"rotation": -512, "scaleX": 160, "scaleY": 200, "offsetY": 16},
+        "armour_case": {"offsetY": 16}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_medium_storage": {
       "name": "CoX Medium Storage",
@@ -1508,43 +886,14 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [32520],
-      "orientation": 512,
+      "rotation": 512,
       "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": -512,
-          "scaleX": 160,
-          "scaleY": 200,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"scaleX": 111, "scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"rotation": -512, "scaleX": 160, "scaleY": 200, "offsetY": 16},
+        "armour_case": {"offsetY": 16}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_large_storage": {
       "name": "CoX Large Storage",
@@ -1553,43 +902,14 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [32515],
-      "orientation": 512,
+      "rotation": 512,
       "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": -512,
-          "scaleX": 160,
-          "scaleY": 200,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"scaleX": 111, "scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"rotation": -512, "scaleX": 160, "scaleY": 200, "offsetY": 16},
+        "armour_case": {"offsetY": 16}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "cox_massive_storage": {
       "name": "CoX Massive Storage",
@@ -1598,43 +918,14 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [39583],
-      "orientation": 512,
+      "rotation": 512,
       "placements": {
-        "cape_rack": {
-          "rotation": -256,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "rotation": -512,
-          "scaleX": 160,
-          "scaleY": 200,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "rotation": 512,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "rotation": 512,
-          "scaleX": 111,
-          "scaleY": 192,
-          "offsetY": 16,
-          "fitMode": "NONE"
-        }
+        "cape_rack": {"rotation": -256, "offsetY": 16},
+        "treasure_chest,toy_box": {"scaleX": 111, "scaleY": 192, "offsetY": 16},
+        "fancy_dress_box": {"rotation": -512, "scaleX": 160, "scaleY": 200, "offsetY": 16},
+        "armour_case": {"offsetY": 16}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "colourless_crystal": {
       "name": "Colourless Crystal",
@@ -1643,37 +934,16 @@
       "sizeX": 2,
       "sizeY": 2,
       "modelIds": [32502],
-      "recolorFrom": [15296, 15273, 15029, 16163],
-      "recolorTo": [107, 127, 123, 115],
-      "crystalColours": [107, 127, 123, 115],
-      "placements": {
-        "cape_rack": {
-          "scaleX": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "scaleX": 80,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "scaleX": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "scaleX": 80,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        }
+      "recolours": {"15296": 107, "15273": 127, "15029": 123, "16163": 115},
+      "colours": {
+        "CRYSTALS": [107, 127, 123, 115]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "cape_rack,armour_case": {"scaleX": 64, "scaleY": 64},
+        "treasure_chest,toy_box": {"scaleX": 80, "scaleY": 64},
+        "fancy_dress_box": {}
+      },
+      "scale": 128
     },
     "cox_large_crystal": {
       "name": "CoX Green Crystal",
@@ -1682,35 +952,15 @@
       "sizeX": 2,
       "sizeY": 2,
       "modelIds": [32502],
-      "crystalColours": [15296, 15273, 15029, 16163],
-      "placements": {
-        "cape_rack": {
-          "scaleX": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "scaleX": 80,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "scaleX": 64,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "scaleX": 80,
-          "scaleY": 64,
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "CRYSTALS": [15296, 15273, 15029, 16163]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "cape_rack,armour_case": {"scaleX": 64, "scaleY": 64},
+        "treasure_chest,toy_box": {"scaleX": 80, "scaleY": 64},
+        "fancy_dress_box": {}
+      },
+      "scale": 128
     },
     "cox_crystal_bomb": {
       "name": "CoX Bomb",
@@ -1719,48 +969,16 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [32690],
-      "crystalColours": [15296, 15029, 16163],
       "bobbing": true,
-      "placements": {
-        "cape_rack": {
-          "scaleX": 192,
-          "scaleHeight": 180,
-          "scaleY": 192,
-          "offsetHeight": -4,
-          "fitMode": "NONE"
-        },
-        "treasure_chest": {
-          "scaleX": 336,
-          "scaleHeight": 210,
-          "scaleY": 224,
-          "offsetHeight": -4,
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "scaleX": 384,
-          "scaleHeight": 240,
-          "scaleY": 256,
-          "offsetHeight": -4,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "scaleX": 192,
-          "scaleHeight": 180,
-          "scaleY": 192,
-          "offsetHeight": -4,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "scaleX": 336,
-          "scaleHeight": 210,
-          "scaleY": 224,
-          "offsetHeight": -4,
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "CRYSTALS": [15296, 15029, 16163]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "cape_rack,armour_case": {"scaleX": 192, "scaleHeight": 180, "scaleY": 192, "offsetHeight": -4},
+        "treasure_chest,toy_box": {"scaleX": 336, "scaleHeight": 210, "scaleY": 224, "offsetHeight": -4},
+        "fancy_dress_box": {"scaleX": 384, "scaleHeight": 240, "scaleY": 256, "offsetHeight": -4}
+      },
+      "scale": 128
     },
     "crystal_outcrop": {
       "name": "Crystal Outcrop",
@@ -1769,33 +987,15 @@
       "sizeX": 1,
       "sizeY": 1,
       "modelIds": [4895],
-      "crystalColours": [-11359],
-      "placements": {
-        "treasure_chest": {
-          "scaleX": 160,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        },
-        "toy_box": {
-          "scaleX": 160,
-          "scaleY": 96,
-          "fitMode": "NONE"
-        },
-        "cape_rack": {
-          "fitMode": "NONE"
-        },
-        "fancy_dress_box": {
-          "scaleX": 256,
-          "scaleY": 256,
-          "fitMode": "NONE"
-        },
-        "armour_case": {
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "CRYSTALS": [-11359]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "treasure_chest,toy_box": {"scaleX": 160, "scaleY": 96},
+        "cape_rack,armour_case": {},
+        "fancy_dress_box": {"scaleX": 256, "scaleY": 256}
+      },
+      "scale": 128
     },
     "tob_teleport_crystal": {
       "name": "ToB Teleport Crystal",
@@ -1805,15 +1005,13 @@
       "sizeY": 1,
       "modelIds": [35449],
       "animationId": 8105,
-      "crystalColours": [-11954, -13133, -13129, -13120, -13112, -14021, -14052],
-      "placements": {
-        "cape_rack": {
-          "fitMode": "NONE"
-        }
+      "colours": {
+        "CRYSTALS": [-11954, -13133, -13129, -13120, -13112, -14021, -14052]
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "placements": {
+        "cape_rack": {}
+      },
+      "scale": 128
     },
     "armour_display": {
       "name": "Armour Display",
@@ -1823,14 +1021,9 @@
       "sizeY": 1,
       "modelIds": [21990],
       "placements": {
-        "armour_case": {
-          "rotation": -512,
-          "fitMode": "NONE"
-        }
+        "armour_case": {"rotation": -512}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "armadyl_armour": {
       "name": "Armadyl Armour",
@@ -1840,14 +1033,9 @@
       "sizeY": 1,
       "modelIds": [34556, 34567],
       "placements": {
-        "armour_case": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        }
+        "armour_case": {"rotation": 1024}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "bandos_armour": {
       "name": "Bandos Armour",
@@ -1857,14 +1045,9 @@
       "sizeY": 1,
       "modelIds": [34556, 34553],
       "placements": {
-        "armour_case": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        }
+        "armour_case": {"rotation": 1024}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     },
     "justiciar_armour": {
       "name": "Justiciar Armour",
@@ -1874,14 +1057,9 @@
       "sizeY": 1,
       "modelIds": [35412],
       "placements": {
-        "armour_case": {
-          "rotation": 1024,
-          "fitMode": "NONE"
-        }
+        "armour_case": {"rotation": 1024}
       },
-      "modelScaleX": 128,
-      "modelScaleY": 128,
-      "modelScaleHeight": 128
+      "scale": 128
     }
   }
 }

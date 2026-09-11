@@ -12,6 +12,7 @@ import net.runelite.api.Client;
 import net.runelite.api.GameObject;
 import net.runelite.api.GameState;
 import net.runelite.api.IndexedObjectSet;
+import net.runelite.api.JagexColor;
 import net.runelite.api.Model;
 import net.runelite.api.ModelData;
 import net.runelite.api.Point;
@@ -28,6 +29,36 @@ import static org.junit.Assert.*;
 
 public class ManagerTest
 {
+	@Test
+	public void configColourChannelsRunAfterFixedRecoloursAndRespectToggles()
+	{
+		for (boolean enabled : new boolean[] {false, true})
+		{
+			Harness h = new Harness("\"recolours\":{\"127\":730},\"colours\":{"
+				+ "\"CRYSTALS\":[730],\"TOB_CHEST\":[731],\"GAUNTLET_CHEST\":[732],"
+				+ "\"DEADMAN_CHEST\":[733],\"TOA_CONTAINERS\":[734]},", new PohCosmeticTransmogsConfig()
+			{
+				@Override public AppearanceColour recolourColour() { return AppearanceColour.GREEN; }
+				@Override public boolean recolourCrystals() { return enabled; }
+				@Override public boolean recolourTobChest() { return enabled; }
+				@Override public boolean recolourGauntletChest() { return enabled; }
+				@Override public boolean recolourDeadmanChest() { return enabled; }
+				@Override public boolean recolourToaContainers() { return enabled; }
+			});
+			h.manager.addObject(h.object(1));
+			int fixed = h.operations.indexOf("recolor:127:730");
+			assertTrue(fixed >= 0);
+			for (short colour = 730; colour <= 734; colour++)
+			{
+				short recoloured = JagexColor.packHSL(14,
+					JagexColor.unpackSaturation(colour), JagexColor.unpackLuminance(colour));
+				int index = h.operations.indexOf("recolor:" + colour + ":" + recoloured);
+				assertEquals(enabled, index > fixed);
+			}
+			h.manager.stop();
+		}
+	}
+
 	@Test
 	public void alignmentUsesActualFootprintParityPerAxis()
 	{
@@ -88,7 +119,7 @@ public class ManagerTest
 	public void diagonalSquareRotationAndScaleDoNotChangeDeclaredAlignment()
 	{
 		Harness h = new Harness("\"sizeX\":2,\"sizeY\":2,\"rotation\":256,"
-			+ "\"modelScaleX\":900,\"alignment\":\"SOUTH_WEST\",");
+			+ "\"scaleX\":900,\"alignment\":\"SOUTH_WEST\",");
 		h.manager.addObject(h.object(1));
 		assertEquals(640, h.only().getLocation().getX());
 		assertEquals(640, h.only().getLocation().getY());
@@ -98,7 +129,7 @@ public class ManagerTest
 	@Test
 	public void radiusUsesFootprintAndOriginalInteractionsRemainInTheScene()
 	{
-		Harness h = new Harness("\"sizeX\":3,\"sizeY\":7,\"modelScaleX\":900,");
+		Harness h = new Harness("\"sizeX\":3,\"sizeY\":7,\"scaleX\":900,");
 		GameObject object = h.object(1);
 		h.manager.addObject(object);
 		assertEquals(444, h.only().getRadius());
@@ -174,8 +205,8 @@ public class ManagerTest
 		Harness h = new Harness("");
 		Catalogue.current = Catalogue.loadCatalogue(RuneLiteAPI.GSON, null,
 			new StringReader("{\"targets\":{\"a\":{\"objectIds\":[1]},\"b\":{\"objectIds\":[3]}},"
-				+ "\"appearances\":{\"red\":{\"modelIds\":[10],\"recolorFrom\":[127],\"recolorTo\":[730],\"bindTargets\":[\"a\"]},"
-				+ "\"blue\":{\"modelIds\":[10],\"recolorFrom\":[127],\"recolorTo\":[44762],\"bindTargets\":[\"b\"]}}}"));
+				+ "\"appearances\":{\"red\":{\"modelIds\":[10],\"recolours\":{\"127\":730},\"bindTargets\":[\"a\"]},"
+				+ "\"blue\":{\"modelIds\":[10],\"recolours\":{\"127\":44762},\"bindTargets\":[\"b\"]}}}"));
 		h.manager.setCatalogue(Catalogue.current);
 		h.manager.addObject(h.object(1));
 		h.manager.addObject(h.object(3));
@@ -213,7 +244,7 @@ public class ManagerTest
 	@Test
 	public void animatedModelsAreScaledAfterPosing()
 	{
-		Harness h = new Harness("\"animationId\":99,\"modelScaleX\":200,\"modelScaleY\":180,\"modelScaleHeight\":150,");
+		Harness h = new Harness("\"animationId\":99,\"scaleX\":200,\"scaleY\":180,\"scaleHeight\":150,");
 		h.manager.addObject(h.object(1));
 		assertFalse(h.operations.stream().anyMatch(s -> s.startsWith("scale:")));
 		h.only().getModel();
@@ -339,6 +370,11 @@ public class ManagerTest
 
 		Harness(String fields)
 		{
+			this(fields, new PohCosmeticTransmogsConfig() {});
+		}
+
+		Harness(String fields, PohCosmeticTransmogsConfig config)
+		{
 			Scene scene = ApiDouble.of(Scene.class, (name, args) ->
 			{
 				if (name.equals("getTiles"))
@@ -392,7 +428,7 @@ public class ManagerTest
 			Catalogue.current = Catalogue.loadCatalogue(RuneLiteAPI.GSON, null, new StringReader(
 				"{\"targets\":{\"box\":{\"objectIds\":[1,2],\"openObjectIds\":[2],\"scaleTransition\":true}},"
 				+ "\"appearances\":{\"gem\":{" + fields + "\"modelIds\":[10],\"bindTargets\":[\"box\"]}}}"));
-			manager = new PohCosmeticTransmogsManager(client, new PohCosmeticTransmogsConfig() {});
+			manager = new PohCosmeticTransmogsManager(client, config);
 			manager.start(Collections.emptyMap(), false);
 		}
 
